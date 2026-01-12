@@ -25,7 +25,7 @@ const formatDateTime = (isoDateTimeString) => {
 
   // 將日期和時間組合為所需的輸出格式
   var output = formattedDate + ' ' + formattedTime
-  console.log(output)
+  //console.log(output)
   return output
 }
 
@@ -61,12 +61,12 @@ function MyOrderLeft(props) {
   const myAuth = JSON.parse(localStorage.getItem('myAuth'))
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getOrderListData()
 
     return () => {
       // 解除功能
-      console.log('unmount AbList--')
+      //console.log('unmount AbList--')
     }
   }, [])
   const getOrderListData = async () => {
@@ -83,7 +83,7 @@ function MyOrderLeft(props) {
       .then((response) => {
         // 在此處處理回應
         setOrderList(response.data)
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch((error) => {
         // 在此處處理錯誤

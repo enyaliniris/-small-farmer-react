@@ -13,14 +13,14 @@ function LinePay(props) {
 
   // 用useCart抓
   const myCart = useCart().cart.items
-  console.log(myCart)
+  //console.log(myCart)
   //分課程跟產品
   const lessonCart = myCart.filter((value) => value.id.indexOf('lesson') !== -1)
   const productCart = myCart.filter(
     (value) => value.id.indexOf('product') !== -1
   )
-  console.log(lessonCart)
-  console.log(productCart)
+  //console.log(lessonCart)
+  //console.log(productCart)
 
   const sumPrice = useCart().cart.cartTotal
 
@@ -34,7 +34,7 @@ function LinePay(props) {
 
     // TODO: try-catch錯誤處理
     setOrder(response.data)
-    console.log('order', order)
+    //console.log('order', order)
   }
   return (
     <>

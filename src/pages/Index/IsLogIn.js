@@ -11,12 +11,11 @@ function IsLogIn() {
   const [isOpen, setIsOpen] = useState(false)
   const { myAuth, logout } = useContext(AuthContext)
   const [myImg, setMyImg] = useState('')
-  console.log('change', myImg)
 
   useEffect(() => {
     handleImg()
     return () => {
-      console.log('unmount')
+      //console.log('unmount')
     }
   }, [])
 
@@ -31,7 +30,7 @@ function IsLogIn() {
       })
       .then((response) => {
         setMyImg(response.data.member_img)
-        console.log('Imgformdata', response.data.member_img)
+        //console.log('Imgformdata', response.data.member_img)
       })
       .catch((error) => {
         console.error(error)

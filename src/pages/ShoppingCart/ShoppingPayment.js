@@ -14,7 +14,7 @@ function ShoppingPayment() {
 
   // 用useCart抓
   const myCart = useCart().cart.items
-  console.log(myCart)
+  //console.log(myCart)
 
   //分課程跟產品
   const lessonCart = myCart.filter((value) => value.id.indexOf('lesson') !== -1)
@@ -30,26 +30,30 @@ function ShoppingPayment() {
   const myAuth = JSON.parse(localStorage.getItem('myAuth'))
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getMemberData()
 
     return () => {
       // 解除功能
-      console.log('unmount')
+      //console.log('unmount')
     }
   }, [])
   const getMemberData = async () => {
     axios
-      .post(MY_ADDRESS_DATA, {}, {
-        headers: {
-          Authorization: 'Bearer ' + myAuth.token,
-        },
-      })
+      .post(
+        MY_ADDRESS_DATA,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + myAuth.token,
+          },
+        }
+      )
       .then((response) => {
         setMyAddress(response.data)
         setSelectArea(response.data[0].member_address_1)
         setSelectDist(response.data[0].member_address_2)
-        console.log(response.data)
+        //console.log(response.data)
         // 在此處處理回應
       })
       .catch((error) => {
@@ -64,7 +68,7 @@ function ShoppingPayment() {
 
   //儲存備註進local
   const [remark, setRemark] = useState({})
-  console.log(remark)
+  //console.log(remark)
 
   //編輯送貨地址
   const [readOnly, setReadOnly] = useState(true)
@@ -74,14 +78,14 @@ function ShoppingPayment() {
   }
 
   const handleInputChange = (event) => {
-    console.log('改變input', event.target.id, event.target.value)
+    //console.log('改變input', event.target.id, event.target.value)
     setMyAddress((a) => {
       return { ...a, [event.target.id]: event.target.value }
     })
   }
 
   const handleAreaChange = (event) => {
-    console.log('改變住址', event.target.id, event.target.textContent)
+    //console.log('改變住址', event.target.id, event.target.textContent)
     setMyAddress((a) => {
       return { ...a, [event.target.id]: event.target.textContent }
     })
@@ -89,7 +93,7 @@ function ShoppingPayment() {
 
   //修改會員資料
   const editMemberData = async () => {
-    console.log('edit')
+    //console.log('edit')
     axios
       .put(`${MY_EDIT_ADDRESS}/${myAuth.accountId}`, {
         headers: {
@@ -100,7 +104,7 @@ function ShoppingPayment() {
       })
       .then((response) => {
         // setMyAddress(response.data)
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch((error) => {
         console.error(error)

@@ -9,12 +9,12 @@ function MyCouponLeft() {
   const [coupondata, setCouponData] = useState([])
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getListData()
 
     return () => {
       // 解除功能
-      console.log('unmount AbList--')
+      //console.log('unmount AbList--')
     }
   }, [])
 
@@ -33,11 +33,11 @@ function MyCouponLeft() {
       .then((response) => {
         // 在此處處理回應
         setCouponData(response.data)
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch((error) => {
         // 在此處處理錯誤
-        console.error(error)
+        //console.error(error)
       })
   }
 

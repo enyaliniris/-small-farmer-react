@@ -29,7 +29,6 @@ import ProductPage from './pages/ProductPage/ProductPage'
 
 //Cart
 import { CartProvider } from './components/utils/useCart'
-import CartIcon from './pages/ShoppingCart/CartIcon'
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart'
 import ShoppingPayment from './pages/ShoppingCart/ShoppingPayment'
 import ShoppingPayConfirm from './pages/ShoppingCart/ShoppingPayConfirm'
@@ -52,11 +51,6 @@ import AddArtical from './pages/Community/Addartical'
 
 import Navbar from './pages/Index/Navbar'
 import Footer from './pages/Index/Footer'
-
-//測試區
-import SlideShow from './pages/Index/SlideShow'
-import SlideShowMobile from './pages/Index/SlideShowMobile'
-import LessonSliderMB from './pages/Index/LessonSliderMB'
 import TryMap from './pages/TryMap/TryMap'
 
 function App() {
@@ -85,7 +79,6 @@ function App() {
               <Route path="/Product" element={<Product />} />
               <Route path="/Product/:sid" element={<ProductPage />} />
 
-              <Route path="/CartIcon" element={<CartIcon />} />
               <Route path="/Cart" element={<ShoppingCart />} />
               <Route path="/Payment" element={<ShoppingPayment />} />
               <Route path="/PayConfirm" element={<ShoppingPayConfirm />} />

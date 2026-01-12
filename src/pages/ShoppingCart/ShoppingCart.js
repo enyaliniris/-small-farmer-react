@@ -10,8 +10,6 @@ import CouponSelectP from './CouponSelectP'
 import CouponSelectL from './CouponSelectL'
 import DeleteConfirm from '../../components/DeleteConfirm'
 import '../../css/shoppingcart.css'
-import { useCart } from '../../components/utils/useCart'
-
 function ShoppingCart() {
   //頁面跳轉
   const navigate = useNavigate()
@@ -22,13 +20,13 @@ function ShoppingCart() {
 
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getCouponP()
     getCouponL()
 
     return () => {
       // 解除功能
-      console.log('unmount AbList--')
+      //console.log('unmount AbList--')
     }
   }, [])
 
@@ -48,7 +46,7 @@ function ShoppingCart() {
       )
       .then((response) => {
         setCouponDataP(response.data)
-        console.log('p', response.data)
+        //console.log('p', response.data)
       })
       .catch((error) => {
         console.error(error)
@@ -68,7 +66,7 @@ function ShoppingCart() {
       )
       .then((response) => {
         setCouponDataL(response.data)
-        console.log('l', response.data)
+        //console.log('l', response.data)
       })
       .catch((error) => {
         console.error(error)
@@ -81,18 +79,17 @@ function ShoppingCart() {
 
   //選擇哪個優惠卷checkbox
   const [usecoupon, setUsecoupon] = useState(null)
-  const { myCoupon, setMyCoupon } = useCart()
 
   //選擇的優惠卷的價格
   let initCouponPrice = 0
   try {
     initCouponPrice = JSON.parse(localStorage.getItem('usecoupon')).quota
-    console.log('localinitCouponPrice', initCouponPrice)
+    //console.log('localinitCouponPrice', initCouponPrice)
   } catch (ex) {}
   const [couponPrice, setcouponPrice] = useState(initCouponPrice)
 
   const [couponCate, setCouponCate] = useState(0)
-  console.log(couponCate)
+  //console.log(couponCate)
 
   //確認刪除
   const [deleteConfirm, setDeleteConfirm] = useState(false)

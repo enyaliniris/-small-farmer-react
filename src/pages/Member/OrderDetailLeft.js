@@ -11,20 +11,15 @@ function OrderDetailLeft() {
   const [sumprice, setSumprice] = useState([])
   const [remark, setRemark] = useState([])
 
-  console.log('L', orderDetailsL)
-  console.log('P', orderDetailsP)
-  console.log('C', coupon)
-  console.log('S', sumprice)
-
   const { uuid } = useParams()
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getOrderListData(uuid)
 
     return () => {
       // 解除功能
-      console.log('unmount AbList--')
+      //console.log('unmount AbList--')
     }
   }, [])
   const getOrderListData = async (uuid = 0) => {

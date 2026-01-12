@@ -75,11 +75,11 @@ function LessonSlider() {
   function lessonInfoData() {
     setTimeout(() => {
       const info2 = document.querySelectorAll('.lesson_info2')
-      console.log({ info2 })
+      //console.log({ info2 })
       const lesson_id = document
         .querySelector('.slick-active img.class-list')
         ?.getAttribute('data-lid')
-      console.log({ lesson_id })
+      //console.log({ lesson_id })
       // console.log(document.querySelector('.slick-active').querySelector('img').getAttribute('data-lid'))
       info2.forEach((div) => {
         if (div.getAttribute('data-lid') === lesson_id) {
@@ -146,7 +146,6 @@ function LessonSlider() {
             })}
           </div>
           {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
-            
             return (
               <div
                 className="lesson_info2"
@@ -195,7 +194,6 @@ function LessonSlider() {
             }}
           >
             {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
-              
               let imgarr = v.lesson_img.split(',')
               return (
                 <div

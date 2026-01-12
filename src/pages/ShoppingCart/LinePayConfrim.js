@@ -49,7 +49,7 @@ function LinePayConfirm() {
       axios
         .get(`api/pay/confirm?transactionId=${transactionId}`)
         .then((response) => {
-          console.log(response)
+          //console.log(response)
 
           if (response.data.returnCode) {
             setResult({

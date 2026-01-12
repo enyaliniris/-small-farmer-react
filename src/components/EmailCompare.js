@@ -1,49 +1,49 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const App = () => {
-  const url = "http://localhost:3033/register/getapi";
-  const [dataList, setDataList] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  const [data, setData] = useState(dataList);
+  const url = 'http://localhost:3033/register/getapi'
+  const [dataList, setDataList] = useState([])
+  const [searchText, setSearchText] = useState('')
+  const [data, setData] = useState(dataList)
 
   const peticionGet = async () => {
     try {
       axios.get(url).then((res) => {
-        setDataList(res.data["results"]);
-      });
+        setDataList(res.data['results'])
+      })
     } catch (e) {
-      console.log(e.message);
+      //console.log(e.message);
     }
-  };
+  }
 
   useEffect(() => {
-    peticionGet();
-  }, []);
+    peticionGet()
+  }, [])
 
   const handleChange = (value) => {
-    setSearchText(value);
-    filterData(value);
-  };
+    setSearchText(value)
+    filterData(value)
+  }
   // filter records by search text
   const filterData = (value) => {
-    const lowercasedValue = value.toLowerCase().trim();
+    const lowercasedValue = value.toLowerCase().trim()
 
-    if (lowercasedValue === "") {
-      setData(dataList);
+    if (lowercasedValue === '') {
+      setData(dataList)
     } else {
       const filteredData = dataList.filter((item) => {
         return Object.keys(item).some((key) =>
           item[key].toString().toLowerCase().includes(lowercasedValue)
-        );
-      });
-      setData(filteredData);
+        )
+      })
+      setData(filteredData)
     }
-  };
+  }
 
   return (
     <>
-      Search:{" "}
+      Search:{' '}
       <input
         style={{ marginLeft: 5 }}
         type="text"
@@ -53,7 +53,7 @@ const App = () => {
       />
       <table
         className="table table-hover"
-        style={{ fontSize: 10, textAlign: "center" }}
+        style={{ fontSize: 10, textAlign: 'center' }}
       >
         {data.map((row, i) => {
           return (
@@ -65,12 +65,12 @@ const App = () => {
               <td align="center">{row.color}</td>
               <td align="center">{row.pantone_value}</td>
             </tr>
-          );
+          )
         })}
         <div className="clearboth"></div>
         {data.length === 0 && <span>No records found to display!</span>}
       </table>
     </>
-  );
-};
-export default App;
+  )
+}
+export default App

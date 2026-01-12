@@ -51,7 +51,6 @@ export const CartProvider = ({
       items = item ? JSON.parse(item) : []
     } catch (error) {
       items = []
-      console.log(error)
     }
   }
 

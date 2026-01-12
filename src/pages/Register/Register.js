@@ -63,7 +63,7 @@ const Register = () => {
     }
 
     const objectUrl = URL.createObjectURL(selectedFile)
-    console.log(objectUrl)
+    //console.log(objectUrl)
     setPreview(objectUrl)
 
     // 當元件unmounted時清除記憶體
@@ -87,7 +87,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     const formData = new FormData()
     formData.append('file', e.target.files[0])
-    console.log(e.target.files[0])
+    //console.log(e.target.files[0])
     axios
       .post(`${HOST}/img/upload`, formData, {
         headers: {
@@ -95,7 +95,7 @@ const Register = () => {
         },
       })
       .then((response) => {
-        console.log(response.data)
+        //console.log(response.data)
 
         setPreview(`${HOST}/images/avatar/${response.data}`)
 
@@ -146,7 +146,7 @@ const Register = () => {
   //表單送出
   const handleRegister = async (e) => {
     e.preventDefault()
-    console.log('測試')
+    //console.log('測試')
 
     const res = await axios.post('http://localhost:3033/register/add', fields)
 
@@ -180,7 +180,7 @@ const Register = () => {
     //   alert('Failed to send email.');
     // }
 
-    if (res.data.message = 'success') {
+    if ((res.data.message = 'success')) {
       setTimeout("location.href='/Checked'", 500)
     } else {
       alert('註冊失敗')
@@ -192,7 +192,7 @@ const Register = () => {
     <form onSubmit={handleRegister} className="">
       <div
         className="m-session ms w-100 d-flex justify-content-center "
-        style={{ marginTop: '-225px', paddingBottom: '980px'}}
+        style={{ marginTop: '-225px', paddingBottom: '980px' }}
       >
         <>
           <Swiper
@@ -319,25 +319,21 @@ const Register = () => {
                             placeholder="填入的Email會作為小農遊帳號使用喔！"
                           ></input>
                           {fields.member_email.length >= 3 ? (
-                            emailRule.test(fields.member_email) ? 
-                              fields.member_email == 'farmerwww33@gmail.com' ?
-                                (
-                                  <div class="sign-up-hint-checked d-flex align-items-center text-danger">
-                                    此帳號已經被註冊過了喔！
-                                  </div>
-                                )
-                                :
-                                (
-                                  <div class="sign-up-hint-checked d-flex align-items-center">
-                                    <img
-                                      className="sign-up-hint-checked-img"
-                                      src="/Icons/input-checked.png"
-                                    />
-                                    OK!
-                                  </div>
-                                )
-                            
-                             : (
+                            emailRule.test(fields.member_email) ? (
+                              fields.member_email == 'farmerwww33@gmail.com' ? (
+                                <div class="sign-up-hint-checked d-flex align-items-center text-danger">
+                                  此帳號已經被註冊過了喔！
+                                </div>
+                              ) : (
+                                <div class="sign-up-hint-checked d-flex align-items-center">
+                                  <img
+                                    className="sign-up-hint-checked-img"
+                                    src="/Icons/input-checked.png"
+                                  />
+                                  OK!
+                                </div>
+                              )
+                            ) : (
                               <div className="text-danger fs-6">
                                 格式輸入錯誤囉! 範例:farmerwww@go.com
                               </div>
@@ -396,7 +392,7 @@ const Register = () => {
                                     ? '/Icons/IconProduct.png'
                                     : '/Icons/invisiable_password.png'
                                 }
-                                onChange={() => { }}
+                                onChange={() => {}}
                               ></img>
                               顯示密碼
                             </div>
@@ -463,9 +459,10 @@ const Register = () => {
                                                     } */}
 
                           {fields.password == fields.matchPassword &&
-                            fields.password.length > 5 &&
-                            emailRule.test(fields.member_email) &&
-                            fields.member_nickname.length > 1 && fields.member_email !== "farmerwww33@gmail.com" ? (
+                          fields.password.length > 5 &&
+                          emailRule.test(fields.member_email) &&
+                          fields.member_nickname.length > 1 &&
+                          fields.member_email !== 'farmerwww33@gmail.com' ? (
                             <div class=" btn-area d-flex justify-content-center swiper-button-next mhb">
                               <a
                                 href="#/"
@@ -567,12 +564,12 @@ const Register = () => {
                               value={fields.name}
                               minlength="10"
                               maxlength="10"
-                            // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                              // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                             ></input>
                             {fields.member_mobile ? (
                               fields.member_mobile[0] == '0' ? (
                                 fields.member_mobile.length > 9 ||
-                                  fields.member_mobile[1] !== '9' ? (
+                                fields.member_mobile[1] !== '9' ? (
                                   mobileRule.test(fields.member_mobile) ? (
                                     <div class="sign-up-hint-checked d-flex align-items-center">
                                       <img
@@ -648,9 +645,9 @@ const Register = () => {
                                                         } */}
 
                             {mobileRule.test(fields.member_mobile) &&
-                              fields.fulladdress.length > 5 &&
-                              fields.district &&
-                              fields.city ? (
+                            fields.fulladdress.length > 5 &&
+                            fields.district &&
+                            fields.city ? (
                               <div class=" btn-area d-flex justify-content-center swiper-button-next">
                                 <a
                                   href="#/"
@@ -775,8 +772,8 @@ const Register = () => {
                                                 } */}
 
                         {mobileRule.test(fields.member_mobile) &&
-                          emailRule.test(fields.member_email) &&
-                          fields.password === fields.matchPassword ? (
+                        emailRule.test(fields.member_email) &&
+                        fields.password === fields.matchPassword ? (
                           <div class=" btn-area ms-5 d-flex justify-content-center">
                             <button
                               type="submit"

@@ -8,19 +8,19 @@ import SlideShow from './SlideShow'
 import SlideShowMobile from './SlideShowMobile'
 import IndexRiver from '../IndexRiver/IndexRiver'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState, useContext } from 'react'
-import Auth_P from '../../components/Auth_P'
-import AuthContext from '../../contexts/AuthContext'
+import { useState } from 'react'
+import LoginGuard from '../../components/LoginGuard'
 
 function Index() {
-  const { myAuth } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const [showLoginAlert, setShowLoginAlert] = useState(false)
   // 顯示登入提醒
-  const [alertLogin, setAlertLogin] = useState(false)
   return (
     <>
-      {/* 登入提醒 */}
-      {alertLogin ? <Auth_P setAlertLogin={setAlertLogin} /> : <></>}
+      <LoginGuard
+        show={showLoginAlert}
+        setClose={setShowLoginAlert}
+        to="/Rabbit"
+      />
       <section id="a-mainslide">
         <div className="a-homeslide d-none d-lg-flex">
           <SlideShow />
@@ -161,11 +161,7 @@ function Index() {
             href="#/"
             onClick={(e) => {
               e.preventDefault()
-              if (myAuth.authorized) {
-                navigate('/Rabbit')
-              } else {
-                setAlertLogin(true)
-              }
+              setShowLoginAlert(true)
             }}
           >
             <a href="#/" className="a-products-address"></a>

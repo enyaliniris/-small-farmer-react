@@ -21,7 +21,6 @@ export const SecondCartProvider = ({
       items = item ? JSON.parse(item) : []
     } catch (error) {
       items = []
-      console.log(error)
     }
   }
 

@@ -17,7 +17,7 @@ import './../../css/productpage.css'
 import Icon from '../../icon/Icon'
 import ProductRiver from './ProductRiver'
 import AuthContext from '../../contexts/AuthContext'
-import Auth_P from '../../components/Auth_P'
+import LoginGuard from '../../components/LoginGuard'
 
 function ProductPage() {
   const { sid } = useParams()
@@ -57,7 +57,7 @@ function ProductPage() {
   const [comOrderS, setComOrderS] = useState('')
 
   // 顯示登入提醒
-  const [alertLogin, setAlertLogin] = useState(false)
+  const [showLoginAlert, setShowLoginAlert] = useState(false)
 
   // --------函式區--------
   // 拿資料
@@ -112,7 +112,7 @@ function ProductPage() {
 
   // 刪除收藏
   const deleteBookmark = async (productSid = 0) => {
-    console.log('deBookmark')
+    //console.log('deBookmark')
     if (!+productSid) return
     // 送token給後端
     let myAuth = {
@@ -131,7 +131,7 @@ function ProductPage() {
       `${BOOKMARK_DELETE}/product/${productSid}`,
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    console.log(response.data)
+    //console.log(response.data)
     getListData(sid)
   }
 
@@ -141,7 +141,7 @@ function ProductPage() {
 
   return (
     <>
-      {alertLogin ? <Auth_P setAlertLogin={setAlertLogin} /> : <></>}
+      <LoginGuard show={showLoginAlert} setClose={setShowLoginAlert} />
       <div className="container-md container-fluid">
         <div className="row">
           {/* 商品卡 */}
@@ -209,9 +209,7 @@ function ProductPage() {
                       <div
                         className="P-btn-fav d-none d-md-block mx-auto"
                         onClick={() => {
-                          myAuth.authorized
-                            ? setAlertLogin(false)
-                            : setAlertLogin(true)
+                          setShowLoginAlert(true)
                           v.bookmark_member_sid.includes(myAuth.sid)
                             ? deleteBookmark(v.sid)
                             : addBookmark(v.sid)
@@ -226,9 +224,7 @@ function ProductPage() {
                       <div
                         className="P-btn-fav d-none d-md-block mx-auto"
                         onClick={() => {
-                          myAuth.authorized
-                            ? setAlertLogin(false)
-                            : setAlertLogin(true)
+                          setShowLoginAlert(true)
                           v.bookmark_member_sid.includes(myAuth.sid)
                             ? deleteBookmark(v.sid)
                             : addBookmark(v.sid)
@@ -251,9 +247,7 @@ function ProductPage() {
               {data.bookmark_member_sid.includes(myAuth.sid) ? (
                 <Icon.Bookmarked
                   onClick={() => {
-                    myAuth.authorized
-                      ? setAlertLogin(false)
-                      : setAlertLogin(true)
+                    setShowLoginAlert(true)
                     data.bookmark_member_sid.includes(myAuth.sid)
                       ? deleteBookmark(data.product_sid)
                       : addBookmark(data.product_sid)
@@ -262,9 +256,7 @@ function ProductPage() {
               ) : (
                 <Icon.Bookmark
                   onClick={() => {
-                    myAuth.authorized
-                      ? setAlertLogin(false)
-                      : setAlertLogin(true)
+                    setShowLoginAlert(true)
                     data.bookmark_member_sid.includes(myAuth.sid)
                       ? deleteBookmark(data.product_sid)
                       : addBookmark(data.product_sid)
@@ -490,9 +482,7 @@ function ProductPage() {
                       <Icon.Bookmarked
                         className="me-auto"
                         onClick={() => {
-                          myAuth.authorized
-                            ? setAlertLogin(false)
-                            : setAlertLogin(true)
+                          setShowLoginAlert(true)
                           v.bookmark_member_sid.includes(myAuth.sid)
                             ? deleteBookmark(v.sid)
                             : addBookmark(v.sid)
@@ -502,9 +492,7 @@ function ProductPage() {
                       <Icon.Bookmark
                         className="me-auto"
                         onClick={() => {
-                          myAuth.authorized
-                            ? setAlertLogin(false)
-                            : setAlertLogin(true)
+                          setShowLoginAlert(true)
                           v.bookmark_member_sid.includes(myAuth.sid)
                             ? deleteBookmark(v.sid)
                             : addBookmark(v.sid)

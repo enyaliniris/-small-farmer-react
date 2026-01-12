@@ -60,11 +60,11 @@ function WeekCalendar() {
       .then((response) => {
         // 在此處處理回應
         setLessonDate(response.data)
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch((error) => {
         // 在此處處理錯誤
-        console.error(error)
+        //console.error(error)
       })
   }
 

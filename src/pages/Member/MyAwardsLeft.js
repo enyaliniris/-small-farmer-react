@@ -20,11 +20,11 @@ function MyAwardsLeft() {
 
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     newAwards()
     return () => {
       // 解除功能
-      console.log('unmount AbList--')
+      //console.log('unmount AbList--')
     }
   }, [])
 
@@ -32,7 +32,6 @@ function MyAwardsLeft() {
   const [myAwards, setMyAwards] = useState([])
   const [allAwards, setAllAwards] = useState([])
   const [myLevel, setMyLevel] = useState([])
-  console.log(myAwards)
   const getAwards = () => {
     axios
       .post(
@@ -48,7 +47,6 @@ function MyAwardsLeft() {
         setMyAwards(response.data.myawards)
         setAllAwards(response.data.allaward)
         setMyLevel(response.data.mylevel)
-        console.log('all', response.data)
         // console.log(response.data.result_awards)
       })
       .catch((error) => {
@@ -69,9 +67,7 @@ function MyAwardsLeft() {
       )
       .then((response) => {
         setIsNew(response.data.MyNew)
-        console.log(response.data.MyNew) // 印出 true 或 false
         setMyNewAward(response.data.result)
-        console.log(response.data.result) // 印出 true 或 false
       })
       .catch((error) => {
         console.error(error)

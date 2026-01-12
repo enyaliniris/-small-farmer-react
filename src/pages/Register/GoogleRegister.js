@@ -135,7 +135,7 @@ function GoogleRegister() {
   //表單送出
   const handleRegister = async (e) => {
     e.preventDefault()
-    console.log('測試')
+    //console.log('測試')
 
     const res = await axios.post(
       'http://localhost:3033/register/Googleadd',
@@ -161,11 +161,11 @@ function GoogleRegister() {
 
   const onSuccess = (res) => {
     setProfile(res.profileObj)
-    console.log(profile)
+    //console.log(profile)
   }
 
   const onFailure = (err) => {
-    console.log('failed', err)
+    //console.log('failed', err)
   }
 
   const logOut = () => {
@@ -426,25 +426,25 @@ function GoogleRegister() {
                     </div>
                   </a>
                   <a href="http://localhost:3000/Checked">
-                  <div className="google-login-button-aria2 mt-5 swiper-button-next m-5">
-                    {profile ? (
-                      <span className="swiper-button-next">送出資料</span>
-                    ) : (
-                      <div className="google-login-button-aria2 google-declind">
-                        {isLoading ? (
-                          loader
-                        ) : (
-                          <GoogleLogin
-                            clientId={clientId}
-                            buttonText="連結我的帳戶"
-                            onSuccess={onSuccess}
-                            onFailure={onFailure}
-                            cookiePolicy={'single_host_origin'}
-                            isSignedIn={true}
-                          />
-                        )}
-                      </div>
-                    )}
+                    <div className="google-login-button-aria2 mt-5 swiper-button-next m-5">
+                      {profile ? (
+                        <span className="swiper-button-next">送出資料</span>
+                      ) : (
+                        <div className="google-login-button-aria2 google-declind">
+                          {isLoading ? (
+                            loader
+                          ) : (
+                            <GoogleLogin
+                              clientId={clientId}
+                              buttonText="連結我的帳戶"
+                              onSuccess={onSuccess}
+                              onFailure={onFailure}
+                              cookiePolicy={'single_host_origin'}
+                              isSignedIn={true}
+                            />
+                          )}
+                        </div>
+                      )}
                     </div>
                   </a>
                 </div>

@@ -15,12 +15,12 @@ function CheckTransaction(props) {
     axios
       .get(`/api/pay/check-transaction?transactionId=${transactionId}`)
       .then((response) => {
-        console.log(response.data)
+        //console.log(response.data)
         // 記錄某交易id回傳結果
         setResult(response.data)
       })
       .catch((error) => {
-        console.log(error)
+        //console.log(error)
       })
   }
 

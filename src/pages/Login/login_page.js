@@ -24,7 +24,7 @@ function Login() {
         onSubmit={(e) => {
           e.preventDefault()
           axios.post(LOGIN, myForm).then((response) => {
-            console.log(response.data)
+            //console.log(response.data)
             if (response.data.success) {
               const {
                 account,
@@ -188,7 +188,7 @@ function Login() {
                               <div className="btn-area w-100 d-flex ">
                                 <button
                                   href=""
-                                  className="buttonY  border-0 bg-transparent login-btfont"
+                                  className="buttonY border-0 bg-transparent login-btfont"
                                 >
                                   登入
                                 </button>

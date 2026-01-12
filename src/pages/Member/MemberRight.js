@@ -19,7 +19,7 @@ function MemberRight() {
   useEffect(() => {
     getMemberData()
     return () => {
-      console.log('unmount')
+      //console.log('unmount')
     }
   }, [])
   const getMemberData = async () => {
@@ -38,18 +38,18 @@ function MemberRight() {
         setMyAwards(response.data.myawards)
         setMyLevel(response.data.mylevel)
 
-        console.log(response.data)
+        //console.log(response.data)
         // 在此處處理回應
       })
       .catch((error) => {
         // 在此處處理錯誤
-        console.error(error)
+        //console.error(error)
       })
   }
 
   //修改會員資料
   const editMemberData = async () => {
-    console.log('edit')
+    //console.log('edit')
     axios
       .put(`${MY_EDIT_MEMBER}/${myAuth.accountId}`, {
         headers: {
@@ -61,10 +61,10 @@ function MemberRight() {
       .then((response) => {
         setMyAddress(response.data)
         window.location.reload()
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch((error) => {
-        console.error(error)
+        //console.error(error)
       })
   }
   //不能修改
@@ -81,7 +81,7 @@ function MemberRight() {
   const formattedDate = `${year}-${month}-${day}`
 
   const handleInputChange = (event) => {
-    console.log(event.target.id, event.target.value)
+    //console.log(event.target.id, event.target.value)
     setMyAddress((a) => {
       return { ...a, [event.target.id]: event.target.value }
     })
@@ -91,8 +91,8 @@ function MemberRight() {
     const formData = new FormData()
     formData.append('file', event.target.files[0])
     formData.append('sid', myAuth.accountId)
-    console.log(event.target.files[0])
-    console.log(myAuth.accountId)
+    //console.log(event.target.files[0])
+    //console.log(myAuth.accountId)
 
     axios
       .post(`${HOST}/memberImg/upload`, formData, {
@@ -105,7 +105,7 @@ function MemberRight() {
         setMyAddress(response.data)
         // setMyImg(response.data.member_img)
         window.location.reload()
-        console.log('img', response.data.member_img)
+        //console.log('img', response.data.member_img)
       })
       .catch((error) => {
         console.error(error)
@@ -114,7 +114,6 @@ function MemberRight() {
 
   return (
     <>
-      {console.log('MemberRight')}
       <div className="M-right-card col-11">
         {/* <!-- 卡片分區 以下是會員名稱 --> */}
         <div className="M-member-name">

@@ -1649,7 +1649,7 @@ function DropDown(props) {
   }
 
   const [DistList, setDistList] = useState(initdistricts)
-  console.log(selectArea)
+  //console.log(selectArea)
 
   //更新區域陣列
   useEffect(() => {

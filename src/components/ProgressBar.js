@@ -17,7 +17,7 @@ const ProgressBar = (props) => {
   const backgroundColor = Left.map((l) => {
     return myLevel >= l ? ' #eac645' : 'rgb(237, 237, 237)'
   })
-  console.log('backgroundColor', backgroundColor)
+  //console.log('backgroundColor', backgroundColor)
 
   return (
     <div className="A-level-bar">

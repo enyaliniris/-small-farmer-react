@@ -32,31 +32,31 @@ function ShoppingConfirm() {
   try {
     member = JSON.parse(localStorage.getItem('myAuth')).accountId
   } catch (ex) {}
-  console.log('member', member)
+  //console.log('member', member)
 
   //傳送localStorage中的coupon給後端
   let couponSid = 0
   try {
     couponSid = JSON.parse(localStorage.getItem('usecoupon')).sid
   } catch (ex) {}
-  console.log('coupon', couponSid)
+  //console.log('coupon', couponSid)
 
   let orderRemark = ''
   try {
     orderRemark = JSON.parse(localStorage.getItem('orderPayment')).remark
   } catch (ex) {}
-  console.log(orderRemark)
+  //console.log(orderRemark)
 
   const [myAddress, setMyAddress] = useState([])
   const myAuth = JSON.parse(localStorage.getItem('myAuth'))
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getMemberData()
 
     return () => {
       // 解除功能
-      console.log('unmount')
+      //console.log('unmount')
     }
   }, [])
   const getMemberData = async () => {
@@ -72,7 +72,7 @@ function ShoppingConfirm() {
       )
       .then((response) => {
         setMyAddress(response.data)
-        console.log(response.data)
+        //console.log(response.data)
         // 在此處處理回應
       })
       .catch((error) => {
@@ -90,8 +90,8 @@ function ShoppingConfirm() {
         orderRemark: orderRemark,
       })
       .then((response) => {
-        console.log(response.data)
-        console.log(response.data.success)
+        //console.log(response.data)
+        //console.log(response.data.success)
         setSendSuccess(response.data.success)
         // 在此處處理回應
       })
@@ -108,7 +108,7 @@ function ShoppingConfirm() {
   try {
     coupon = JSON.parse(localStorage.getItem('usecoupon'))
   } catch (ex) {}
-  console.log('coupon', coupon)
+  //console.log('coupon', coupon)
 
   return (
     <>
