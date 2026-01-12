@@ -13,7 +13,7 @@ function ShoppingPayConfirm() {
 
   // 用useCart抓
   const myCart = useCart().cart.items
-  console.log(myCart)
+  //console.log(myCart)
 
   //分課程跟產品
   const lessonCart = myCart.filter((value) => value.id.indexOf('lesson') !== -1)
@@ -29,26 +29,30 @@ function ShoppingPayConfirm() {
   const myAuth = JSON.parse(localStorage.getItem('myAuth'))
   useEffect(() => {
     // 設定功能
-    console.log('useEffect--')
+    //console.log('useEffect--')
     getMemberData()
 
     return () => {
       // 解除功能
-      console.log('unmount')
+      //console.log('unmount')
     }
   }, [])
   const getMemberData = async () => {
     axios
-      .post(MY_ADDRESS_DATA, {}, {
-        headers: {
-          Authorization: 'Bearer ' + myAuth.token,
-        },
-      })
+      .post(
+        MY_ADDRESS_DATA,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + myAuth.token,
+          },
+        }
+      )
       .then((response) => {
         setMyAddress(response.data)
         setSelectArea(response.data[0].member_address_1)
         setSelectDist(response.data[0].member_address_2)
-        console.log(response.data)
+        //console.log(response.data)
         // 在此處處理回應
       })
       .catch((error) => {
@@ -63,7 +67,7 @@ function ShoppingPayConfirm() {
 
   //儲存備註進local
   const [remark, setRemark] = useState({})
-  console.log(remark)
+  //console.log(remark)
   return (
     <>
       <div className="container h-100 py-5 font-B">

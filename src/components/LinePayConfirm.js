@@ -14,7 +14,7 @@ function LinePayConfirm(props) {
       ) {
         // alert('You clicked outside of me!')
         setDeleteConfirm(false)
-        console.log(deleteConfirm)
+        //console.log(deleteConfirm)
       }
     }
     // Bind the event listener

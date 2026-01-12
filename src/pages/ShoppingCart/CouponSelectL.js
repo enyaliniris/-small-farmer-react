@@ -13,7 +13,6 @@ function CouponSelectL(props) {
     setCouponCate,
   } = props
   const { reloadItems, myCoupon, setMyCoupon } = useCart()
-  console.log('myCoupon', myCoupon)
 
   //點擊範圍外關閉優惠卷
   const dropdownRefC = useRef(null)
@@ -102,7 +101,7 @@ function CouponSelectL(props) {
                                   )
                                   return my
                                 })
-                                console.log(myCoupon)
+                                //console.log(myCoupon)
                               }}
                             />
                             <div className="C-knobs"></div>

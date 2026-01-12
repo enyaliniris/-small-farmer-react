@@ -111,7 +111,7 @@ function Rabbit() {
 
   // 發送優惠券
   const addCoupon = async () => {
-    console.log('he!')
+    //console.log('he!')
     // 送token給後端
     let myAuth = {
       account: '',

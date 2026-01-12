@@ -31,7 +31,6 @@ function MyBookmarkLeft() {
 
   // 刪除收藏
   const deleteBookmark = async (sid = 0, type) => {
-    console.log('deBookmark')
     // 送token給後端
     let myAuth = {
       account: '',
@@ -56,7 +55,6 @@ function MyBookmarkLeft() {
       })
     }
 
-    console.log(response.data)
     getListData()
   }
 
@@ -78,7 +76,7 @@ function MyBookmarkLeft() {
       headers: { Authorization: 'Bearer ' + myAuth.token },
       params: { page },
     })
-    console.log('?', response.data)
+    //console.log('?', response.data)
     setData(response.data)
   }
 

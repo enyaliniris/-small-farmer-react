@@ -53,7 +53,6 @@ function MyCommentLeft() {
       headers: { Authorization: 'Bearer ' + myAuth.token },
       params: { page },
     })
-    console.log('?', response.data)
     setData(response.data)
   }
 
@@ -98,7 +97,6 @@ function MyCommentLeft() {
         },
         { headers: { Authorization: 'Bearer ' + myAuth.token } }
       )
-      console.log(response.data)
     } else {
       response = await axios.post(
         `${COMMENT_ADD}/lesson`,
@@ -110,7 +108,6 @@ function MyCommentLeft() {
         },
         { headers: { Authorization: 'Bearer ' + myAuth.token } }
       )
-      console.log(response.data)
     }
 
     getListData()
@@ -145,7 +142,6 @@ function MyCommentLeft() {
         },
         { headers: { Authorization: 'Bearer ' + myAuth.token } }
       )
-      console.log(response.data)
     } else {
       response = await axios.post(
         `${COMMENT_EDIT}/lesson`,
@@ -156,7 +152,6 @@ function MyCommentLeft() {
         },
         { headers: { Authorization: 'Bearer ' + myAuth.token } }
       )
-      console.log(response.data)
     }
 
     getListData()
@@ -595,7 +590,7 @@ function MyCommentLeft() {
                                     <button
                                       className="MB-table-btn me-md-3 ms-auto ms-md-0"
                                       onClick={() => {
-                                        console.log('he')
+                                        //console.log('he')
                                         editComment(
                                           'lesson',
                                           v.sid,

@@ -9,7 +9,7 @@ function CreditCard() {
   const [date, setDate] = useState('')
 
   function handleChange(event) {
-    console.log(event.target.value)
+    //console.log(event.target.value)
     if (event.target.value.length === 3) {
       setDate(event.target.value)
     }
@@ -22,7 +22,7 @@ function CreditCard() {
   const [Info, setInfo] = useState('')
   //檢查卡號
   function validateCreditCardNumber(event) {
-    console.log(event.target.value)
+    //console.log(event.target.value)
 
     // 移除字串中的空白
     // event.target.value = event.target.value.replace(/\s/g, '')

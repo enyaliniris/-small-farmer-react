@@ -21,7 +21,7 @@ function DeleteConfirm(props) {
       ) {
         // alert('You clicked outside of me!')
         setDeleteConfirm(false)
-        console.log(deleteConfirm)
+        //console.log(deleteConfirm)
       }
     }
     // Bind the event listener
@@ -45,7 +45,7 @@ function DeleteConfirm(props) {
                     removeItem(removeItemsID)
                     reloadItems()
                     setDeleteConfirm(false)
-                    console.log(deleteConfirm)
+                    //console.log(deleteConfirm)
                   }}
                 >
                   確定取消
@@ -54,7 +54,7 @@ function DeleteConfirm(props) {
                   className="C-DeletebuttonGray f-20 sp-3 f-Brown"
                   onClick={() => {
                     setDeleteConfirm(false)
-                    console.log(deleteConfirm)
+                    //console.log(deleteConfirm)
                   }}
                 >
                   取消

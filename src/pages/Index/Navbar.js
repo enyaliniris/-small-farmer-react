@@ -4,24 +4,26 @@ import IsLogIn from './IsLogIn'
 import IsLogOut from './IsLogOut'
 import CartIcon from '../ShoppingCart/CartIcon'
 import '../../css/main.css'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import AuthContext from '../../contexts/AuthContext'
-import Index from './Index'
+import LoginGuard from '../../components/LoginGuard'
 
 function Navbar() {
   const { myAuth } = useContext(AuthContext)
   const location = useLocation()
   const navigate = useNavigate()
+  const [showLoginAlert, setShowLoginAlert] = useState(false)
 
   return (
     <>
+      <LoginGuard show={showLoginAlert} setClose={setShowLoginAlert} />
       <div
         className={
           location.pathname === '/Login' ||
           location.pathname === '/login' ||
           location.pathname === '/register' ||
-            location.pathname === '/Register' ||
-            location.pathname === '/Checked'
+          location.pathname === '/Register' ||
+          location.pathname === '/Checked'
             ? 'mb-md-5 mb-2 pb-3 nav-nobg'
             : 'mb-md-5 mb-2 pb-3 nav-bg'
         }
@@ -43,7 +45,14 @@ function Navbar() {
           </div>
           <div className="row">
             <div className="d-flex  position-absolute justify-content-end mt-4 p-0 nav-title-button gap-3">
-              <Link to="/cart" className="me-3">
+              <Link
+                to="/cart"
+                className="me-3"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setShowLoginAlert(true)
+                }}
+              >
                 <div className="button-cart container">
                   <CartIcon />
                 </div>
@@ -73,10 +82,10 @@ function Navbar() {
               >
                 <ul className="navbar-nav navbar-hamburger me-auto mb-2 mb-md-0 mt-md-5 m-md-auto position-absolute d-flex justify-content-center">
                   <div className="w-70 offcanvas-header align-items-baseline pb-0">
-                    <h5 className="font-R f-Yellow index100">小農遊</h5>
+                    <h5 className="font-R f-Yellow">小農遊</h5>
                     <button
                       type="button"
-                      className="btn-close text-reset index100"
+                      className="btn-close text-reset"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     ></button>
@@ -142,8 +151,8 @@ function Navbar() {
                           location.pathname === '/Login' ||
                           location.pathname === '/login' ||
                           location.pathname === '/register' ||
-                            location.pathname === '/Register' ||
-                            location.pathname === '/Checked'
+                          location.pathname === '/Register' ||
+                          location.pathname === '/Checked'
                             ? './../../Icons/GoToFarmLOGO-sm.png'
                             : './../../Icons/littlefarmLOGO.png'
                         }
@@ -151,8 +160,8 @@ function Navbar() {
                           location.pathname === '/Login' ||
                           location.pathname === '/login' ||
                           location.pathname === '/register' ||
-                            location.pathname === '/Register' ||
-                            location.pathname === '/Checked'
+                          location.pathname === '/Register' ||
+                          location.pathname === '/Checked'
                             ? 'nav-sm-logoimg'
                             : 'nav-logoimg'
                         }

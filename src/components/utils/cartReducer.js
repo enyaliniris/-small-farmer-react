@@ -133,7 +133,7 @@ const calculateItemTotals = (items) =>
 
 //重新改寫總價
 const calculateTotalV2 = (items) => {
-  console.log('CountCoupon')
+  //console.log('CountCoupon')
   let coupon = { sid: 0, quota: 0, cate: 0 } // 	{"sid":2,"quota":200,"cate":1}
   try {
     coupon = JSON.parse(localStorage.getItem('usecoupon'))
@@ -153,15 +153,7 @@ const calculateTotalV2 = (items) => {
   let sumPrice = 0
   let couponPrice = coupon.quota
   let couponCate = coupon.cate
-  console.log('couponPrice', coupon.quota)
-  console.log('couponCate', coupon.cate)
   for (let i = 0; i < items.length; i++) {
-    console.log(
-      items[i].itemTotal,
-      items[i].id,
-      items[i].id.startsWith('product_')
-    )
-
     if (items[i].id.startsWith('product_')) {
       // productTotal += items[i].itemTotal
       productTotal += items[i].quantity * items[i].price
@@ -171,8 +163,6 @@ const calculateTotalV2 = (items) => {
     }
   }
 
-  console.log({ prePrice, productTotal, lessonTotal })
-
   // 計算總價 1=NTD 2=%
   if (couponCate === 1) {
     sumPrice = lessonTotal - couponPrice + productTotal
@@ -181,7 +171,6 @@ const calculateTotalV2 = (items) => {
   } else {
     sumPrice = lessonTotal + productTotal
   }
-  console.log('sumPrice', sumPrice)
   return sumPrice
 }
 

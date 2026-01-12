@@ -19,7 +19,7 @@ import Farmers from './Farmers'
 import Placeholder from './Placeholder'
 import Icon from '../../icon/Icon'
 import AuthContext from '../../contexts/AuthContext'
-import Auth_P from '../../components/Auth_P'
+import LoginGuard from '../../components/LoginGuard'
 import {
   ListMotionContainer,
   ListMotionItem,
@@ -94,7 +94,7 @@ function Product() {
   const [category, setCategory] = useState('所有商品')
 
   // 顯示登入提醒
-  const [alertLogin, setAlertLogin] = useState(false)
+  const [showLoginAlert, setShowLoginAlert] = useState(false)
 
   // 顯示手機板分類篩選
   const [sidepop, setSidepop] = useState(false)
@@ -147,7 +147,7 @@ function Product() {
 
   // 新增收藏
   const addBookmark = async (productSid = 0) => {
-    console.log('addBookmark')
+    //console.log('addBookmark')
     if (!+productSid) return
     // 送token給後端
     let myAuth = {
@@ -169,7 +169,7 @@ function Product() {
       },
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    console.log(response.data)
+    //console.log(response.data)
     getListData(
       +ups.get('page'),
       +ups.get('cate'),
@@ -184,7 +184,7 @@ function Product() {
 
   // 刪除收藏
   const deleteBookmark = async (productSid = 0) => {
-    console.log('deBookmark')
+    //console.log('deBookmark')
     if (!+productSid) return
     // 送token給後端
     let myAuth = {
@@ -203,7 +203,7 @@ function Product() {
       `${BOOKMARK_DELETE}/product/${productSid}`,
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    console.log(response.data)
+    //console.log(response.data)
     getListData(
       +ups.get('page'),
       +ups.get('cate'),
@@ -276,8 +276,7 @@ function Product() {
 
   return (
     <>
-      {/* 登入提醒 */}
-      {alertLogin ? <Auth_P setAlertLogin={setAlertLogin} /> : <></>}
+      <LoginGuard show={showLoginAlert} setClose={setShowLoginAlert} />
       {/* 手機板側邊 */}
       <div className={`P-blur d-block d-md-none ${sidepop ? 'show' : ''}`}>
         <div className={`P-sideM mt-md-3 ${sidepop ? 'show' : ''}`}>
@@ -1090,9 +1089,7 @@ function Product() {
                             <Icon.Bookmarked
                               className="me-auto"
                               onClick={() => {
-                                myAuth.authorized
-                                  ? setAlertLogin(false)
-                                  : setAlertLogin(true)
+                                setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
                                   ? deleteBookmark(v.sid)
                                   : addBookmark(v.sid)
@@ -1102,9 +1099,7 @@ function Product() {
                             <Icon.Bookmark
                               className="me-auto"
                               onClick={() => {
-                                myAuth.authorized
-                                  ? setAlertLogin(false)
-                                  : setAlertLogin(true)
+                                setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
                                   ? deleteBookmark(v.sid)
                                   : addBookmark(v.sid)

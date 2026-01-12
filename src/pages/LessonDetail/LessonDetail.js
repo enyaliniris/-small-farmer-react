@@ -17,7 +17,7 @@ import Icon from '../../icon/Icon'
 import AsNavFor from './AsNavFor'
 import CalendarNew from './CalendarNew'
 import AuthContext from '../../contexts/AuthContext'
-import Auth_P from '../../components/Auth_P'
+import LoginGuard from '../../components/LoginGuard'
 import Auth_C from '../../components/Auth_C'
 
 function LessonDetail() {
@@ -60,7 +60,7 @@ function LessonDetail() {
   const [comOrderS, setComOrderS] = useState('')
 
   //顯示登入提醒
-  const [alertLogin, setAlertLogin] = useState(false)
+  const [showLoginAlert, setShowLoginAlert] = useState(false)
 
   // 河道動畫
   const [river, setRiver] = useState(false)
@@ -83,7 +83,7 @@ function LessonDetail() {
   const addBookmark = async (lessonSid = 0) => {
     // console.log('addBookmark')
     if (!+lessonSid) return
-    console.log('addBookmark')
+    //console.log('addBookmark')
     // 送token給後端
     let myAuth = {
       account: '',
@@ -104,13 +104,13 @@ function LessonDetail() {
       },
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    console.log(response.data)
+    //console.log(response.data)
     getListData(sid)
   }
 
   // 刪除收藏
   const deleteBookmark = async (lessonSid = 0) => {
-    console.log('deBookmark')
+    //console.log('deBookmark')
     if (!+lessonSid) return
     // 送token給後端
     let myAuth = {
@@ -130,7 +130,7 @@ function LessonDetail() {
 
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    console.log(response.data)
+    //console.log(response.data)
     getListData(sid)
   }
 
@@ -148,7 +148,7 @@ function LessonDetail() {
   }, [sid])
   return (
     <>
-      {alertLogin ? <Auth_P setAlertLogin={setAlertLogin} /> : <></>}
+      <LoginGuard show={showLoginAlert} setClose={setShowLoginAlert} />
       {limitalert ? <Auth_C setLimitAlert={setLimitAlert} /> : <></>}
       <div className="container container-fliud">
         <div className="row">
@@ -203,9 +203,7 @@ function LessonDetail() {
                             <div
                               className="P-btn-fav d-md-block"
                               onClick={() => {
-                                myAuth.authorized
-                                  ? setAlertLogin(false)
-                                  : setAlertLogin(true)
+                                setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
                                   ? deleteBookmark(v.sid)
                                   : addBookmark(v.sid)
@@ -220,9 +218,7 @@ function LessonDetail() {
                             <div
                               className="P-btn-fav d-md-block"
                               onClick={() => {
-                                myAuth.authorized
-                                  ? setAlertLogin(false)
-                                  : setAlertLogin(true)
+                                setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
                                   ? deleteBookmark(v.sid)
                                   : addBookmark(v.sid)
