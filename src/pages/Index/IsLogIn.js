@@ -58,8 +58,8 @@ function IsLogIn() {
           <ul
             className={
               isOpen
-                ? 'd-flex memeber-status flex-column flex-md-row justify-content-evenly ps-sm-2 ps-md-0 memberList'
-                : 'd-flex memeber-status flex-column flex-md-row justify-content-evenly ps-sm-2 ps-md-0'
+                ? 'd-flex memeber-status flex-column flex-md-row justify-content-center gap-3 ps-sm-2 ps-md-0 memberList'
+                : 'd-flex memeber-status flex-column flex-md-row justify-content-center gap-3 ps-sm-2 ps-md-0'
             }
             id="memberList"
           >

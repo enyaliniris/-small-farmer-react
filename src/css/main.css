@@ -168,17 +168,25 @@ a {
   height: 13px;
 }
 
-.icon-heart {
-  background: url(../../public/Icons/🦆\ icon\ _heart.svg);
+.icon-member:hover {
+  background: url(../../public/Icons/icon-member-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 13px;
-  height: 12px;
+  width: 18px;
+  height: 17px;
+}
+
+.icon-heart {
+  background: url(../../public/Icons/icon-heart.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 13px;
   margin-right: 2px;
 }
 
 .icon-heart:hover {
-  background: url(../../public/Icons/🦆\ icon\ -heart-hover.svg);
+  background: url(../../public/Icons/icon-heart-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -186,11 +194,19 @@ a {
 }
 
 .icon-logout {
-  background: url(../../public/Icons/icon-logout.png);
+  background: url(../../public/Icons/icon-logout.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 14px;
-  height: 13px;
+  width: 15px;
+  height: 14px;
+}
+
+.icon-logout:hover {
+  background: url(../../public/Icons/icon-logout-hover.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 15px;
 }
 
 @media (max-width: 768px) {
@@ -419,10 +435,8 @@ a {
     position: absolute;
     list-style: none;
     margin: 0;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 5px;
-    padding-left: 0;
-    /* padding-top: 2px; */
     width: 135px;
     height: 30px;
     border-radius: 0 50px 50px 0px;

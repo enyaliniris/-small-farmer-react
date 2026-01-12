@@ -16,15 +16,14 @@ function Login() {
   const { setMyAuth } = useContext(AuthContext)
   const navigate = useNavigate()
   const [shownPassword, setHidePassword] = useState(false)
-  // const { myAuth, logout } = useContext(AuthContext)
 
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault()
+          //console.log(myForm)
           axios.post(LOGIN, myForm).then((response) => {
-            //console.log(response.data)
             if (response.data.success) {
               const {
                 account,
@@ -72,43 +71,7 @@ function Login() {
             <label
               htmlFor="account"
               className="form-label w-25 d-flex position-absolute"
-            >
-              {/* <div className="d-flex w-100">
-              <ul className="navbar-nav mb-2 mb-lg-0">
-                {myAuth.authorized ? (
-                  <>
-                    <li classNameName="nav-item">
-                      <a
-                        classNameName="nav-link"
-                        href="#/"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        {myAuth.account}
-                        {myAuth.member_nickname}
-                      </a>
-                    </li>
-                    <li classNameName="nav-item">
-                      <a
-                        classNameName="nav-link"
-                        href="/Comfirm"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          logout()
-                          navigate('/Comfirm')
-                        }}
-                      >
-                        登出
-                      </a>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li classNameName="nav-item d-flex w-100">NO-login</li>
-                  </>
-                )}
-              </ul>
-            </div> */}
-            </label>
+            ></label>
             <div className="login-main-full col-12 d-flex  justify-content-center  mt-3">
               <div className="log-join-card2 login-hiddend-card col-5  ">
                 <div className="swiper-wrapper ">
