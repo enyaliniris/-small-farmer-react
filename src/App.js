@@ -14,13 +14,12 @@ import Lesson from './pages/Lesson/Lesson'
 import LessonDetail from './pages/LessonDetail/LessonDetail'
 
 //Login
-import Login from './pages/Login/login_page'
+import Login from './pages/Login/LoginPage'
 import Register from './pages/Register/Register'
 import RegisterComfirm from './pages/Register/RegisterComfirm'
-import GoogleRegister from './pages/Register/GoogleRegister'
+// import GoogleRegister from './pages/Register/GoogleRegister(nouse)'
 import RegisterChecked from './pages/Register/RegisterChecked'
 import { AuthContextProvider } from './contexts/AuthContext'
-import { ImgContextProvider } from './contexts/ImgContext'
 // import Signin from "./pages/Signin/signin_index.html";
 
 // Product
@@ -71,7 +70,7 @@ function App() {
               <Route path="/Register" element={<Register />} />
               <Route path="/Checked" element={<RegisterChecked />} />
               <Route path="/Comfirm" element={<RegisterComfirm />} />
-              <Route path="/GoogleR" element={<GoogleRegister />} />
+              {/* <Route path="/GoogleR" element={<GoogleRegister />} /> */}
 
               <Route path="/lesson" element={<Lesson />} />
               <Route path="/lesson/:sid" element={<LessonDetail />} />
