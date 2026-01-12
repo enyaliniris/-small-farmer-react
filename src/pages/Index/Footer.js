@@ -24,33 +24,21 @@ function Footer() {
             <Link to={'/Product?cate=2'}>
               <div className="button-footer ">
                 <img
-                  src="./../../Icons/icon-cart1.svg"
-                  alt=""
-                  className="icons justify-content-center align-content-center footer-cart mt-2
-                        "
-                ></img>
+                  src="./../../Icons/Icon-Cart.svg"
+                  alt="Icon-Cart"
+                  width="40"
+                  height="40"
+                />
               </div>
             </Link>
             <a href="#/" className="">
               <div className="button-footer">
-                <img
-                  src="./../../Icons/Icon-ig.svg"
-                  alt=""
-                  className="justify-content-center align-content-center footer-ig mt-2
-                        "
-                ></img>
+                <img src="./../../Icons/Icon-IG.svg" alt="Icon-IG" />
               </div>
             </a>
             <a href="#/" className="">
               <div className="button-footer d-flex justify-content-center">
-                <img
-                  src="./../../Icons/Icon-FB.svg"
-                  alt=""
-                  className="justify-content-center align-content-center footer-fb mt-2
-                        "
-                  width="23px"
-                  height="40px"
-                />
+                <img src="./../../Icons/Icon-FB.svg" alt="Icon-FB" />
               </div>
             </a>
           </div>

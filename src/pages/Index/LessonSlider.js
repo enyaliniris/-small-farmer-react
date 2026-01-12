@@ -151,6 +151,7 @@ function LessonSlider() {
                 className="lesson_info2"
                 data-lid={v.lesson_id}
                 style={{ display: 'none' }}
+                key={i}
               >
                 <p className="font-B f-24 f-Brown sp-2 mt-4 d-none d-lg-block">
                   {v.lesson_name}

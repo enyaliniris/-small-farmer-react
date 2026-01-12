@@ -234,7 +234,7 @@
   }
 
   .a-lesson-btn-left {
-    margin-left: 120px;
+    margin-left: 160px;
   }
 
   .a-newfarmer-tit {
@@ -895,9 +895,8 @@
   }
 
   .a-products-img img {
-    width: 237px;
+    /* width: 237px; */
     height: 151px;
-    padding: 0 auto;
     margin: auto;
   }
 
