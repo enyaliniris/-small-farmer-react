@@ -14,7 +14,7 @@ function IndexRiver() {
   const getListData = async () => {
     let response = await axios.get(COMMENT_DATA)
     setData(response.data)
-    console.log(response.data)
+    //console.log(response.data)
   }
   useEffect(() => {
     getListData()
