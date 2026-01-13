@@ -111,6 +111,32 @@
   box-shadow: 1px 1px 5px 1px #d5baa6;
 }
 
+.L-card-wrap .col {
+  padding: 1rem 0.5rem;
+}
+
+.L-card-wrap .card {
+  max-width: 100%;
+  margin: 0 auto;
+
+}
+
+.L-card-wrap .card-body {
+  height:400px;
+  padding: 1.5rem;
+}
+
+
+.L-card-wrap .card-text {
+  height:100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.L-card-wrap .card-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem) !important;
+}
+
 .L-title {
   position: relative;
   width: 100%;
@@ -202,6 +228,28 @@
   color: #2c5c58;
 }
 
+.L-card-wrap a {
+  background-image: url(/public/Textures/buttonYmain.png);
+  background-size: contain;
+  color: #a88686;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 15px;
+  border: none;
+  width: 120px;
+  height: 30px;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.L-card-wrap a:hover {
+  background-image: url(/public/Textures/buttonYsub.png);
+  background-size: contain;
+  color: #2c5c58;
+}
+
 /* 課程分類插圖 */
 .L-categories-title-bg {
   background: url(/public/Images/L-categories-title-bg.png);
@@ -286,11 +334,6 @@
   object-fit: cover;
 }
 
-.header-img {
-  width: 100%;
-  object-fit: cover;
-  /* border: 1px solid red; */
-}
 
 .L-card-bg {
   background: url(/public/Textures/wallpaperLight.png);

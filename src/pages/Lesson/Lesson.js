@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../../css/Lesson.css'
 import Icon from '../../icon/Icon'
+import PageHeader from '../../components/PageHeader'
 
 function Lesson() {
   const [lessonData, setLessonData] = useState([])
@@ -57,9 +58,11 @@ function Lesson() {
 
   return (
     <>
-      <header>
-        <img className="header-img" src="/Images/lesson-title.jpg" alt="123" />
-      </header>
+      <PageHeader
+        backgroundImage="/Images/lesson-title.jpg"
+        alt="Lesson Page Header"
+        waveImage="./../../Images/wavebottom-s.png"
+      />
       <section className="pt-5">
         <div className="container">
           <div className="d-flex justify-content-center align-items-baseline">
@@ -123,7 +126,7 @@ function Lesson() {
           </div>
         </nav>
 
-        <div className="container L-categories-btn">
+        <div className="container L-card-wrap">
           <div className="row">
             <div className="row row-cols-md-3 g-0">
               {filterByCategory(lessonData, lessonCategoryFilter).map(
@@ -138,21 +141,21 @@ function Lesson() {
                           alt="..."
                         />
                         <div className="card-body">
-                          <h5 className="card-title font-B f-DarkGreen f-32">
+                          <h5 className="card-title font-B f-DarkGreen f-24">
                             {v.lesson_name}
                           </h5>
                           <div>
-                            <p
+                            <div
                               className="card-text font-R f-Gray"
                               dangerouslySetInnerHTML={{
                                 __html: v.lesson_info1,
                               }}
-                            ></p>
+                            ></div>
                             <span className="d-flex justify-content-end mb-3 font-R f-Gray">
                               課程時數: {v.lesson_hours}小時
                             </span>
                           </div>
-                          <div className="d-flex justify-content-center align-items-center mb-3">
+                          <div className="d-flex align-items-center mb-3">
                             <div className="L-img-wrap">
                               <img
                                 src={`${HOST}/images/lesson/${v.teacher_img}`}

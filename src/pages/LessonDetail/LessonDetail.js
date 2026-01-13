@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useCallback } from 'react'
 import {
   LESSON_DETAIL_DATA,
   HOST,
@@ -18,7 +18,7 @@ import AsNavFor from './AsNavFor'
 import CalendarNew from './CalendarNew'
 import AuthContext from '../../contexts/AuthContext'
 import LoginGuard from '../../components/LoginGuard'
-import Auth_C from '../../components/Auth_C'
+import AlertModal from '../../components/AlertModal'
 
 function LessonDetail() {
   const { sid } = useParams()
@@ -71,13 +71,13 @@ function LessonDetail() {
   //人數若已滿
   const [limitalert, setLimitAlert] = useState(false)
 
-  const getListData = async () => {
+  const getListData = useCallback(async () => {
     const res = await axios.get(`${LESSON_DETAIL_DATA}/${sid}`)
     // console.log(res)
     setData(res.data)
     setLimit(res.data.limit[0].lesson_uplimit)
     // console.log(res.data.limit[0].lesson_uplimit)
-  }
+  }, [sid])
 
   // 新增收藏
   const addBookmark = async (lessonSid = 0) => {
@@ -97,15 +97,14 @@ function LessonDetail() {
       }
     } catch (ex) {}
 
-    const response = await axios.post(
+    await axios.post(
       `${BOOKMARK_ADD}/lesson`,
       {
         lesson_sid: lessonSid,
       },
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    //console.log(response.data)
-    getListData(sid)
+    getListData()
   }
 
   // 刪除收藏
@@ -125,31 +124,26 @@ function LessonDetail() {
       }
     } catch (ex) {}
 
-    const response = await axios.delete(
+    await axios.delete(
       `${BOOKMARK_DELETE}/lesson/${lessonSid}`,
 
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    //console.log(response.data)
-    getListData(sid)
+    getListData()
   }
 
   useEffect(() => {
-    getListData(sid).then(() => {
-      /*
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-        })
-      }, 500)
-     */
-      // document.documentElement.scrollTop = 0
-    })
-  }, [sid])
+    getListData()
+  }, [getListData])
   return (
     <>
       <LoginGuard show={showLoginAlert} setClose={setShowLoginAlert} />
-      {limitalert ? <Auth_C setLimitAlert={setLimitAlert} /> : <></>}
+      {limitalert && (
+        <AlertModal
+          message="報名人數已額滿"
+          onClose={() => setLimitAlert(false)}
+        />
+      )}
       <div className="container container-fliud">
         <div className="row">
           {data.rows.map((v, i) => {

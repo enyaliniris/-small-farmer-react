@@ -17,10 +17,10 @@ function IsLogIn() {
     return () => {
       //console.log('unmount')
     }
-  }, [])
+  })
 
   const handleImg = () => {
-    const myAuth = JSON.parse(localStorage.getItem('myAuth'))
+    // const myAuth = JSON.parse(localStorage.getItem('myAuth'))
     axios
       .post(`${HOST}/memberImg/myImg`, {
         headers: {

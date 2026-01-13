@@ -20,7 +20,6 @@ import RegisterComfirm from './pages/Register/RegisterComfirm'
 // import GoogleRegister from './pages/Register/GoogleRegister(nouse)'
 import RegisterChecked from './pages/Register/RegisterChecked'
 import { AuthContextProvider } from './contexts/AuthContext'
-// import Signin from "./pages/Signin/signin_index.html";
 
 // Product
 import Product from './pages/Product/Product'
