@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useCallback, useMemo } from 'react'
 import {
   PRODUCT_DATA,
   BOOKMARK_ADD,
@@ -18,6 +18,7 @@ import Orderby from './Orderby'
 import Farmers from './Farmers'
 import Placeholder from './Placeholder'
 import Icon from '../../icon/Icon'
+import PageHeader from '../../components/PageHeader'
 import AuthContext from '../../contexts/AuthContext'
 import LoginGuard from '../../components/LoginGuard'
 import {
@@ -29,7 +30,10 @@ import './../../css/product.css'
 function Product() {
   const location = useLocation()
   const navigate = useNavigate()
-  const ups = new URLSearchParams(location.search)
+  const ups = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  )
   const { myAuth } = useContext(AuthContext)
 
   // --------狀態及變數區--------
@@ -101,49 +105,44 @@ function Product() {
 
   // --------函式區--------
   // 拿資料
-  const getListData = async (
-    page = 1,
-    cate,
-    brand,
-    pro,
-    veg,
-    orderprice,
-    search
-  ) => {
-    let response
-    let myParams = { page }
+  const getListData = useCallback(
+    async (page = 1, cate, brand, pro, veg, orderprice, search) => {
+      let response
+      let myParams = { page }
 
-    if (search) {
-      myParams = { ...myParams, search }
-    }
+      if (search) {
+        myParams = { ...myParams, search }
+      }
 
-    if (orderprice) {
-      myParams = { ...myParams, orderprice }
-    }
-    if (cate) {
-      myParams = { ...myParams, cate }
-    }
-    if (pro) {
-      myParams = { ...myParams, pro }
-    }
-    if (veg) {
-      myParams = { ...myParams, veg }
-    }
-    if (brand) {
-      myParams = { ...myParams, brand }
-    }
+      if (orderprice) {
+        myParams = { ...myParams, orderprice }
+      }
+      if (cate) {
+        myParams = { ...myParams, cate }
+      }
+      if (pro) {
+        myParams = { ...myParams, pro }
+      }
+      if (veg) {
+        myParams = { ...myParams, veg }
+      }
+      if (brand) {
+        myParams = { ...myParams, brand }
+      }
 
-    response = await axios.get(PRODUCT_DATA, {
-      params: myParams,
-    })
-    if (response.data.newRowsC.length === 0) {
-      setNotFound(true)
-      return
-    }
-    setData(response.data)
-    setLoading(false)
-    setNotFound(false)
-  }
+      response = await axios.get(PRODUCT_DATA, {
+        params: myParams,
+      })
+      if (response.data.newRowsC.length === 0) {
+        setNotFound(true)
+        return
+      }
+      setData(response.data)
+      setLoading(false)
+      setNotFound(false)
+    },
+    []
+  )
 
   // 新增收藏
   const addBookmark = async (productSid = 0) => {
@@ -162,14 +161,13 @@ function Product() {
       }
     } catch (ex) {}
 
-    const response = await axios.post(
+    await axios.post(
       `${BOOKMARK_ADD}/product`,
       {
         product_sid: productSid,
       },
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    //console.log(response.data)
     getListData(
       +ups.get('page'),
       +ups.get('cate'),
@@ -199,11 +197,9 @@ function Product() {
       }
     } catch (ex) {}
 
-    const response = await axios.delete(
-      `${BOOKMARK_DELETE}/product/${productSid}`,
-      { headers: { Authorization: 'Bearer ' + myAuth.token } }
-    )
-    //console.log(response.data)
+    await axios.delete(`${BOOKMARK_DELETE}/product/${productSid}`, {
+      headers: { Authorization: 'Bearer ' + myAuth.token },
+    })
     getListData(
       +ups.get('page'),
       +ups.get('cate'),
@@ -224,7 +220,7 @@ function Product() {
   }
 
   // 設定類型狀態
-  const myCategory = (cate) => {
+  const myCategory = useCallback((cate) => {
     switch (cate) {
       case '1':
         setCategory('水果類')
@@ -246,10 +242,11 @@ function Product() {
       default:
         setCategory('所有商品')
     }
-  }
+  }, [])
 
   // 抓資料用
   useEffect(() => {
+    const ups = new URLSearchParams(location.search)
     getListData(
       +ups.get('page'),
       +ups.get('cate'),
@@ -263,7 +260,7 @@ function Product() {
     // console.log(+ups.get('cate'))
 
     // setBrandCheck([...brandCheck, +ups.get('brand')])
-  }, [location.search])
+  }, [location.search, ups, getListData])
 
   useEffect(() => {
     if (ups.get('cate')) {
@@ -272,7 +269,7 @@ function Product() {
     if (ups.get('brand')) {
       setBrandCheck([+ups.get('brand')])
     }
-  }, [])
+  }, [ups, myCategory])
 
   return (
     <>
@@ -632,7 +629,11 @@ function Product() {
       </div>
       <div className="container-fluid g-0 mb-5">
         {/* 版標 */}
-        <header className="P-header-bk">
+        <PageHeader
+          backgroundImage="./../../Images/p-head.jpg"
+          alt="Product Page Header"
+          waveImage="./../../Images/wavebottom-s.png"
+        >
           <div className="P-bestseller-card">
             <Link to={`/product/21`}>
               <img
@@ -646,12 +647,7 @@ function Product() {
               <span className="P-bestseller-text">本月熱銷</span>
             </Link>
           </div>
-          <img
-            className="P-wavebottom w-100 d-none d-md-block"
-            src="./../../Images/wavebottom-s.png"
-            alt=""
-          />
-        </header>
+        </PageHeader>
         {/* 列表標題 */}
         <div className="P-product-title d-flex justify-content-center align-items-baseline mt-5 font-B">
           <div>

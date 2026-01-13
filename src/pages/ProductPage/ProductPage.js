@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useCallback, useMemo } from 'react'
 import {
   PRODUCT_PAGE_DATA,
   HOST,
@@ -24,7 +24,10 @@ function ProductPage() {
   const location = useLocation()
   const { myAuth } = useContext(AuthContext)
 
-  const ups = new URLSearchParams(location.search)
+  const ups = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  )
 
   // --------狀態及變數區--------
   // 資料
@@ -61,7 +64,7 @@ function ProductPage() {
 
   // --------函式區--------
   // 拿資料
-  const getListData = async (sid, orderdate, orderscore) => {
+  const getListData = useCallback(async (sid, orderdate, orderscore) => {
     if (orderscore) {
       const response = await axios.get(`${PRODUCT_PAGE_DATA}/${sid}`, {
         params: { orderscore },
@@ -80,7 +83,7 @@ function ProductPage() {
       setData(response.data)
     }
     setCartNum(1)
-  }
+  }, [])
 
   // 新增收藏
   const addBookmark = async (productSid = 0) => {
@@ -99,14 +102,13 @@ function ProductPage() {
       }
     } catch (ex) {}
 
-    const response = await axios.post(
+    await axios.post(
       `${BOOKMARK_ADD}/product`,
       {
         product_sid: productSid,
       },
       { headers: { Authorization: 'Bearer ' + myAuth.token } }
     )
-    // console.log(response.data)
     getListData(sid)
   }
 
@@ -127,17 +129,15 @@ function ProductPage() {
       }
     } catch (ex) {}
 
-    const response = await axios.delete(
-      `${BOOKMARK_DELETE}/product/${productSid}`,
-      { headers: { Authorization: 'Bearer ' + myAuth.token } }
-    )
-    //console.log(response.data)
+    await axios.delete(`${BOOKMARK_DELETE}/product/${productSid}`, {
+      headers: { Authorization: 'Bearer ' + myAuth.token },
+    })
     getListData(sid)
   }
 
   useEffect(() => {
     getListData(sid, ups.get('orderdate'), ups.get('orderscore'))
-  }, [sid, location.search])
+  }, [sid, location.search, ups, getListData])
 
   return (
     <>
