@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../css/week.css'
 import 'moment/locale/zh-tw'
-import { MY_WEEK_C } from '../components/api_config'
+import { MY_WEEK_C } from './api_config'
 
 function WeekCalendar() {
   const [currentWeek, setCurrentWeek] = useState(moment().startOf('week'))

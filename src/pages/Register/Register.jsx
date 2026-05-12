@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
+//import { Navigate } from 'react-router-dom'
 import { HOST } from '../../components/api_config'
-import avaUploader from '../../components/avaUploader'
+//import avaUploader from '../../components/avaUploader'
 import axios from 'axios'
 
 //引入日期選擇組件

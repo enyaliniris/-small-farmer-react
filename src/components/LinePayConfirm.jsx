@@ -39,7 +39,7 @@ function LinePayConfirm(props) {
                   onClick={() => {
                     //  在本window直接導至node付款(reverse)url，之後會導向至line pay
                     window.location.href =
-                      process.env.REACT_APP_PAYMENT_API_URL +
+                      import.meta.env.VITE_PAYMENT_API_URL +
                       '?orderId=' +
                       order.orderId
                   }}

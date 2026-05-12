@@ -6,10 +6,10 @@ import { ThemeProvider } from '@emotion/react'
 import dayjs from 'dayjs'
 
 // 載入圖示
-import { ReactComponent as AirFlowIcon } from './images/airFlow.svg'
-import { ReactComponent as RainIcon } from './images/rain.svg'
-import { ReactComponent as RefreshIcon } from './images/refresh.svg'
-import { ReactComponent as LoadingIcon } from './images/loading.svg'
+import AirFlowIcon from './images/airFlow.svg?react'
+import RainIcon from './images/rain.svg?react'
+import RefreshIcon from './images/refresh.svg?react'
+import LoadingIcon from './images/loading.svg?react'
 import WeatherIcon from './Weathericon'
 const theme = {
   light: {

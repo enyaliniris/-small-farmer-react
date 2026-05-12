@@ -36,7 +36,6 @@
     "react-leaflet": "^4.2.1",
     "react-password-checklist": "^1.4.3",
     "react-router-dom": "^6.8.1",
-    "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
@@ -49,10 +48,10 @@
     "zipcode-tw-react": "^1.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "eslintConfig": {
     "extends": [
@@ -74,6 +73,9 @@
   },
   "proxy": "http://localhost:3033",
   "devDependencies": {
-    "@faker-js/faker": "^7.3.0"
+    "@faker-js/faker": "^7.3.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.12",
+    "vite-plugin-svgr": "^5.2.0"
   }
 }
