@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { LESSON_DATA, HOST } from '../../components/api_config'
+import { HOST, getLessonList } from '../../api/api'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import '../../css/Lesson.css'
 import Icon from '../../icon/Icon'
 import PageHeader from '../../components/PageHeader'
@@ -22,7 +21,7 @@ function Lesson() {
 
   //串接後端
   const getLessonData = async () => {
-    const res = await axios.get(LESSON_DATA)
+    const res = await getLessonList()
     // console.log(res)
     setLessonData(res.data)
   }

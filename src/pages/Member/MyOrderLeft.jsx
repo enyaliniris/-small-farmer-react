@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { MY_ORDER, HOST } from '../../components/api_config'
+import { MY_ORDER, HOST } from '../../api/api'
 import Pagination from '../../components/Pagination'
 import { Link } from 'react-router-dom'
 import axios from 'axios'

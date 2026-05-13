@@ -1,14 +1,13 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   HOST,
-  MY_COMMENT_DATA,
-  COMMENT_ADD,
-  COMMENT_EDIT,
-} from '../../components/api_config'
+  getMyCommentData,
+  postAddComment,
+  postEditComment,
+} from '../../api/api'
 import axios from 'axios'
 import dayjs from 'dayjs'
-import AuthContext from '../../contexts/AuthContext'
 import {
   ListMotionContainer,
   ListMotionItem,
@@ -18,7 +17,6 @@ import './../../css/mybookmark.css'
 import Icon from '../../icon/Icon'
 
 function MyCommentLeft() {
-  const { myAuth } = useContext(AuthContext)
   const [data, setData] = useState({
     page: 0,
     totalPagesP: '',
@@ -36,24 +34,12 @@ function MyCommentLeft() {
   })
 
   const getListData = async (page = 1) => {
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
     try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-
-    const response = await axios.get(`${MY_COMMENT_DATA}`, {
-      headers: { Authorization: 'Bearer ' + myAuth.token },
-      params: { page },
-    })
-    setData(response.data)
+      const response = await getMyCommentData({ page })
+      setData(response.data)
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   useEffect(() => {
@@ -69,91 +55,63 @@ function MyCommentLeft() {
     comment_value,
     comment_content
   ) => {
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
-    try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-    let response
     if (comment_content.length === 0 || comment_value === 0) {
       setAlert('請輸入內容及點選星星唷！')
       return
     }
     if (product_sid !== 0) {
-      response = await axios.post(
-        `${COMMENT_ADD}/product`,
-        {
+      try {
+        await postAddComment('product', {
           order_product_details_sid: order_product_details_sid,
           product_sid: product_sid,
           comment_value: comment_value,
           comment_content: comment_content,
-        },
-        { headers: { Authorization: 'Bearer ' + myAuth.token } }
-      )
+        })
+      } catch (error) {
+        alert(error.message)
+      }
     } else {
-      response = await axios.post(
-        `${COMMENT_ADD}/lesson`,
-        {
+      try {
+        await postAddComment('lesson', {
           order_lesson_details_sid: order_lesson_details_sid,
           lesson_sid: lesson_sid,
           comment_value: comment_value,
           comment_content: comment_content,
-        },
-        { headers: { Authorization: 'Bearer ' + myAuth.token } }
-      )
+        })
+      } catch (error) {
+        alert(error.message)
+      }
+      getListData()
     }
-
-    getListData()
   }
 
   // 修改評論
   const editComment = async (type, sid, comment_value, comment_content) => {
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
-    try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-    let response
     if (comment_content.length === 0 || comment_value === 0) {
       setAlert('請輸入內容及點選星星唷！')
       return
     }
     if (type === 'product') {
-      response = await axios.post(
-        `${COMMENT_EDIT}/product`,
-        {
+      try {
+        await postEditComment('product', {
           sid: sid,
           comment_value: comment_value,
           comment_content: comment_content,
-        },
-        { headers: { Authorization: 'Bearer ' + myAuth.token } }
-      )
+        })
+      } catch (error) {
+        alert(error.message)
+      }
     } else {
-      response = await axios.post(
-        `${COMMENT_EDIT}/lesson`,
-        {
+      try {
+        await postEditComment('lesson', {
           sid: sid,
           comment_value: comment_value,
           comment_content: comment_content,
-        },
-        { headers: { Authorization: 'Bearer ' + myAuth.token } }
-      )
+        })
+      } catch (error) {
+        alert(error.message)
+      }
     }
-
     getListData()
   }
 

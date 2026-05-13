@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { LESSON_DETAIL_DATA, HOST } from '../../components/api_config'
+import { LESSON_DETAIL_DATA, HOST } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import Slider from 'react-slick'
 import axios from 'axios'

@@ -8,7 +8,6 @@ import { ReactComponent as more } from './more.svg'
 
 import { ReactComponent as Class } from './class.svg'
 import { ReactComponent as Product } from './product.svg'
-import { ReactComponent as About } from './about.svg'
 import { ReactComponent as Member } from './member.svg'
 
 import { ReactComponent as Vegtable } from './vegtable.svg'
@@ -25,7 +24,6 @@ export default {
   more,
   Class,
   Product,
-  About,
   Member,
   Delete,
   Vegtable,

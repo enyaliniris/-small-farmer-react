@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import dayjs from 'dayjs'
 import Icon from '../../icon/Icon'
-import { HOST } from '../../components/api_config'
+import { HOST } from '../../api/api'
 
 function ProductRiver({
   data,

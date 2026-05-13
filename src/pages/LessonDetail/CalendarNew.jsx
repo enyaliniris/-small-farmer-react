@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Calendar from 'react-calendar'
-import { LESSON_DETAIL_DATA } from '../../components/api_config'
+import { LESSON_DETAIL_DATA } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import 'react-calendar/dist/Calendar.css'
 import '../../css/calendar.css'

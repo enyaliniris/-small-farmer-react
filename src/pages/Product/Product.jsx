@@ -1,16 +1,15 @@
 import { useEffect, useState, useContext, useCallback, useMemo } from 'react'
 import {
-  PRODUCT_DATA,
-  BOOKMARK_ADD,
-  BOOKMARK_DELETE,
   HOST,
-} from '../../components/api_config'
+  getProductData,
+  addBookmarkProduct,
+  deleteBookmarkProduct,
+} from '../../api/api'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 import { useCart } from '../../components/utils/useCart'
-import axios from 'axios'
 
 //引入元件
 import Pagination from './Pagination'
@@ -105,41 +104,36 @@ function Product() {
 
   // --------函式區--------
   // 拿資料
+
   const getListData = useCallback(
     async (page = 1, cate, brand, pro, veg, orderprice, search) => {
-      let response
-      let myParams = { page }
-
-      if (search) {
-        myParams = { ...myParams, search }
+      //todo: 修正 myParams裡的參數疊加了
+      // 只保留有值的 params
+      const myParams = {
+        page,
+        ...(search && { search }),
+        ...(orderprice && { orderprice }),
+        ...(cate && { cate }),
+        ...(pro && { pro }),
+        ...(veg && { veg }),
+        ...(brand && { brand }),
       }
 
-      if (orderprice) {
-        myParams = { ...myParams, orderprice }
-      }
-      if (cate) {
-        myParams = { ...myParams, cate }
-      }
-      if (pro) {
-        myParams = { ...myParams, pro }
-      }
-      if (veg) {
-        myParams = { ...myParams, veg }
-      }
-      if (brand) {
-        myParams = { ...myParams, brand }
-      }
+      try {
+        const data = await getProductData(myParams)
 
-      response = await axios.get(PRODUCT_DATA, {
-        params: myParams,
-      })
-      if (response.data.newRowsC.length === 0) {
+        if (data.newRowsC.length === 0) {
+          setNotFound(true)
+          return
+        }
+        setData(data)
+        setNotFound(false)
+      } catch (err) {
+        console.error(err.message)
         setNotFound(true)
-        return
+      } finally {
+        setLoading(false)
       }
-      setData(response.data)
-      setLoading(false)
-      setNotFound(false)
     },
     []
   )
@@ -148,68 +142,46 @@ function Product() {
   const addBookmark = async (productSid = 0) => {
     //console.log('addBookmark')
     if (!+productSid) return
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
-    try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
 
-    await axios.post(
-      `${BOOKMARK_ADD}/product`,
-      {
-        product_sid: productSid,
-      },
-      { headers: { Authorization: 'Bearer ' + myAuth.token } }
-    )
-    getListData(
-      +ups.get('page'),
-      +ups.get('cate'),
-      +ups.get('brand'),
-      +ups.get('pro'),
-      +ups.get('veg'),
-      ups.get('orderprice'),
-      ups.get('search')
-    )
-    setLoading(true)
+    try {
+      await addBookmarkProduct(productSid)
+    } catch (err) {
+      console.error(err.message)
+    } finally {
+      getListData(
+        +ups.get('page'),
+        +ups.get('cate'),
+        +ups.get('brand'),
+        +ups.get('pro'),
+        +ups.get('veg'),
+        ups.get('orderprice'),
+        ups.get('search')
+      )
+      setLoading(false)
+    }
   }
 
   // 刪除收藏
   const deleteBookmark = async (productSid = 0) => {
     //console.log('deBookmark')
     if (!+productSid) return
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
-    try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
 
-    await axios.delete(`${BOOKMARK_DELETE}/product/${productSid}`, {
-      headers: { Authorization: 'Bearer ' + myAuth.token },
-    })
-    getListData(
-      +ups.get('page'),
-      +ups.get('cate'),
-      +ups.get('brand'),
-      +ups.get('pro'),
-      +ups.get('veg'),
-      ups.get('orderprice'),
-      ups.get('search')
-    )
-    setLoading(true)
+    try {
+      await deleteBookmarkProduct(productSid)
+    } catch (err) {
+      console.error(err.message)
+    } finally {
+      getListData(
+        +ups.get('page'),
+        +ups.get('cate'),
+        +ups.get('brand'),
+        +ups.get('pro'),
+        +ups.get('veg'),
+        ups.get('orderprice'),
+        ups.get('search')
+      )
+      setLoading(false)
+    }
   }
 
   // 捲動畫面
@@ -246,7 +218,6 @@ function Product() {
 
   // 抓資料用
   useEffect(() => {
-    const ups = new URLSearchParams(location.search)
     getListData(
       +ups.get('page'),
       +ups.get('cate'),
@@ -257,9 +228,6 @@ function Product() {
       ups.get('search')
     )
     setLoading(true)
-    // console.log(+ups.get('cate'))
-
-    // setBrandCheck([...brandCheck, +ups.get('brand')])
   }, [location.search, ups, getListData])
 
   useEffect(() => {

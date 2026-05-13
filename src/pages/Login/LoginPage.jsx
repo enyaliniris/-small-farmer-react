@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { LOGIN } from '../../components/api_config'
+import { LOGIN } from '../../api/api'
 import AuthContext from '../../contexts/AuthContext'
 import '../../css/login-mobile.css'
 import '../../css/login-swiper.css'

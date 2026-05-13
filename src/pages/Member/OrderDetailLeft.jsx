@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
-import { MY_ORDER_DETAILS } from '../../components/api_config'
+import { MY_ORDER_DETAILS } from '../../api/api'
 import { useParams } from 'react-router-dom'
 
 function OrderDetailLeft() {

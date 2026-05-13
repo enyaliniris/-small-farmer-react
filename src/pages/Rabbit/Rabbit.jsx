@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
 import axios from 'axios'
-import { COUPON_RABBIT, DONE_RABBIT } from '../../components/api_config'
+import { COUPON_RABBIT, DONE_RABBIT } from '../../api/api'
 import NewAwardsR from '../../components/NewAwardsR'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 

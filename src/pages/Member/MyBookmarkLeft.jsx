@@ -1,13 +1,12 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import {
   HOST,
-  BOOKMARK_DATA,
-  BOOKMARK_DELETE,
-} from '../../components/api_config'
+  getBookmarkData,
+  deleteBookmarkProduct,
+  deleteBookmarkLesson,
+} from '../../api/api'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import AuthContext from '../../contexts/AuthContext'
 import {
   ListMotionContainer,
   ListMotionItem,
@@ -18,7 +17,6 @@ import Icon from '../../icon/Icon'
 
 function MyBookmarkLeft() {
   const location = useLocation()
-  const { myAuth } = useContext(AuthContext)
   const [data, setData] = useState({
     page: 0,
     totalPagesP: '',
@@ -31,53 +29,30 @@ function MyBookmarkLeft() {
 
   // 刪除收藏
   const deleteBookmark = async (sid = 0, type) => {
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
-    try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-    let response
     if (type === 'product') {
-      response = await axios.delete(`${BOOKMARK_DELETE}/${type}/${sid}`, {
-        headers: { Authorization: 'Bearer ' + myAuth.token },
-      })
+      try {
+        await deleteBookmarkProduct(sid)
+      } catch (error) {
+        alert(error.message)
+      }
     }
     if (type === 'lesson') {
-      response = await axios.delete(`${BOOKMARK_DELETE}/${type}/${sid}`, {
-        headers: { Authorization: 'Bearer ' + myAuth.token },
-      })
+      try {
+        await deleteBookmarkLesson(sid)
+      } catch (error) {
+        alert(error.message)
+      }
     }
-
     getListData()
   }
 
   const getListData = async (page = 1) => {
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
     try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-
-    const response = await axios.get(`${BOOKMARK_DATA}`, {
-      headers: { Authorization: 'Bearer ' + myAuth.token },
-      params: { page },
-    })
-    //console.log('?', response.data)
-    setData(response.data)
+      const response = await getBookmarkData({ page })
+      setData(response.data)
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
   useEffect(() => {

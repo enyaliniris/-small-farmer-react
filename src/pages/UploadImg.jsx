@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { HOST } from '../components/api_config'
+import { HOST } from '../../api/api'
 
 function UploadImg() {
   const [avatar, setAvatar] = useState('')

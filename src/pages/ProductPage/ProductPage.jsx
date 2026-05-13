@@ -1,10 +1,6 @@
 import { useEffect, useState, useContext, useCallback, useMemo } from 'react'
-import {
-  PRODUCT_PAGE_DATA,
-  HOST,
-  BOOKMARK_ADD,
-  BOOKMARK_DELETE,
-} from '../../components/api_config'
+import { addBookmarkProduct, deleteBookmarkProduct } from '../../api/api'
+import { getProductPageData, HOST } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -66,19 +62,14 @@ function ProductPage() {
   // 拿資料
   const getListData = useCallback(async (sid, orderdate, orderscore) => {
     if (orderscore) {
-      const response = await axios.get(`${PRODUCT_PAGE_DATA}/${sid}`, {
-        params: { orderscore },
-      })
-      // console.log(response.data)
+      const response = await getProductPageData(sid, { orderscore })
       setData(response.data)
     } else if (orderdate) {
-      const response = await axios.get(`${PRODUCT_PAGE_DATA}/${sid}`, {
-        params: { orderdate },
-      })
+      const response = await getProductPageData(sid, { orderdate })
       // console.log(response.data)
       setData(response.data)
     } else {
-      const response = await axios.get(`${PRODUCT_PAGE_DATA}/${sid}`)
+      const response = await getProductPageData(sid)
       // console.log(response.data)
       setData(response.data)
     }
@@ -87,52 +78,24 @@ function ProductPage() {
 
   // 新增收藏
   const addBookmark = async (productSid = 0) => {
-    // console.log('addBookmark')
     if (!+productSid) return
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
     try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-
-    await axios.post(
-      `${BOOKMARK_ADD}/product`,
-      {
-        product_sid: productSid,
-      },
-      { headers: { Authorization: 'Bearer ' + myAuth.token } }
-    )
-    getListData(sid)
+      await addBookmarkProduct(productSid)
+      getListData(sid)
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 
   // 刪除收藏
   const deleteBookmark = async (productSid = 0) => {
-    //console.log('deBookmark')
     if (!+productSid) return
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
     try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-
-    await axios.delete(`${BOOKMARK_DELETE}/product/${productSid}`, {
-      headers: { Authorization: 'Bearer ' + myAuth.token },
-    })
-    getListData(sid)
+      await deleteBookmarkProduct(productSid)
+      getListData(sid)
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 
   useEffect(() => {

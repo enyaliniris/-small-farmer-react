@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { COUPON_DATA } from '../../components/api_config'
+import { COUPON_DATA } from '../../api/api'
 import Pagination from '../../components/Pagination'
 import { Link } from 'react-router-dom'
 

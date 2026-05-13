@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
-import { HOST } from '../../components/api_config'
+import { HOST } from '../../api/api'
 import axios from 'axios'
 
 function IsLogIn() {

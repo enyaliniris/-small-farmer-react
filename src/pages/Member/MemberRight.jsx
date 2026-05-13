@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useContext, useEffect } from 'react'
-import { HOST, MY_EDIT_MEMBER, MY_MEMBER } from '../../components/api_config'
+import { HOST, MY_EDIT_MEMBER, MY_MEMBER } from '../../api/api'
 // import AuthContext from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 import axios from 'axios'

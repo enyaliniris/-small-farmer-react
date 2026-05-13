@@ -1,10 +1,6 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react'
-import {
-  LESSON_DETAIL_DATA,
-  HOST,
-  BOOKMARK_ADD,
-  BOOKMARK_DELETE,
-} from '../../components/api_config'
+import { addBookmarkLesson, deleteBookmarkLesson } from '../../api/api'
+import { LESSON_DETAIL_DATA, HOST } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../components/utils/useCart'
@@ -83,53 +79,26 @@ function LessonDetail() {
   const addBookmark = async (lessonSid = 0) => {
     // console.log('addBookmark')
     if (!+lessonSid) return
-    //console.log('addBookmark')
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
     try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-
-    await axios.post(
-      `${BOOKMARK_ADD}/lesson`,
-      {
-        lesson_sid: lessonSid,
-      },
-      { headers: { Authorization: 'Bearer ' + myAuth.token } }
-    )
-    getListData()
+      await addBookmarkLesson(lessonSid)
+    } catch (err) {
+      console.error(err.message)
+    } finally {
+      getListData()
+    }
   }
 
   // 刪除收藏
   const deleteBookmark = async (lessonSid = 0) => {
     //console.log('deBookmark')
     if (!+lessonSid) return
-    // 送token給後端
-    let myAuth = {
-      account: '',
-      accountId: '',
-      token: '',
-    }
-    let localAuth = localStorage.getItem('myAuth')
     try {
-      if (localAuth) {
-        myAuth = JSON.parse(localAuth)
-      }
-    } catch (ex) {}
-
-    await axios.delete(
-      `${BOOKMARK_DELETE}/lesson/${lessonSid}`,
-
-      { headers: { Authorization: 'Bearer ' + myAuth.token } }
-    )
-    getListData()
+      await deleteBookmarkLesson(lessonSid)
+    } catch (err) {
+      console.error(err.message)
+    } finally {
+      getListData()
+    }
   }
 
   useEffect(() => {

@@ -1,0 +1,251 @@
+{
+  "page": 1,
+  "newRowsC": [
+    {
+      "sid": 99,
+      "product_id": "product_0099",
+      "product_name": "龜背芋水泥盆栽 ",
+      "product_spec": "8.5cm*8.5cm",
+      "product_slogan": "帶來新年好運 室內植物養植",
+      "product_info_1": "龜背芋 Monstera deliciosa\n又稱為龜背竹、電信蘭、蓬萊蕉，是天南星科龜背芋屬植物。\n龜背芋適應性強，性喜溫暖、潮濕的環境，但也耐陰、耐陽及有一定的耐旱性，原產於墨西哥熱帶雨林，近年被大量種植的大型觀葉植物。",
+      "product_info_2": "嬰兒時期的龜背芋葉子為愛心形，植株新發葉片會逐漸有不規則的裂口（約第5、6片新葉產生裂口，每盆植株、種植環境皆有影響），因裂面葉片像龜背而得名。喜歡溫暖濕潤、通風的環境，有淨化空氣、吸附甲醛的作用（晚間會吸收二氧化碳，對提高含氧量有幫助），是非常適合作為辦公室、室內植物養植！",
+      "product_brand_sid": 2,
+      "product_category_sid": 4,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "",
+      "product_price": 375,
+      "product_img": "Monstera_001.jpg,Monstera_002.jpg",
+      "bookmark_member_sid": [
+        132,
+        143,
+        146,
+        150,
+        7,
+        155,
+        156,
+        159
+      ],
+      "comment_value": 4
+    },
+    {
+      "sid": 4,
+      "product_id": "product_0004",
+      "product_name": "黑鑽石樹葡萄",
+      "product_spec": "1斤/盒，二盒入",
+      "product_slogan": "連皮都可以安心吃",
+      "product_info_1": "「嘉寶果」俗名稱為樹葡萄，外型如葡萄相似，不過果實卻是長在樹幹上，成熟後猶如黑紫色鑽石。外皮營養超豐富，吃起來帶點酸味；透明的果肉柔軟多汁很甜美，有著類似釋迦、山竹、芭樂的感覺，一果多味的夢幻水果。",
+      "product_info_2": "不使用任何農藥、化學肥料與除草劑，僅用自製液態肥料搭配有機肥給樹葡萄補充養份，友善環境也種出安心果實。",
+      "product_brand_sid": 1,
+      "product_category_sid": 1,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "",
+      "product_price": 559,
+      "product_img": "grape_001.jpg,grape_002.jpg",
+      "bookmark_member_sid": [
+        143,
+        146,
+        159
+      ],
+      "comment_value": 4
+    },
+    {
+      "sid": 41,
+      "product_id": "product_0041",
+      "product_name": "黑松露彩頭糕",
+      "product_spec": "約600g",
+      "product_slogan": "無化學添加物、色素",
+      "product_info_1": "素食者的最佳選擇，頂級的蘿蔔糕，松露香!! 蘿蔔香!!",
+      "product_info_2": "將大量的蘿蔔再以松露醬拌入調味製作，每一口都吃得到濃濃的蘿蔔松露香",
+      "product_brand_sid": 5,
+      "product_category_sid": 3,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "1",
+      "product_price": 200,
+      "product_img": "pro1_001.jpg,pro1_002.jpg",
+      "bookmark_member_sid": [
+        132,
+        143,
+        146,
+        159
+      ],
+      "comment_value": 3
+    },
+    {
+      "sid": 18,
+      "product_id": "product_0018",
+      "product_name": "鹽地玉女小番茄",
+      "product_spec": "4台斤/箱",
+      "product_slogan": "神好吃的安心小番茄",
+      "product_info_1": "生長於含有鹽份的土壤，不用除草劑栽培，連續採收期不再用藥，改為安全無毒的栽培模式，品管仔細，品質好才敢出宅配，吃得更安心！",
+      "product_info_2": "玉女番茄是這幾年非常熱門的品種，皮薄多汁，甜度迷人，完美又多層次的口感，令人回味無窮！",
+      "product_brand_sid": 3,
+      "product_category_sid": 1,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "",
+      "product_price": 980,
+      "product_img": "tomato_005.jpg,tomato_006.jpg",
+      "bookmark_member_sid": [
+        146,
+        159
+      ],
+      "comment_value": 4
+    },
+    {
+      "sid": 61,
+      "product_id": "product_0061",
+      "product_name": "鳳梨蘋果果醬",
+      "product_spec": "120ml",
+      "product_slogan": "原汁原味手工熬煮",
+      "product_info_1": "採用新鮮鳳梨、蘋果而成的水果醬！內含果肉，所含水分全來自于水果本身果汁。堅持天然純手工、原汁又原味、營養不流失、健康零負擔！",
+      "product_info_2": "本產品不添加果膠及水。新鮮採摘台灣最甜美的本土果實，產地直送，經過完整篩選程序處理，無添加防腐劑，堅持手工熬煮不失天然美味。",
+      "product_brand_sid": 8,
+      "product_category_sid": 3,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "3",
+      "product_price": 180,
+      "product_img": "pro3_021.jpg,pro3_022.jpg",
+      "bookmark_member_sid": [
+        143,
+        146
+      ],
+      "comment_value": 3
+    },
+    {
+      "sid": 67,
+      "product_id": "product_0067",
+      "product_name": "鳳梨乾",
+      "product_spec": "",
+      "product_slogan": "低溫烘焙 營養不流失",
+      "product_info_1": "採用新鮮鳳梨研製而成，經篩選已成熟的狀況下，以新鮮低溫烘焙方式，保持水果的香甜及營養成份。",
+      "product_info_2": "新鮮採摘台灣最甜美的本土果實，產地直送，烘焙出一片片保留水果營養、卻又方便食用的果乾。",
+      "product_brand_sid": 10,
+      "product_category_sid": 3,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "4",
+      "product_price": 320,
+      "product_img": "pro4_003.jpg,pro4_004.jpg",
+      "bookmark_member_sid": [
+        132,
+        143,
+        146
+      ],
+      "comment_value": 4
+    },
+    {
+      "sid": 163,
+      "product_id": "product_0163",
+      "product_name": "鮮香猴頭菇",
+      "product_spec": "1台斤/包",
+      "product_slogan": "無毒、無農藥的安心食材",
+      "product_info_1": "堅持不使用除草劑，搭配微生物、營養劑與酵素，提供蔬菜更天然無毒的營養，採取友善及減藥栽培法，提供更天然無毒的栽培環境，安心食用更放心！",
+      "product_info_2": "堅持栽種有機農作，拒絕使用基因改造資材，絕不使用對生態有害的農藥，也不使用化學肥料，品質保證，安心又好吃。",
+      "product_brand_sid": 9,
+      "product_category_sid": 2,
+      "product_vegetable_sid": "5",
+      "product_processed_sid": "",
+      "product_price": 100,
+      "product_img": "vegetable_113.jpg,vegetable_114.jpg",
+      "bookmark_member_sid": [
+        143,
+        146,
+        159
+      ],
+      "comment_value": 3
+    },
+    {
+      "sid": 112,
+      "product_id": "product_0112",
+      "product_name": "鮮食沙拉萵苣",
+      "product_spec": "1.5台斤±5%",
+      "product_slogan": "適地適作、健康茁壯",
+      "product_info_1": "細心栽種，溫室栽培品質穩定，堅持栽種有機農作，拒絕使用基因改造資材，絕不使用對生態有害的農藥，也不使用化學肥料，品質保證，安心又好吃。",
+      "product_info_2": "含豐富的營養滿滿美味又健康。不使用任何農藥、化學肥料與除草劑，僅用自製液態肥料搭配有機肥補充養份，友善環境也種出安心蔬菜。",
+      "product_brand_sid": 3,
+      "product_category_sid": 2,
+      "product_vegetable_sid": "1",
+      "product_processed_sid": "",
+      "product_price": 100,
+      "product_img": "vegetable_011.jpg,vegetable_012.jpg",
+      "bookmark_member_sid": [
+        146
+      ],
+      "comment_value": 3
+    },
+    {
+      "sid": 119,
+      "product_id": "product_0119",
+      "product_name": "鮮嫩芥蘭菜",
+      "product_spec": "半台斤 ±5%",
+      "product_slogan": "設施栽培、安全無毒",
+      "product_info_1": "細心栽種，溫室栽培品質穩定，堅持栽種有機農作，拒絕使用基因改造資材，絕不使用對生態有害的農藥，也不使用化學肥料，品質保證，安心又好吃。",
+      "product_info_2": "不使用任何農藥、化學肥料與除草劑，僅用自製液態肥料搭配有機肥補充養份，友善環境也種出安心蔬菜。",
+      "product_brand_sid": 3,
+      "product_category_sid": 2,
+      "product_vegetable_sid": "2",
+      "product_processed_sid": "",
+      "product_price": 50,
+      "product_img": "vegetable_025.jpg,vegetable_026.jpg",
+      "bookmark_member_sid": [
+        143
+      ],
+      "comment_value": 4
+    },
+    {
+      "sid": 47,
+      "product_id": "product_0047",
+      "product_name": "高麗菜泡菜",
+      "product_spec": "600g/罐",
+      "product_slogan": "自然發酵 手工製作",
+      "product_info_1": "以最簡單的原料進行醃漬發酵並絕不添加化學調味料，以嚴謹的態度把關您的安全，讓您享受最佳的爽脆口感與體驗。",
+      "product_info_2": "辣椒含有的辣椒素可以提升飽足感，最重要的是，泡菜中的乳酸菌對於腸道健康很有幫助，這麼多好處怎麼可以不吃呢？",
+      "product_brand_sid": 10,
+      "product_category_sid": 3,
+      "product_vegetable_sid": "",
+      "product_processed_sid": "2",
+      "product_price": 250,
+      "product_img": "pro2_003.jpg,pro2_004.jpg",
+      "bookmark_member_sid": [],
+      "comment_value": 4
+    },
+    {
+      "sid": 160,
+      "product_id": "product_0160",
+      "product_name": "高級設施金針菇",
+      "product_spec": "1.5台斤±5%",
+      "product_slogan": "設施栽培、安全無毒",
+      "product_info_1": "採取友善及減藥栽培法，提供更天然無毒的栽培環境，安心食用更放心！用心栽種，溫室栽培品質穩定，堅持栽種有機農作，拒絕使用基因改造資材",
+      "product_info_2": "不使用化學肥料，品質保證，安心又好吃。含豐富的營養滿滿美味又健康。",
+      "product_brand_sid": 1,
+      "product_category_sid": 2,
+      "product_vegetable_sid": "5",
+      "product_processed_sid": "",
+      "product_price": 150,
+      "product_img": "vegetable_107.jpg,vegetable_108.jpg",
+      "bookmark_member_sid": [],
+      "comment_value": 4
+    },
+    {
+      "sid": 164,
+      "product_id": "product_0164",
+      "product_name": "高級設施猴頭菇",
+      "product_spec": "2台斤/一組，每組三包",
+      "product_slogan": "無毒、無農藥的安心食材",
+      "product_info_1": "提供蔬菜更天然無毒的營養、堅持不使用除草劑，搭配微生物、營養劑與酵素，使用草生栽培、不使用除草劑、無農藥，留給生態與人們最安心的生活環境。",
+      "product_info_2": "不使用任何農藥、化學肥料與除草劑，僅用自製液態肥料搭配有機肥補充養份，友善環境也種出安心蔬菜。",
+      "product_brand_sid": 3,
+      "product_category_sid": 2,
+      "product_vegetable_sid": "5",
+      "product_processed_sid": "",
+      "product_price": 125,
+      "product_img": "vegetable_115.jpg,vegetable_116.jpg",
+      "bookmark_member_sid": [
+        143
+      ],
+      "comment_value": 3
+    }
+  ],
+  "perPage": 12,
+  "totalRows": 166,
+  "totalPages": 14,
+  "queryObj": {}
+}

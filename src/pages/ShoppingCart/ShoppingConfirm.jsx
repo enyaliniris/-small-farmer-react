@@ -3,7 +3,7 @@ import { useCart } from '../../components/utils/useCart'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import SendSuccess from '../../components/SendSuccess'
-import { MY_ADDRESS_DATA } from '../../components/api_config'
+import { MY_ADDRESS_DATA } from '../../api/api'
 import LinePayButton from './LinePayButton'
 
 function ShoppingConfirm() {

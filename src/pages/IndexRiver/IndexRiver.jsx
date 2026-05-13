@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
 import Icon from '../../icon/Icon'
-import axios from 'axios'
-import { COMMENT_DATA, HOST } from '../../components/api_config'
+import { getCommentData, HOST } from '../../api/api'
 
 import './../../css/indexriver.css'
 
@@ -12,8 +11,8 @@ function IndexRiver() {
   // const [cardhover, setCardhover] = useState(false)
 
   const getListData = async () => {
-    let response = await axios.get(COMMENT_DATA)
-    setData(response.data)
+    let response = await getCommentData({})
+    setData(response)
     //console.log(response.data)
   }
   useEffect(() => {

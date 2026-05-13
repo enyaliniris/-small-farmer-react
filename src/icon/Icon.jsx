@@ -16,6 +16,9 @@ import Bookmarked from './bookmarked.svg?react'
 import Star from './star.svg?react'
 import StarG from './star_grey.svg?react'
 import Bin from './bin.svg?react'
+import FbIcon from './icon-fb.svg?react'
+import IGIcon from './icon-ig.svg?react'
+import CartIcon from './icon-cart.svg?react'
 
 export default {
   Delete,
@@ -36,4 +39,7 @@ export default {
   Star,
   StarG,
   Bin,
+  FbIcon,
+  IGIcon,
+  CartIcon,
 }

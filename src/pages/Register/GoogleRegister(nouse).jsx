@@ -2,7 +2,7 @@
 // import { GoogleLogin, GoogleLogout } from 'react-google-login'
 // import { gapi } from 'gapi-script'
 // import { Navigate } from 'react-router-dom'
-// import { HOST } from '../../components/api_config'
+// import { HOST } from '../../api/api'
 // import avaUploader from '../../components/avaUploader'
 // import axios from 'axios'
 
