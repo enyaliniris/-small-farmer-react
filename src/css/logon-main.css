@@ -22,8 +22,8 @@
   border: 0;
   border-radius: 20px;
   background-color: transparent;
-  /* background-image: url(../../public/Textures/buttonYsub.png); */
-  background-image: url(../../public/Textures/buttonYsub.png);
+  /* background-image: url(/Textures/buttonYsub.png); */
+  background-image: url(/Textures/buttonYsub.png);
   width: 300px;
   height: 70px;
   font-size: 20px;
@@ -42,7 +42,7 @@
   border: 0;
   border-radius: 20px;
   background-color: transparent;
-  background-image: url(../../public/Textures/buttonYsub.png);
+  background-image: url(/Textures/buttonYsub.png);
   width: 100px;
   height: 70px;
   font-size: 20px;
@@ -163,7 +163,7 @@
 }
 
 .singn-in-hide-day {
-  background-image: url(../../public/Textures/buttonYsub.png);
+  background-image: url(/Textures/buttonYsub.png);
   border: 0px;
   border-radius: 20px;
   width: 200px;
@@ -185,7 +185,7 @@
 
 .sing-up-input:focus{
 /* background-image: url(../../texture/buttonYsub-hover.png); */
-background-image: url(../../public/Textures/buttonYsub-hover.png);
+background-image: url(/Textures/buttonYsub-hover.png);
 transition: 1.8s;
 opacity: 0.8;
 } */

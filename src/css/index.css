@@ -33,8 +33,8 @@
     margin-top: 50px;
     width: 1688px;
     height: 658px;
-    -webkit-mask-image: url('../../public/Textures/a-tit-slide-mask.svg');
-    mask-image: url('../../public/Textures/a-tit-slide-mask.svg');
+    -webkit-mask-image: url('/Textures/a-tit-slide-mask.svg');
+    mask-image: url('/Textures/a-tit-slide-mask.svg');
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     /* overflow: hidden; */
@@ -53,19 +53,19 @@
   }
 
   .a-slideshow .a-slide:nth-child(1) div.imgdiv {
-    background: url(../../public/Images/IndexSlide1.png);
+    background: url(/Images/IndexSlide1.png);
     background-position: center center;
     background-size: cover;
   }
 
   .a-slideshow .a-slide:nth-child(2) div.imgdiv {
-    background: url(../../public/Images/IndexSlide2.jpg);
+    background: url(/Images/IndexSlide2.jpg);
     background-position: center center;
     background-size: cover;
   }
 
   .a-slideshow .a-slide:nth-child(3) div.imgdiv {
-    background: url(../../public/Images/IndexSlide3.jpg);
+    background: url(/Images/IndexSlide3.jpg);
     background-position: center center;
     background-size: cover;
   }
@@ -86,7 +86,7 @@
     left: 0%;
     top: 640px;
     z-index: 101;
-    background-image: url(../../public/svg/indexRabbit.png);
+    background-image: url(/svg/indexRabbit.png);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -100,7 +100,7 @@
     right: 0%;
     top: 740px;
     z-index: 101;
-    background-image: url(../../public/svg/indexGrass.png);
+    background-image: url(/svg/indexGrass.png);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -123,7 +123,7 @@
     z-index: 100;
     left: 0;
     top: -1px;
-    background-image: url(../../public/Textures/session-after.svg);
+    background-image: url(/Textures/session-after.svg);
     background-size: cover;
   }
 
@@ -135,7 +135,7 @@
     z-index: 100;
     left: 0;
     bottom: -1px;
-    background-image: url(../../public/Textures/session-before.svg);
+    background-image: url(/Textures/session-before.svg);
     background-size: cover;
     background-size: 4000px 200px;
   }
@@ -155,7 +155,7 @@
     left: 0;
     top: 0;
     z-index: 1;
-    background: url(../../public/svg/top_about_slide01.jpg) repeat-y 0 0;
+    background: url(/svg/top_about_slide01.jpg) repeat-y 0 0;
     -moz-animation: loop 80s linear infinite;
     animation: loop 80s linear infinite;
   }
@@ -179,7 +179,7 @@
     right: 0;
     top: 0;
     z-index: 1;
-    background: url(../../public/svg/top_about_slide02.jpg) repeat-y 0 0;
+    background: url(/svg/top_about_slide02.jpg) repeat-y 0 0;
     -moz-animation: loop2 80s linear infinite;
     animation: loop2 80s linear infinite;
   }
@@ -221,7 +221,7 @@
     z-index: 100;
     left: 0;
     top: 0;
-    background-image: url(../../public/Textures/session-after.svg);
+    background-image: url(/Textures/session-after.svg);
     background-size: 4000px 200px;
   }
 
@@ -250,7 +250,7 @@
     width: 98px;
     height: 41px;
     border-radius: 20px;
-    background-image: url(../../public/Textures/buttonYlight.png);
+    background-image: url(/Textures/buttonYlight.png);
     line-height: 41px;
   }
 
@@ -258,7 +258,7 @@
     width: 98px;
     height: 41px;
     border-radius: 20px;
-    background-image: url(../../public/Textures/buttonYmain.png);
+    background-image: url(/Textures/buttonYmain.png);
     line-height: 41px;
   }
 
@@ -395,7 +395,7 @@
     z-index: 100;
     left: 0;
     top: 0;
-    background-image: url(../../public/Textures/session-before.svg);
+    background-image: url(/Textures/session-before.svg);
     background-size: cover;
   }
 
@@ -403,7 +403,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url(../../public/svg/indexProduct.png);
+    background-image: url(/svg/indexProduct.png);
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
     background-position: center;
@@ -462,7 +462,7 @@
     position: absolute;
     width: 203px;
     height: 229px;
-    background-image: url(../../public/Buttons/a-products-vegetable.png);
+    background-image: url(/Buttons/a-products-vegetable.png);
     background-size: cover;
     left: 15%;
     bottom: 28%;
@@ -479,7 +479,7 @@
     position: absolute;
     width: 203px;
     height: 229px;
-    background-image: url(../../public/Buttons/a-products-fruit.png);
+    background-image: url(/Buttons/a-products-fruit.png);
     background-size: cover;
     left: 46%;
     top: 35%;
@@ -496,7 +496,7 @@
     position: absolute;
     width: 203px;
     height: 229px;
-    background-image: url(../../public/Buttons/a-products-processed.png);
+    background-image: url(/Buttons/a-products-processed.png);
     background-size: cover;
     right: 17%;
     bottom: 32%;
@@ -513,7 +513,7 @@
     position: absolute;
     width: 203px;
     height: 229px;
-    background-image: url(../../public/Buttons/a-products-game.png);
+    background-image: url(/Buttons/a-products-game.png);
     background-size: cover;
     right: 25%;
     top: 27%;
@@ -564,8 +564,8 @@
     margin-top: 10px;
     width: 330px;
     height: 445px;
-    /* -webkit-mask-image: url('../../public/Textures/a-tit-slide-mask.svg');
-    mask-image: url('../../public/Textures/a-tit-slide-mask.svg');
+    /* -webkit-mask-image: url('/Textures/a-tit-slide-mask.svg');
+    mask-image: url('/Textures/a-tit-slide-mask.svg');
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat; */
     /* overflow: hidden; */
@@ -592,7 +592,7 @@
     left: -10%;
     top: 455px;
     z-index: 200;
-    background-image: url(../../public/svg/indexRabbit.png);
+    background-image: url(/svg/indexRabbit.png);
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -607,7 +607,7 @@
     right: 0%;
     top: 505px;
     z-index: 200;
-    background-image: url(../../public/svg/indexGrass.png);
+    background-image: url(/svg/indexGrass.png);
     background-size: cover;
     background-repeat: no-repeat;
     /* overflow: hidden; */
@@ -632,7 +632,7 @@
     z-index: 100;
     left: 0;
     top: 0;
-    background-image: url(../../public/Textures/session-after-mb.svg);
+    background-image: url(/Textures/session-after-mb.svg);
     background-size: cover;
   }
 
@@ -644,7 +644,7 @@
     z-index: 100;
     left: 0;
     bottom: 0;
-    background-image: url(../../public/Textures/session-before-mb.svg);
+    background-image: url(/Textures/session-before-mb.svg);
     background-size: cover;
   }
 
@@ -658,7 +658,7 @@
     left: 0;
     top: 0;
     z-index: 1;
-    background: url(../../public/svg/top_about_slide01_sp.jpg) repeat-x 0 0;
+    background: url(/svg/top_about_slide01_sp.jpg) repeat-x 0 0;
     -moz-animation: loop 50s linear infinite;
     animation: loop 50s linear infinite;
     background-size: 840px 243px;
@@ -686,7 +686,7 @@
     top: auto;
     bottom: 0;
     z-index: 1;
-    background: url(../../public/svg/top_about_slide02_sp.jpg) repeat-x 0 0;
+    background: url(/svg/top_about_slide02_sp.jpg) repeat-x 0 0;
     -moz-animation: loop2 50s linear infinite;
     animation: loop2 50s linear infinite;
     background-size: 840px 243px;
@@ -763,7 +763,7 @@
     width: 51px;
     height: 24px;
     border-radius: 20px;
-    background-image: url(../../public/Textures/buttonYlight.png);
+    background-image: url(/Textures/buttonYlight.png);
     line-height: 24px;
   }
 
@@ -771,7 +771,7 @@
     width: 51px;
     height: 24px;
     border-radius: 20px;
-    background-image: url(../../public/Textures/buttonYmain.png);
+    background-image: url(/Textures/buttonYmain.png);
     line-height: 24px;
   }
 
@@ -817,7 +817,7 @@
     width: 335px;
     height: 295px;
     /* border-radius: 100px; */
-    /* background-image: url(../../public/Buttons/slide-drag.png); */
+    /* background-image: url(/Buttons/slide-drag.png); */
     z-index: 50;
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
@@ -933,7 +933,7 @@
     z-index: 100;
     left: 0;
     /* bottom: 0; */
-    background-image: url(../../public/Textures/session-after-mb.png);
+    background-image: url(/Textures/session-after-mb.png);
     background-size: cover;
     background-position: center center;
     /* background-size: 4000px 200px; */

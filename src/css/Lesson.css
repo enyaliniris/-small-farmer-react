@@ -1,22 +1,22 @@
 /* 字體 */
 @font-face {
   font-family: GenSenRoundedTW-B;
-  src: url('../../public/Fonts/GenSenRounded-B.otf');
+  src: url('/Fonts/GenSenRounded-B.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-M;
-  src: url('../../public/Fonts/GenSenRounded-M.otf');
+  src: url('/Fonts/GenSenRounded-M.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-R;
-  src: url('../../public/Fonts/GenSenRounded-R.otf');
+  src: url('/Fonts/GenSenRounded-R.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-L;
-  src: url('../../public/Fonts/GenSenRounded-L.otf');
+  src: url('/Fonts/GenSenRounded-L.otf');
 }
 
 .font-R {

@@ -20,8 +20,8 @@
 
   .log-tab-bg {
     height: 40px;
-    /* background-image: url(../../public/Textures/SwitchButton.png); */
-    background-image: url(../../public/Textures/SwitchButton.png);
+    /* background-image: url(/Textures/SwitchButton.png); */
+    background-image: url(/Textures/SwitchButton.png);
     background-size: cover;
     border: 0px;
     border-radius: 20px 20px 0px 0px;
@@ -35,7 +35,7 @@
   .log-tab-bg > .active {
     height: 50px;
     background-color: transparent !important;
-    background-image: url(../../public/Textures/buttonYsub.png) !important;
+    background-image: url(/Textures/buttonYsub.png) !important;
     background-size: cover;
     border: 0px !important;
     border-radius: 20px 20px 0px 0px !important;

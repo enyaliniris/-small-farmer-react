@@ -32,22 +32,22 @@ a {
 /* 字體 */
 @font-face {
   font-family: GenSenRoundedTW-B;
-  src: url('../../public/Fonts/GenSenRounded-B.otf');
+  src: url('/Fonts/GenSenRounded-B.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-M;
-  src: url('../../public/Fonts/GenSenRounded-M.otf');
+  src: url('/Fonts/GenSenRounded-M.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-R;
-  src: url('../../public/Fonts/GenSenRounded-R.otf');
+  src: url('/Fonts/GenSenRounded-R.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-L;
-  src: url('../../public/Fonts/GenSenRounded-L.otf');
+  src: url('/Fonts/GenSenRounded-L.otf');
 }
 
 /* 字體粗細 */
@@ -161,7 +161,7 @@ a {
 }
 
 .icon-member {
-  background: url(../../public/Icons/icon-member.svg);
+  background: url(/Icons/icon-member.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 14px;
@@ -169,7 +169,7 @@ a {
 }
 
 .icon-member:hover {
-  background: url(../../public/Icons/icon-member-hover.svg);
+  background: url(/Icons/icon-member-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -177,7 +177,7 @@ a {
 }
 
 .icon-heart {
-  background: url(../../public/Icons/icon-heart.svg);
+  background: url(/Icons/icon-heart.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 14px;
@@ -186,7 +186,7 @@ a {
 }
 
 .icon-heart:hover {
-  background: url(../../public/Icons/icon-heart-hover.svg);
+  background: url(/Icons/icon-heart-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -194,7 +194,7 @@ a {
 }
 
 .icon-logout {
-  background: url(../../public/Icons/icon-logout.svg);
+  background: url(/Icons/icon-logout.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 15px;
@@ -202,7 +202,7 @@ a {
 }
 
 .icon-logout:hover {
-  background: url(../../public/Icons/icon-logout-hover.svg);
+  background: url(/Icons/icon-logout-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -233,7 +233,7 @@ a {
     position: relative;
     width: 40px;
     height: 40px;
-    /* background-image: url(../../public/Textures/buttonYmain.png); */
+    /* background-image: url(/Textures/buttonYmain.png); */
     border-radius: 50%;
     border: 1px solid transparent;
     padding-left: 10px;
@@ -257,7 +257,7 @@ a {
 
   .icons {
     background-size: cover;
-    background: url(../../public/Icons/Icon-Cart.svg);
+    background: url(/Icons/Icon-Cart.svg);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -402,7 +402,7 @@ a {
     position: relative;
     width: 40px;
     height: 40px;
-    /* background-image: url(../../public/Textures/buttonYmain.png); */
+    /* background-image: url(/Textures/buttonYmain.png); */
     border-radius: 50%;
     border: 1px solid transparent;
     padding-left: 10px;
@@ -426,7 +426,7 @@ a {
 
   .icons {
     background-size: cover;
-    background: url(../../public/Icons/Icon-Cart.svg);
+    background: url(/Icons/Icon-Cart.svg);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -539,7 +539,7 @@ a {
 /* === Navbars === */
 
 .navbar-toggler-icon {
-  background-image: url(../../public/Icons/expand.svg);
+  background-image: url(/Icons/expand.svg);
 }
 
 .navbar-title>ul>li {
@@ -683,7 +683,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonGSLine.svg);
+    background: url(/Buttons/ButtonGSLine.svg);
     background-size: auto;
     z-index: 10;
     transition: 0.2s;
@@ -697,7 +697,7 @@ print {
     position: absolute;
     left: 8px;
     top: 8px;
-    background: url(../../public/Buttons/ButtonGS.svg);
+    background: url(/Buttons/ButtonGS.svg);
     z-index: -1;
     transition: 0.2s;
   }
@@ -750,7 +750,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonGLine.svg);
+    background: url(/Buttons/ButtonGLine.svg);
     background-size: auto;
     z-index: 10;
     transition: 0.2s;
@@ -764,7 +764,7 @@ print {
     position: absolute;
     left: 12px;
     top: 12px;
-    background: url(../../public/Buttons/ButtonG.svg);
+    background: url(/Buttons/ButtonG.svg);
     z-index: -1;
     transition: 0.2s;
   }
@@ -817,7 +817,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonYSLine.svg);
+    background: url(/Buttons/ButtonYSLine.svg);
     background-size: auto;
     z-index: 10;
     transition: 0.2s;
@@ -831,7 +831,7 @@ print {
     position: absolute;
     left: 12px;
     top: 12px;
-    background: url(../../public/Buttons/ButtonYS.svg);
+    background: url(/Buttons/ButtonYS.svg);
     z-index: -1;
     transition: 0.2s;
   }
@@ -885,7 +885,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonYLine.svg);
+    background: url(/Buttons/ButtonYLine.svg);
     background-size: auto;
     z-index: 10;
     transition: 0.2s;
@@ -899,7 +899,7 @@ print {
     position: absolute;
     left: 12px;
     top: 12px;
-    background: url(../../public/Buttons/ButtonY.svg);
+    background: url(/Buttons/ButtonY.svg);
     z-index: -1;
     transition: 0.2s;
   }
@@ -953,7 +953,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonYLLine.svg);
+    background: url(/Buttons/ButtonYLLine.svg);
     background-size: auto;
     z-index: 10;
     transition: 0.2s;
@@ -967,7 +967,7 @@ print {
     position: absolute;
     left: 12px;
     top: 12px;
-    background: url(../../public/Buttons/ButtonYL.svg);
+    background: url(/Buttons/ButtonYL.svg);
     z-index: -1;
     transition: 0.2s;
   }
@@ -1025,12 +1025,12 @@ print {
     width: 253px;
     height: 60px;
     background-size: auto;
-    background: url(../../public/Buttons/ButtonCart.png);
+    background: url(/Buttons/ButtonCart.png);
     transition: 0.2s;
   }
 
   .buttoncart:hover {
-    background: url(../../public/Buttons/ButtonCartHover.png);
+    background: url(/Buttons/ButtonCartHover.png);
     transition: 0.2s;
     opacity: 1;
   }
@@ -1055,7 +1055,7 @@ print {
     z-index: 100;
     background-size: auto;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonLesson.png);
+    background: url(/Buttons/ButtonLesson.png);
   }
 
   .buttonLesson:active {
@@ -1077,7 +1077,7 @@ print {
     height: 60px;
     z-index: 100;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonR.svg);
+    background: url(/Buttons/ButtonR.svg);
   }
 
   .buttonR:active {
@@ -1099,7 +1099,7 @@ print {
     height: 60px;
     z-index: 100;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonS.svg);
+    background: url(/Buttons/ButtonS.svg);
   }
 
   .buttonS:active {
@@ -1121,7 +1121,7 @@ print {
     height: 60px;
     z-index: 100;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonP.svg);
+    background: url(/Buttons/ButtonP.svg);
   }
 
   .buttonP:active {
@@ -1156,7 +1156,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonGSLine.svg);
+    background: url(/Buttons/ButtonGSLine.svg);
     background-size: auto;
     z-index: 10;
   }
@@ -1169,7 +1169,7 @@ print {
     position: absolute;
     left: 0px;
     top: 0px;
-    background: url(../../public/Buttons/ButtonGS.svg);
+    background: url(/Buttons/ButtonGS.svg);
     z-index: -1;
   }
 
@@ -1203,7 +1203,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonGLine.svg);
+    background: url(/Buttons/ButtonGLine.svg);
     background-size: auto;
     z-index: 10;
   }
@@ -1216,7 +1216,7 @@ print {
     position: absolute;
     left: 0px;
     top: 0px;
-    background: url(../../public/Buttons/ButtonG.svg);
+    background: url(/Buttons/ButtonG.svg);
     z-index: -1;
   }
 
@@ -1249,7 +1249,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonYSLine.svg);
+    background: url(/Buttons/ButtonYSLine.svg);
     background-size: auto;
     z-index: 10;
   }
@@ -1262,7 +1262,7 @@ print {
     position: absolute;
     left: 0px;
     top: 0px;
-    background: url(../../public/Buttons/ButtonYS.svg);
+    background: url(/Buttons/ButtonYS.svg);
     z-index: -1;
   }
 
@@ -1294,7 +1294,7 @@ print {
     width: 144px;
     height: 43px;
     position: absolute;
-    background: url(../../public/Buttons/ButtonMobileLine.svg);
+    background: url(/Buttons/ButtonMobileLine.svg);
     background-size: auto;
     z-index: 10;
   }
@@ -1307,7 +1307,7 @@ print {
     position: absolute;
     left: 0px;
     top: 0px;
-    background: url(../../public/Buttons/ButtonMobile.svg);
+    background: url(/Buttons/ButtonMobile.svg);
     z-index: -1;
   }
 
@@ -1341,7 +1341,7 @@ print {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../../public/Buttons/ButtonYLLine.svg);
+    background: url(/Buttons/ButtonYLLine.svg);
     background-size: auto;
     z-index: 10;
   }
@@ -1354,7 +1354,7 @@ print {
     position: absolute;
     left: 0px;
     top: 0px;
-    background: url(../../public/Buttons/ButtonYL.svg);
+    background: url(/Buttons/ButtonYL.svg);
     z-index: -1;
   }
 
@@ -1398,7 +1398,7 @@ print {
     width: 253px;
     height: 60px;
     background-size: auto;
-    background: url(../../public/Buttons/ButtonCart.png);
+    background: url(/Buttons/ButtonCart.png);
     transition: 0.2s;
   }
 
@@ -1408,7 +1408,7 @@ print {
   }
 
   .buttoncart:active {
-    background: url(../../public/Buttons/ButtonCartHover.png);
+    background: url(/Buttons/ButtonCartHover.png);
     transform: translate3d(0px, 6px, 0);
     transition: 0.2s;
     opacity: 1;
@@ -1428,7 +1428,7 @@ print {
     height: 60px;
     z-index: 100;
     background-size: auto;
-    background: url(../../public/Buttons/ButtonLesson.png);
+    background: url(/Buttons/ButtonLesson.png);
     padding-top: 12px;
   }
 
@@ -1445,7 +1445,7 @@ print {
     height: 60px;
     z-index: 100;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonR.svg);
+    background: url(/Buttons/ButtonR.svg);
   }
 
   .buttonR:active {
@@ -1467,7 +1467,7 @@ print {
     height: 60px;
     z-index: 100;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonS.svg);
+    background: url(/Buttons/ButtonS.svg);
     padding-top: 12px;
   }
 
@@ -1490,7 +1490,7 @@ print {
     height: 60px;
     z-index: 100;
     transition: 0.2s;
-    background: url(../../public/Buttons/ButtonP.svg);
+    background: url(/Buttons/ButtonP.svg);
     padding-top: 12px;
   }
 
@@ -1519,7 +1519,7 @@ print {
     left: 0;
     top: 0;
     margin-top: -70px;
-    background-image: url(../../public/Textures/session-before-white.svg);
+    background-image: url(/Textures/session-before-white.svg);
     background-size: cover;
   }
 
@@ -1640,7 +1640,7 @@ print {
   position: absolute;
   width: 166px;
   height: 123px;
-  background-image: url(../../public/svg/windmill.png);
+  background-image: url(/svg/windmill.png);
   background-size: cover;
   top: 55px;
 }
@@ -1649,7 +1649,7 @@ print {
   position: absolute;
   width: 135px;
   height: 123px;
-  background-image: url(../../public/svg/windmillFan.png);
+  background-image: url(/svg/windmillFan.png);
   background-size: cover;
   left: 15px;
   -moz-animation: windmillloop 15s linear infinite;
@@ -1660,7 +1660,7 @@ print {
   position: absolute;
   width: 135px;
   height: 123px;
-  background-image: url(../../public/svg/windmillFan.png);
+  background-image: url(/svg/windmillFan.png);
   background-size: cover;
   left: 15px;
   -moz-animation: windmillloop2 15s linear infinite;

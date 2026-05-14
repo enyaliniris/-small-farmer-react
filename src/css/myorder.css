@@ -26,7 +26,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: url(../../public/Buttons/back-01.png);
+    background: url(/Buttons/back-01.png);
     background-size: contain;
     background-repeat: no-repeat;
     box-shadow: 1px 1px 3px 1px #D5BAA6;
@@ -39,7 +39,7 @@
   .M-seemore{
     width: 33px;
     height: 8px;
-    background: url(../../public/Buttons/seemore.png);
+    background: url(/Buttons/seemore.png);
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -77,7 +77,7 @@
   .M-right-card {
     height: fit-content;
     padding: 40px;
-    background-image: url(../../public/Textures/member-card-noshadow.png);
+    background-image: url(/Textures/member-card-noshadow.png);
     background-size: cover;
     border-radius: 20px;
     box-shadow: 1px 1px 3px 1px #D5BAA6;
@@ -137,7 +137,7 @@
     left: 13px;
     width:78px ;
     height: 30px;
-    background: url("../../public/Textures/buttonYlight.png");
+    background: url("/Textures/buttonYlight.png");
     padding: 6px 12px;
     border-radius: 30px;
     cursor: pointer;
@@ -164,7 +164,7 @@
     .M-input {
       width: 160px;
       height: 40px;
-      background-image: url(../../public/Textures/buttonBrown.png);
+      background-image: url(/Textures/buttonBrown.png);
       position: relative;
       caret-color: rgba(168, 134, 134, 1);
       border-radius: 20px;
@@ -180,7 +180,7 @@
     }
   
     .M-input input[readonly]:focus {
-      background-image: url(../../public/Textures/buttonBrown.png);
+      background-image: url(/Textures/buttonBrown.png);
     }
 
     .M-inputEditable input{
@@ -188,18 +188,18 @@
       height: 40px;
       border-radius: 20px;
       color: rgb(141, 94, 94);
-      background-image: url(../../public/Textures/buttonYmain.png);
+      background-image: url(/Textures/buttonYmain.png);
       text-align: center;
     }
     .M-inputEditable input:focus{
-      background-image: url(../../public/Textures/buttonGmain.png);
+      background-image: url(/Textures/buttonGmain.png);
     }
 
   
     .M-input-2 {
           width: 300px;
           height: 40px;
-          background-image: url(../../public/Textures/buttonBrown.png);
+          background-image: url(/Textures/buttonBrown.png);
           position: relative;
           padding-top: 10px;
           padding-bottom: 10px;
@@ -242,7 +242,7 @@
   }
   
   .M-member-btn {
-    background-image: url(../../public/Textures/buttonYmain.png);
+    background-image: url(/Textures/buttonYmain.png);
     width: 95%;
     height: 110px;
     border: 1px solid transparent;
@@ -256,7 +256,7 @@
   
   }
   .M-member-btn2 {
-    background-image: url(../../public/Buttons/m-record-btn.png);
+    background-image: url(/Buttons/m-record-btn.png);
     background-size: cover;
     width: 90%;
     height: 130px;
@@ -291,7 +291,7 @@
   .M-class-week {
     width: 100%;
     height: 300px;
-    background-image: url(../../public/Textures/wallpaper.png);
+    background-image: url(/Textures/wallpaper.png);
     border: 1px solid transparent;
     border-radius: 20px;
     margin-right: 25px;
@@ -310,14 +310,14 @@
   .M-EditC{
     width: 96px;
     height: 27px;
-    background: url(../../public/Buttons/save.svg);
+    background: url(/Buttons/save.svg);
   }
   .M-Editbutton {
     width: 35px;
     height: 28px;
     background-color: transparent;
     border: 0px;
-    background-image: url(../../public/Buttons/edit-Btn.png);
+    background-image: url(/Buttons/edit-Btn.png);
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -337,7 +337,7 @@
   .M-band-circle{
     width: 150px;
     height: 150px;
-    background-image: url(../../public/Textures/buttonYsub.png);
+    background-image: url(/Textures/buttonYsub.png);
     border-radius: 50%;
   }
   .M-band-square{
@@ -363,7 +363,7 @@
     font-weight: bolder;
     font-family: GenSenRoundedTW-M;
     letter-spacing: 0.2em;
-    background-image: url(../../public/Textures/buttonYsub.png);
+    background-image: url(/Textures/buttonYsub.png);
   }
   
   .M-card-label>li{
@@ -375,7 +375,7 @@
     height: 30px;
     padding-top: 6px;
     padding-left: 12px;
-    background-image: url(../../public/Buttons/m-card-label.png);
+    background-image: url(/Buttons/m-card-label.png);
     background-size: contain;
     background-repeat: no-repeat;
     margin-top: 15px;
@@ -390,7 +390,7 @@
     list-style-type: none;
     width: 80px;
     height: 30px;
-    background-image: url(../../public/Buttons/m-card-label-hover.png);
+    background-image: url(/Buttons/m-card-label-hover.png);
     margin-top: 15px;
   }
 
@@ -409,7 +409,7 @@
   .M-Icon-band{
     width: 34px;
     height: 38px;
-    background: url(../../public/Icons/m-band.png);
+    background: url(/Icons/m-band.png);
     background-repeat: no-repeat;
   }
   .M-Icon-reput{
@@ -481,7 +481,7 @@
   }
   .C-Order-t::before {
     content: '我的訂單(' attr(data-count) ')';
-    background: url('../../public/Textures/cart-cate-p.svg');
+    background: url('/Textures/cart-cate-p.svg');
     width: 229px;
     height: 65px;
     z-index: -1;
@@ -501,7 +501,7 @@
   }
   .C-Order-c::before {
     content: '我的優惠卷(' attr(data-count) ')';
-    background: url('../../public/Textures/cart-cate-p.svg');
+    background: url('/Textures/cart-cate-p.svg');
     width: 229px;
     height: 65px;
     z-index: -1;
@@ -547,7 +547,7 @@
     visibility: hidden;
     opacity: 0;
     width: 140px;
-    background-image: url(../../public/Textures/wallpaper.png);
+    background-image: url(/Textures/wallpaper.png);
     color: rgb(116, 84, 84);
 
     text-align: center;

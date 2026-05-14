@@ -15,7 +15,7 @@
   position: relative;
   overflow: hidden;
   /* border: 1px solid red; */
-  background-image: url(./../../public/Images/commentFarm.png);
+  background-image: url(.//Images/commentFarm.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position-y: bottom;
@@ -118,7 +118,7 @@ p:nth-child(5) {
 .IR-commnet-link {
   width: 150px;
   height: 150px;
-  background-image: url(./../../public/Images/commentLink.png);
+  background-image: url(.//Images/commentLink.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -189,7 +189,7 @@ p:nth-child(5) {
   position: absolute;
   width: 230px;
   height: 200px;
-  background-image: url(./../../public/Images/windmill.png);
+  background-image: url(.//Images/windmill.png);
   background-size: cover;
   bottom: 0;
   /* border: 1px solid blue; */
@@ -199,7 +199,7 @@ p:nth-child(5) {
   position: absolute;
   width: 230px;
   height: 200px;
-  background-image: url(./../../public/Images/windmillFan.png);
+  background-image: url(.//Images/windmillFan.png);
   background-size: cover;
   left: 20px;
   top: 55px;
@@ -211,7 +211,7 @@ p:nth-child(5) {
   position: absolute;
   width: 230px;
   height: 200px;
-  background-image: url(./../../public/Images/windmillFan.png);
+  background-image: url(.//Images/windmillFan.png);
   background-size: cover;
   left: 20px;
   top: 55px;

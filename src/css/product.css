@@ -1,22 +1,22 @@
 /* 字體 */
 @font-face {
   font-family: GenSenRoundedTW-B;
-  src: url('./../../public/Fonts/GenSenRounded-B.otf');
+  src: url('.//Fonts/GenSenRounded-B.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-M;
-  src: url('./../../public/Fonts/GenSenRounded-M.otf');
+  src: url('.//Fonts/GenSenRounded-M.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-R;
-  src: url('./../../public/Fonts/GenSenRounded-R.otf');
+  src: url('.//Fonts/GenSenRounded-R.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-L;
-  src: url('./../../public/Fonts/GenSenRounded-L.otf');
+  src: url('.//Fonts/GenSenRounded-L.otf');
 }
 
 .font-B {
@@ -91,7 +91,7 @@ a {
   color: #ea4545;
   text-align: center;
   background-color: #f5c951;
-  /* background-image: url('../../public/Textures/wallpaper.png');
+  /* background-image: url('/Textures/wallpaper.png');
   background-size: cover; */
   border-radius: 30px;
   font-size: 20px;
@@ -151,7 +151,7 @@ a {
 }
 
 .P-product-btn button {
-  background-image: url('../../public/Textures/wallpaper.png');
+  background-image: url('/Textures/wallpaper.png');
   background-size: cover;
   color: #a88686;
   font-size: 16px;
@@ -164,20 +164,20 @@ a {
 }
 
 .P-product-btn button:first-child {
-  background-image: url('../../public/Textures/buttonYsub.png');
+  background-image: url('/Textures/buttonYsub.png');
   background-size: cover;
   width: 120px;
   color: #a35d73;
 }
 
 .P-product-btn button:hover {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
   color: #2c5c58;
 }
 
 .P-product-btn button.active {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
   color: #2c5c58;
 }
@@ -207,7 +207,7 @@ a {
 .P-search input {
   border: none;
   border-radius: 0.375rem 0 0 0.375rem;
-  background-image: url('../../public/Textures/wallpaper.png');
+  background-image: url('/Textures/wallpaper.png');
   background-size: cover;
   width: 80%;
   height: 50px;
@@ -228,7 +228,7 @@ a {
   background-color: #9ad68354;
 }
 .P-search button {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
   color: #fff;
   font-size: 20px;
@@ -242,7 +242,7 @@ a {
   width: 100%;
   height: fit-content;
   background-color: #faf0cf;
-  background-image: url('../../public/Textures/wallpaperLight.png');
+  background-image: url('/Textures/wallpaperLight.png');
   background-size: cover;
   /* background-origin: */
   border-radius: 0.375rem;
@@ -299,12 +299,12 @@ a {
   display: inline-block;
   padding-left: 28px;
   line-height: 20px;
-  background: url('./../../public/Icons/checkbox.svg') no-repeat left top;
+  background: url('.//Icons/checkbox.svg') no-repeat left top;
   user-select: none;
 }
 
 .P-category input[type='checkbox']:checked + span {
-  background: url('./../../public/Icons/checkboxChecked.svg') no-repeat left top;
+  background: url('.//Icons/checkboxChecked.svg') no-repeat left top;
 }
 
 .P-rabbit {
@@ -421,7 +421,7 @@ a {
 }
 
 .P-product-card-price {
-  background-image: url('../../public/Textures/wallpaperLight.png');
+  background-image: url('/Textures/wallpaperLight.png');
   background-size: cover;
   padding: 10px 10px;
   color: #886e6e;
@@ -491,7 +491,7 @@ a {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: url('../../public/Textures/wallpaper.png');
+  background-image: url('/Textures/wallpaper.png');
   background-size: cover;
   line-height: 30px;
   font-size: 16px;
@@ -500,12 +500,12 @@ a {
 }
 
 .P-page li:hover {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
 }
 
 .P-page li.active {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
 }
 

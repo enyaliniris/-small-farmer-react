@@ -7,7 +7,7 @@
 .W-week {
   width: 100%;
   height: 300px;
-  background-image: url(../../public/Textures/wallpaper.png);
+  background-image: url(/Textures/wallpaper.png);
   border: 1px solid transparent;
   border-radius: 20px;
   margin: 15px;
@@ -29,18 +29,18 @@
   align-items: center;
   border-radius: 15px;
   height: 80px;
-  background: url('../../public/Textures/buttonYmain.png');
+  background: url('/Textures/buttonYmain.png');
 }
 
 .W-Pr {
   width: 23px;
   height: 23px;
-  background: url(../../public/Buttons/PreWeek.svg);
+  background: url(/Buttons/PreWeek.svg);
 }
 .W-Next {
   width: 23px;
   height: 23px;
-  background: url(../../public/Buttons/PreWeek.svg);
+  background: url(/Buttons/PreWeek.svg);
   transform: rotate(180deg);
 }
 

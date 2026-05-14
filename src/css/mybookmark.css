@@ -22,12 +22,12 @@
 }
 
 .MB-tag div:nth-child(2) {
-  background-image: url('../../public/Textures/buttonYsub.png');
+  background-image: url('/Textures/buttonYsub.png');
   background-size: cover;
   color: #927272;
 }
 .MB-tag div:last-child {
-  background-image: url('../../public/Textures/ButtonGdark.png');
+  background-image: url('/Textures/ButtonGdark.png');
   background-size: cover;
   color: #2c5c58;
 }
@@ -82,7 +82,7 @@
 }
 
 .MB-card-bottom {
-  background-image: url('../../public/Textures/wallpaperLight.png');
+  background-image: url('/Textures/wallpaperLight.png');
   background-size: cover;
   padding: 0;
   color: #a88686;
@@ -153,12 +153,12 @@
     transform: translateY(-5px);
   }
   .MB-tag div:first-child {
-    background-image: url('../../public/Textures/buttonYsub.png');
+    background-image: url('/Textures/buttonYsub.png');
     background-size: cover;
     color: #927272;
   }
   .MB-tag div:last-child {
-    background-image: url('../../public/Textures/ButtonGdark.png');
+    background-image: url('/Textures/ButtonGdark.png');
     background-size: cover;
     color: #2c5c58;
   }
@@ -266,7 +266,7 @@ th {
 
 .MB-type-btn button {
   /* border: 1px solid red; */
-  background: url(./../../public/Textures/wallpaperLight.png);
+  background: url(.//Textures/wallpaperLight.png);
   background-size: cover;
   width: 80px;
   border-radius: 5px;
@@ -291,7 +291,7 @@ th {
 }
 
 .MB-type-btn button.pop {
-  background: url(./../../public/Textures/wallpaper.png);
+  background: url(.//Textures/wallpaper.png);
   background-size: cover;
 }
 .MB-type-btn button:active {
@@ -312,7 +312,7 @@ th {
 }
 
 .MB-table-btn {
-  background: url(./../../public/Textures/wallpaperLight.png);
+  background: url(.//Textures/wallpaperLight.png);
   background-size: cover;
   width: 40px;
   border-radius: 5px;
@@ -331,7 +331,7 @@ th {
 }
 
 .MB-table-editbtn {
-  background: url(./../../public/Textures/wallpaperLight.png);
+  background: url(.//Textures/wallpaperLight.png);
   background-size: cover;
   margin: auto;
   width: 50px;

@@ -72,7 +72,7 @@
    padding: 8px;
    border: 1px solid rgb(226, 201, 201);
    border-radius: 20px;
-   background-image: url(../../public/Buttons/m-record-btn.png);
+   background-image: url(/Buttons/m-record-btn.png);
    opacity: 1;
    bottom: 0px;
    cursor: pointer;

@@ -2,22 +2,22 @@
 /* 字體 */
 @font-face {
   font-family: GenSenRoundedTW-B;
-  src: url('../../public/Fonts/GenSenRounded-B.otf');
+  src: url('/Fonts/GenSenRounded-B.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-M;
-  src: url('../../public/Fonts/GenSenRounded-M.otf');
+  src: url('/Fonts/GenSenRounded-M.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-R;
-  src: url('../../public/Fonts/GenSenRounded-R.otf');
+  src: url('/Fonts/GenSenRounded-R.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-L;
-  src: url('../../public/Fonts/GenSenRounded-L.otf');
+  src: url('/Fonts/GenSenRounded-L.otf');
 }
 
 /* 字體粗細 */
@@ -288,7 +288,7 @@ textarea:focus {
 
 .C-Cart-p::before {
   content: '小農商品(' attr(data-count) ')';
-  background: url('../../public/Textures/cart-cate-p.svg');
+  background: url('/Textures/cart-cate-p.svg');
   width: 229px;
   height: 65px;
   z-index: -1;
@@ -309,7 +309,7 @@ textarea:focus {
 
 .C-Cart-l::before {
   content: '小農課程(' attr(data-count) ')';
-  background: url('../../public/Textures/cart-cate-l.svg');
+  background: url('/Textures/cart-cate-l.svg');
   width: 229px;
   height: 65px;
   z-index: -1;
@@ -342,7 +342,7 @@ textarea:focus {
 }
 
 .less {
-  background: url('../../public/Icons/less.svg');
+  background: url('/Icons/less.svg');
   border: 0;
   width: 30px;
   height: 30px;
@@ -350,7 +350,7 @@ textarea:focus {
 }
 
 .more {
-  background: url('../../public/Icons/more.svg');
+  background: url('/Icons/more.svg');
   border: 0;
   width: 32px;
   height: 30px;
@@ -399,7 +399,7 @@ textarea:focus {
   width: 215px;
   height: 60px;
   border-radius: 13px;
-  background: url('../../public/Buttons/buttonYmain.png');
+  background: url('/Buttons/buttonYmain.png');
   display: flex;
   justify-content: center;
   align-items: center;
@@ -423,7 +423,7 @@ textarea:focus {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: url('../../public/Buttons/circle.svg');
+  background: url('/Buttons/circle.svg');
   display: flex;
   justify-content: center;
   align-items: center;
@@ -435,7 +435,7 @@ textarea:focus {
 .C-circle:active {
   width: 65px;
   height: 65px;
-  background: url('../../public/Buttons/circle-a.svg');
+  background: url('/Buttons/circle-a.svg');
   transition: ease;
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: rgb(116, 84, 84);
@@ -444,14 +444,14 @@ textarea:focus {
 .C-active {
   width: 65px;
   height: 65px;
-  background: url('../../public/Buttons/circle-a.svg');
+  background: url('/Buttons/circle-a.svg');
   transition: ease;
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: rgb(116, 84, 84);
 }
 
 .C-dash {
-  background: url('../../public/Buttons/dash.svg');
+  background: url('/Buttons/dash.svg');
   width: 40.5px;
   height: 1.5px;
 }
@@ -530,7 +530,7 @@ textarea:focus {
   width: 30px;
   height: 20px;
   padding: 0;
-  background: url('../../public/Buttons/collapse.svg');
+  background: url('/Buttons/collapse.svg');
   background-repeat: no-repeat;
 }
 
@@ -590,7 +590,7 @@ textarea:focus {
   width: 120px;
   /* width: clamp(100px, 85%, 120px); */
   height: 10px;
-  background: url('../../public/Buttons/visadot.svg');
+  background: url('/Buttons/visadot.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -636,13 +636,13 @@ textarea:focus {
 .C-agreeCheck {
   width: 23px;
   height: 24px;
-  background: url(../../public/Icons/checkbox.svg);
+  background: url(/Icons/checkbox.svg);
   background-repeat: no-repeat;
 }
 .C-agreeCheck:checked {
   width: 23px;
   height: 24px;
-  background: url(../../public/Icons/checkboxChecked.svg);
+  background: url(/Icons/checkboxChecked.svg);
   background-repeat: no-repeat;
 }
 
@@ -743,7 +743,7 @@ textarea:focus {
 
   .C-visadot {
     width: 100px;
-    background: url('../../public/Buttons/visadot.svg');
+    background: url('/Buttons/visadot.svg');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
@@ -873,7 +873,7 @@ textarea:focus {
   width: 120px;
   height: 40px;
   border-radius: 13px;
-  background: url('../../public/Buttons/wallpaper.png');
+  background: url('/Buttons/wallpaper.png');
   background-size: contain;
   display: flex;
   justify-content: center;
@@ -891,7 +891,7 @@ textarea:focus {
   width: 80px;
   height: 40px;
   border-radius: 13px;
-  background: url('../../public/Buttons/wallpaper.png');
+  background: url('/Buttons/wallpaper.png');
   filter: grayscale(80%);
   background-size: contain;
   display: flex;
@@ -963,7 +963,7 @@ textarea:focus {
   width: 110px;
   height: 40px;
   border-radius: 13px;
-  background: url('../../public/Buttons/wallpaper.png');
+  background: url('/Buttons/wallpaper.png');
   background-size: contain;
   display: flex;
   justify-content: center;
@@ -977,7 +977,7 @@ textarea:focus {
   width: 80px;
   height: 40px;
   border-radius: 13px;
-  background: url('../../public/Buttons/wallpaper.png');
+  background: url('/Buttons/wallpaper.png');
   filter: grayscale(80%);
   background-size: contain;
   display: flex;
@@ -1072,7 +1072,7 @@ textarea:focus {
   width: 80px;
   height: 30px;
   border-radius: 20px;
-  background: url(../../public/Buttons/m-record-btn.png);
+  background: url(/Buttons/m-record-btn.png);
   color: rgb(219, 159, 55);
 }
 
@@ -1083,7 +1083,7 @@ textarea:focus {
   width: 80px;
   height: 30px;
   border-radius: 20px;
-  background: url(../../public/Buttons/m-record-btn-a.png);
+  background: url(/Buttons/m-record-btn-a.png);
   color: rgb(150, 62, 33);
 }
 

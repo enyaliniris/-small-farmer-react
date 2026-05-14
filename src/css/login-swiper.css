@@ -10,7 +10,7 @@ body
 }
 
 .memeber-body {
-  background-image: url(../../public/Images/login-bg.png);
+  background-image: url(/Images/login-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -47,7 +47,7 @@ body
 .log-join-card {
   text-align: center;
   font-size: 18px;
-  background-image: url(../../public/Textures/wallpaperLight.png);
+  background-image: url(/Textures/wallpaperLight.png);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -61,7 +61,7 @@ body
   height: auto;
   text-align: center;
   font-size: 18px;
-  background-image: url(../../public/Textures/wallpaperLight.png);
+  background-image: url(/Textures/wallpaperLight.png);
   background-size: cover;
   display: flex;
   justify-content: center;

@@ -1,22 +1,22 @@
 /* 字體 */
 @font-face {
   font-family: GenSenRoundedTW-B;
-  src: url('./../../public/Fonts/GenSenRounded-B.otf');
+  src: url('.//Fonts/GenSenRounded-B.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-M;
-  src: url('./../../public/Fonts/GenSenRounded-M.otf');
+  src: url('.//Fonts/GenSenRounded-M.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-R;
-  src: url('./../../public/Fonts/GenSenRounded-R.otf');
+  src: url('.//Fonts/GenSenRounded-R.otf');
 }
 
 @font-face {
   font-family: GenSenRoundedTW-L;
-  src: url('./../../public/Fonts/GenSenRounded-L.otf');
+  src: url('.//Fonts/GenSenRounded-L.otf');
 }
 
 .font-B {
@@ -95,7 +95,7 @@
   height: 50px;
 }
 .P-counter p {
-  background-image: url('../../public/Textures/wallpaperLight.png');
+  background-image: url('/Textures/wallpaperLight.png');
   background-size: cover;
   width: 50%;
   height: 50px;
@@ -107,7 +107,7 @@
 }
 .P-counter button {
   border: none;
-  background-image: url('../../public/Textures/buttonYsub.png');
+  background-image: url('/Textures/buttonYsub.png');
   background-size: cover;
   width: 25%;
   height: 50px;
@@ -116,7 +116,7 @@
   color: #a88686;
 }
 .P-counter button:hover {
-  background-image: url('../../public/Textures/buttonsub.png');
+  background-image: url('/Textures/buttonsub.png');
   background-size: cover;
 }
 .P-counter button:first-child {
@@ -159,7 +159,7 @@
   width: 250px;
   height: 50px;
   background-color: transparent;
-  background-image: url('../../public/Textures/buttonYsub.png');
+  background-image: url('/Textures/buttonYsub.png');
   background-size: cover;
   font-size: 24px;
   line-height: 24px;
@@ -175,7 +175,7 @@
   color: #a88686;
 }
 .P-addcart:hover {
-  background-image: url('../../public/Textures/buttonsub.png');
+  background-image: url('/Textures/buttonsub.png');
   background-size: cover;
 }
 .P-addcart:active {
@@ -211,7 +211,7 @@
   height: 50px;
   border-radius: 0.375rem;
   background-color: transparent;
-  background-image: url('../../public/Textures/wallpaperR.png');
+  background-image: url('/Textures/wallpaperR.png');
   background-size: cover;
   font-size: 24px;
   line-height: 24px;
@@ -227,7 +227,7 @@
   color: #a88686;
 }
 .P-addbookmark:hover {
-  background-image: url('../../public/Textures/buttonsub.png');
+  background-image: url('/Textures/buttonsub.png');
   background-size: cover;
 }
 .P-addbookmark:active {
@@ -288,7 +288,7 @@
     position: fixed;
     bottom: 0;
     z-index: 100;
-    background-image: url('../../public/Textures/wallpaperLight.png');
+    background-image: url('/Textures/wallpaperLight.png');
     background-size: cover;
     padding: 10px 10px;
     color: #a88686;
@@ -312,7 +312,7 @@
   }
   .P-counter button {
     border: none;
-    background-image: url('../../public/Textures/buttonsub.png');
+    background-image: url('/Textures/buttonsub.png');
     background-size: cover;
     width: 50px;
     height: 50px;
@@ -321,7 +321,7 @@
     color: #a88686;
   }
   .P-counter button:hover {
-    background-image: url('../../public/Textures/buttonsub.png');
+    background-image: url('/Textures/buttonsub.png');
     background-size: cover;
   }
   .P-counter button:first-child {
@@ -338,7 +338,7 @@
   .P-addcart {
     border: none;
     border-radius: 0.375rem;
-    background-image: url('../../public/Textures/buttonYsub.png');
+    background-image: url('/Textures/buttonYsub.png');
     background-size: cover;
     width: 100px;
     height: 50px;
@@ -346,7 +346,7 @@
   .P-addbookmark {
     border: none;
     border-radius: 0.375rem;
-    background-image: url('../../public/Textures/wallpaperR.png');
+    background-image: url('/Textures/wallpaperR.png');
     background-size: cover;
     width: 100px;
     height: 50px;
@@ -387,12 +387,12 @@
 }
 
 .P-product-more-tag div:first-child {
-  background-image: url('../../public/Textures/buttonYsub.png');
+  background-image: url('/Textures/buttonYsub.png');
   background-size: cover;
   color: #927272;
 }
 .P-product-more-tag div:last-child {
-  background-image: url('../../public/Textures/ButtonGdark.png');
+  background-image: url('/Textures/ButtonGdark.png');
   background-size: cover;
   color: #2c5c58;
 }
@@ -552,12 +552,12 @@
     transform: translateY(-10px);
   }
   .P-product-more-tag div:first-child {
-    background-image: url('../../public/Textures/buttonYsub.png');
+    background-image: url('/Textures/buttonYsub.png');
     background-size: cover;
     color: #927272;
   }
   .P-product-more-tag div:last-child {
-    background-image: url('../../public/Textures/ButtonGdark.png');
+    background-image: url('/Textures/ButtonGdark.png');
     background-size: cover;
     color: #2c5c58;
   }
@@ -650,7 +650,7 @@
   z-index: 1;
 }
 .PP-product-btn button {
-  background-image: url('../../public/Textures/wallpaper.png');
+  background-image: url('/Textures/wallpaper.png');
   background-size: cover;
   color: #a88686;
   font-size: 16px;
@@ -661,13 +661,13 @@
   line-height: 30px;
 }
 .PP-product-btn button:hover {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
   color: #2c5c58;
 }
 
 .PP-product-btn button.active {
-  background-image: url('../../public/Textures/buttonGmain.png');
+  background-image: url('/Textures/buttonGmain.png');
   background-size: cover;
   color: #2c5c58;
 }
@@ -827,7 +827,7 @@
     z-index: 1;
   }
   .PP-product-btn button {
-    background-image: url('../../public/Textures/wallpaper.png');
+    background-image: url('/Textures/wallpaper.png');
     background-size: cover;
     color: #a88686;
     font-size: 16px;
@@ -838,7 +838,7 @@
     line-height: 30px;
   }
   .PP-product-btn button:hover {
-    background-image: url('../../public/Textures/buttonGmain.png');
+    background-image: url('/Textures/buttonGmain.png');
     background-size: cover;
     color: #2c5c58;
   }
@@ -907,7 +907,7 @@
   letter-spacing: 0.1em;
 }
 .PP-product-card-price {
-  background-image: url('../../public/Textures/wallpaperLight.png');
+  background-image: url('/Textures/wallpaperLight.png');
   background-size: cover;
   padding: 10px 10px;
   color: #a88686;
