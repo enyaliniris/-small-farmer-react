@@ -8,7 +8,7 @@ import ScrollToTop from './components/ScrollToTop'
 import IndexRiver from './pages/IndexRiver/IndexRiver'
 import Index from './pages/Index/Index'
 import Rabbit from './pages/Rabbit/Rabbit'
-
+import { AlertProvider } from './contexts/AlertContext'
 //Lesson
 import Lesson from './pages/Lesson/Lesson'
 import LessonDetail from './pages/LessonDetail/LessonDetail'
@@ -56,48 +56,50 @@ function App() {
     <>
       <CartProvider>
         <BrowserRouter>
-          <AuthContextProvider>
-            <Navbar />
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/IndexRiver" element={<IndexRiver />} />
-              <Route path="/Rabbit" element={<Rabbit />} />
-              <Route path="/map" element={<TryMap />} />
+          <AlertProvider>
+            <AuthContextProvider>
+              <Navbar />
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/IndexRiver" element={<IndexRiver />} />
+                <Route path="/Rabbit" element={<Rabbit />} />
+                <Route path="/map" element={<TryMap />} />
 
-              <Route path="/Login" element={<Login />} />
-              <Route path="/Register" element={<Register />} />
-              <Route path="/Checked" element={<RegisterChecked />} />
-              <Route path="/Comfirm" element={<RegisterComfirm />} />
-              {/* <Route path="/GoogleR" element={<GoogleRegister />} /> */}
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Register" element={<Register />} />
+                <Route path="/Checked" element={<RegisterChecked />} />
+                <Route path="/Comfirm" element={<RegisterComfirm />} />
+                {/* <Route path="/GoogleR" element={<GoogleRegister />} /> */}
 
-              <Route path="/lesson" element={<Lesson />} />
-              <Route path="/lesson/:sid" element={<LessonDetail />} />
+                <Route path="/lesson" element={<Lesson />} />
+                <Route path="/lesson/:sid" element={<LessonDetail />} />
 
-              <Route path="/Product" element={<Product />} />
-              <Route path="/Product/:sid" element={<ProductPage />} />
+                <Route path="/Product" element={<Product />} />
+                <Route path="/Product/:sid" element={<ProductPage />} />
 
-              <Route path="/Cart" element={<ShoppingCart />} />
-              <Route path="/Payment" element={<ShoppingPayment />} />
-              <Route path="/PayConfirm" element={<ShoppingPayConfirm />} />
-              <Route path="/LinePayCancel" element={<LinePayCancel />} />
-              <Route path="/Confirm" element={<ShoppingConfirm />} />
+                <Route path="/Cart" element={<ShoppingCart />} />
+                <Route path="/Payment" element={<ShoppingPayment />} />
+                <Route path="/PayConfirm" element={<ShoppingPayConfirm />} />
+                <Route path="/LinePayCancel" element={<LinePayCancel />} />
+                <Route path="/Confirm" element={<ShoppingConfirm />} />
 
-              <Route path="MyMember" element={<MemberDetail />}>
-                <Route index element={<MemberLeft />} />
-                <Route path="MyOrder" element={<MyOrderLeft />} />
-                <Route path="MyOrder/:uuid" element={<OrderDetailLeft />} />
-                <Route path="MyCoupon" element={<MyCouponLeft />} />
-                <Route path="MyBookmark" element={<MyBookmarkLeft />} />
-                <Route path="MyComment" element={<MyCommentLeft />} />
-                <Route path="MyAwards" element={<MyAwardsLeft />} />
-              </Route>
-              {/* 測試區 */}
-              <Route path="/Community" element={<Community />} />
-              <Route path="/AddArtical" element={<AddArtical />} />
-            </Routes>
-            <Footer />
-          </AuthContextProvider>
+                <Route path="MyMember" element={<MemberDetail />}>
+                  <Route index element={<MemberLeft />} />
+                  <Route path="MyOrder" element={<MyOrderLeft />} />
+                  <Route path="MyOrder/:uuid" element={<OrderDetailLeft />} />
+                  <Route path="MyCoupon" element={<MyCouponLeft />} />
+                  <Route path="MyBookmark" element={<MyBookmarkLeft />} />
+                  <Route path="MyComment" element={<MyCommentLeft />} />
+                  <Route path="MyAwards" element={<MyAwardsLeft />} />
+                </Route>
+                {/* 測試區 */}
+                <Route path="/Community" element={<Community />} />
+                <Route path="/AddArtical" element={<AddArtical />} />
+              </Routes>
+              <Footer />
+            </AuthContextProvider>
+          </AlertProvider>
         </BrowserRouter>
       </CartProvider>
     </>

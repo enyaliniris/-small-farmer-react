@@ -148,7 +148,7 @@ const Register = () => {
     e.preventDefault()
     //console.log('測試')
 
-    const res = await axios.post('http://localhost:3033/register/add', fields)
+    const res = await axios.post(`${HOST}/register/add`, fields)
 
     // 測試寄送郵件功能
     // const transporter = nodemailer.createTransport({
@@ -281,7 +281,7 @@ const Register = () => {
                             id="member_nickname"
                             onChange={handleFieldsChange}
                             value={fields.name}
-                            minlength="1"
+                            minLength="1"
                             maxlength="8"
                             class="sing-up-input"
                             reseNickName
@@ -354,7 +354,7 @@ const Register = () => {
                             <input
                               id="password"
                               name="password"
-                              minlength="6"
+                              minLength="6"
                               maxlength="10"
                               onChange={handleFieldsChange}
                               value={fields.name}
@@ -405,8 +405,8 @@ const Register = () => {
                               type="password"
                               onChange={handleFieldsChange}
                               value={fields.name}
-                              minlength="6"
-                              maxlength="10"
+                              minLength="6"
+                              maxLength="10"
                               class="sing-up-input"
                             ></input>
 
@@ -562,8 +562,8 @@ const Register = () => {
                               name="member_mobile"
                               onChange={handleFieldsChange}
                               value={fields.name}
-                              minlength="10"
-                              maxlength="10"
+                              minLength="10"
+                              maxLength="10"
                               // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                             ></input>
                             {fields.member_mobile ? (

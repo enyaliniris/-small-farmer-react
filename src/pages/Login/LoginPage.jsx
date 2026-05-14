@@ -7,7 +7,7 @@ import '../../css/login-mobile.css'
 import '../../css/login-swiper.css'
 import '../../css/logon-main.css'
 import '../../css/main.css'
-
+import { useAlert } from '../../contexts/AlertContext'
 function Login() {
   const [myForm, setMyForm] = useState({
     account: '',
@@ -16,6 +16,7 @@ function Login() {
   const { setMyAuth } = useContext(AuthContext)
   const navigate = useNavigate()
   const [shownPassword, setHidePassword] = useState(false)
+  const { showAlert } = useAlert()
 
   return (
     <>
@@ -61,7 +62,10 @@ function Login() {
               })
               navigate('/Comfirm')
             } else {
-              alert(response.data.error || '帳號或密碼錯誤')
+              showAlert({
+                title: '登入失敗',
+                message: response.data.error || '帳號或密碼錯誤',
+              })
             }
           })
         }}
@@ -109,8 +113,8 @@ function Login() {
                             <input
                               id="password"
                               name="password"
-                              minlength=""
-                              maxlength="10"
+                              minLength=""
+                              maxLength="10"
                               type={shownPassword ? 'text' : 'password'}
                               onChange={(e) => {
                                 setMyForm((prev) => ({
@@ -303,8 +307,8 @@ function Login() {
                                       <div className="login-input-area text-start w-100">
                                         <div className="login-text">密碼*</div>
                                         <input
-                                          minlength="6"
-                                          maxlength="10"
+                                          minLength="6"
+                                          maxLength="10"
                                           name="password"
                                           type="password"
                                           onChange={(e) => {

@@ -23,7 +23,7 @@ function Lesson() {
   const getLessonData = async () => {
     const res = await getLessonList()
     // console.log(res)
-    setLessonData(res.data)
+    setLessonData(res)
   }
   //純函式-傳入資料陣列,以lessonCategoryFilter進行過濾=>回傳過濾後的資料陣列
   const filterByCategory = (lessonData, lessonCategoryFilter) => {

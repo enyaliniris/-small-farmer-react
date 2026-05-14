@@ -2,8 +2,8 @@ import { useEffect, useState, useContext, useCallback, useMemo } from 'react'
 import {
   HOST,
   getProductData,
-  addBookmarkProduct,
-  deleteBookmarkProduct,
+  addBookmark,
+  deleteBookmark,
 } from '../../api/api'
 import { useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -139,12 +139,12 @@ function Product() {
   )
 
   // 新增收藏
-  const addBookmark = async (productSid = 0) => {
+  const fetchAddBookmark = async (productSid = 0) => {
     //console.log('addBookmark')
     if (!+productSid) return
 
     try {
-      await addBookmarkProduct(productSid)
+      await addBookmark('product', { product_sid: productSid })
     } catch (err) {
       console.error(err.message)
     } finally {
@@ -162,12 +162,12 @@ function Product() {
   }
 
   // 刪除收藏
-  const deleteBookmark = async (productSid = 0) => {
+  const fetchDeleteBookmark = async (productSid = 0) => {
     //console.log('deBookmark')
     if (!+productSid) return
 
     try {
-      await deleteBookmarkProduct(productSid)
+      await deleteBookmark('product', productSid)
     } catch (err) {
       console.error(err.message)
     } finally {
@@ -1055,8 +1055,8 @@ function Product() {
                               onClick={() => {
                                 setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? deleteBookmark(v.sid)
-                                  : addBookmark(v.sid)
+                                  ? fetchDeleteBookmark(v.sid)
+                                  : fetchAddBookmark(v.sid)
                               }}
                             />
                           ) : (
@@ -1065,8 +1065,8 @@ function Product() {
                               onClick={() => {
                                 setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? deleteBookmark(v.sid)
-                                  : addBookmark(v.sid)
+                                  ? fetchDeleteBookmark(v.sid)
+                                  : fetchAddBookmark(v.sid)
                               }}
                             />
                           )}

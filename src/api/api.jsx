@@ -2,12 +2,7 @@ import instance from './axios'
 
 export const HOST = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3033'
 
-export const getLessons = () => instance.get('/lessons')
-
-export const getLessonById = (id) => instance.get(`/lessons/${id}`)
-
 // GET商品清單資料
-//export const PRODUCT_DATA = `${HOST}/product/api`
 export const getProductData = (params) =>
   instance.get('/product/productList', { params })
 
@@ -15,22 +10,13 @@ export const getProductData = (params) =>
 export const getProductPageData = (sid, params) =>
   instance.get(`/product/${sid}`, { params })
 
-// POST商品收藏/:type
-//export const BOOKMARK_ADD = `${HOST}/bookmark/add`
-export const addBookmarkProduct = (productSid) =>
-  instance.post('/bookmark/add/product', { product_sid: productSid })
-
-// POST課程收藏/:type
-export const addBookmarkLesson = (lessonSid) =>
-  instance.post('/bookmark/add/lesson', { lesson_sid: lessonSid })
+// POST收藏/:type
+export const addBookmark = (APItype, params) =>
+  instance.post(`/bookmark/add/${APItype}`, params)
 
 // DELETE商品收藏/:type/:sid
-//export const BOOKMARK_DELETE = `${HOST}/bookmark/delete`
-export const deleteBookmarkProduct = (productSid) =>
-  instance.delete(`/bookmark/delete/product/${productSid}`)
-
-export const deleteBookmarkLesson = (lessonSid) =>
-  instance.delete(`/bookmark/delete/lesson/${lessonSid}`)
+export const deleteBookmark = (APItype, sid) =>
+  instance.delete(`/bookmark/delete/${APItype}/${sid}`)
 
 // GET商品收藏
 //export const BOOKMARK_DATA = `${HOST}/bookmark/mybookmark`
@@ -71,14 +57,17 @@ export const MY_ADDRESS_DATA = `${HOST}/myaddress`
 // GET課程列表
 //export const LESSON_DATA = `${HOST}/lesson/lessonList`
 export const getLessonList = () => instance.get(`/lesson/lessonList`)
+
+export const getLessons = () => instance.get('/lesson')
+
+// GET課程詳細
+export const getLessonById = (id) => instance.get(`/lesson/${id}`)
+
 //會員註冊用API
 export const Register = `${HOST}/register/api`
 
 //登入登出/取得會員資料
 export const myDataDetail = `${HOST}/myDataDetail/api`
-
-// GET課程詳細
-export const LESSON_DETAIL_DATA = `${HOST}/lesson`
 
 //訂單詳細
 export const MY_ORDER_DETAILS = `${HOST}/orderdetails`

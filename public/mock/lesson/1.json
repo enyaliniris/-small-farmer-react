@@ -1,0 +1,302 @@
+{
+  "rows": [
+    {
+      "sid": 1,
+      "lesson_id": "lesson_0001",
+      "lesson_name": "有機農活半日遊",
+      "lesson_category_sid": 1,
+      "lesson_price": 500,
+      "lesson_date": "2023-03-30,2023-03-31",
+      "lesson_hours": 3,
+      "lesson_teacher_sid": 1,
+      "lesson_info1": "活動內容:農場作物導覽 / 農機體驗 / 蔬菜包裝出貨流程認識\n<br>伴手禮:季節蔬菜*1份\n",
+      "lesson_info2": "作為台灣最重要農產品的水稻，同樣面臨種植面積減少、產量下降的情況，雖然在政策與農民的共同努力下，已漸趨穩定，卻也衍生出其他問題。  水稻栽培技術成熟，機械化程度高、代耕體系完備，現在只要打通電話就能種稻。稻米作為重要的軍需食物，至今仍有公糧稻穀保價收購，不用擔心銷售。",
+      "lesson_img": "farm_1.jpg,farm_2.jpg,farm_3.jpg,farm_5.jpg",
+      "lesson_uplimit": 20,
+      "lesson_lowerlimit": 10,
+      "lesson_onsale_sid": 1,
+      "lesson_created_at": "2022-12-12T11:17:04.000Z",
+      "lesson_update_date": "2022-12-12T11:17:04.000Z",
+      "name": "屋大維",
+      "teacher_info": "栽種在翠綠田疇間的西瓜與南瓜，每一顆看起來渾圓飽滿，在田裡忙進忙出的，是這些瓜果的主人陳俊佑，今年32歲的他，大學念的是土壤環境科學系，大三在學校農場實習，第一次吃到自己種的蔬菜，美味又有成就感，同學眼中普通的實習課，扭轉了他的一生。\r\n\r\n「課堂上學了很多土壤下的東西，但我對於土壤上生長的東西更有興趣。」享受收成喜悅的當下，他立志從事農業相關的行業。",
+      "teacher_img": "teacher01.png",
+      "lesson_category": "農作體驗",
+      "comment_value": 4,
+      "bookmark_member_sid": [
+        146
+      ]
+    }
+  ],
+  "lesson_date": "2023-03-30,2023-03-31",
+  "teachers": [
+    {
+      "sid": 1,
+      "name": "屋大維",
+      "slogan": "農耕達人",
+      "teacher_info": "栽種在翠綠田疇間的西瓜與南瓜，每一顆看起來渾圓飽滿，在田裡忙進忙出的，是這些瓜果的主人陳俊佑，今年32歲的他，大學念的是土壤環境科學系，大三在學校農場實習，第一次吃到自己種的蔬菜，美味又有成就感，同學眼中普通的實習課，扭轉了他的一生。\r\n\r\n「課堂上學了很多土壤下的東西，但我對於土壤上生長的東西更有興趣。」享受收成喜悅的當下，他立志從事農業相關的行業。",
+      "teacher_img": "teacher01.png"
+    }
+  ],
+  "comments": [
+    {
+      "sid": 222,
+      "order_lesson_details_sid": 12,
+      "member_sid": 2,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "讚讚超好玩",
+      "comment_publish_date": "2023-03-21T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "柏翰"
+    },
+    {
+      "sid": 16,
+      "order_lesson_details_sid": 0,
+      "member_sid": 78,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "價格優惠，課程完整仔細，果然沒讓我失望",
+      "comment_publish_date": "2023-02-26T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "承翰"
+    },
+    {
+      "sid": 3,
+      "order_lesson_details_sid": 0,
+      "member_sid": 23,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "CP值很高，課程完整仔細，推推推！",
+      "comment_publish_date": "2023-02-16T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "柏翰"
+    },
+    {
+      "sid": 9,
+      "order_lesson_details_sid": 0,
+      "member_sid": 61,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "價格優惠，課程完整仔細，值得等待！",
+      "comment_publish_date": "2023-02-01T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "家豪"
+    },
+    {
+      "sid": 18,
+      "order_lesson_details_sid": 0,
+      "member_sid": 20,
+      "lesson_sid": 1,
+      "comment_value": 3,
+      "comment_content": "體驗真的不錯，很好玩，想再來玩，推推推！",
+      "comment_publish_date": "2023-01-13T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "宇軒"
+    },
+    {
+      "sid": 10,
+      "order_lesson_details_sid": 0,
+      "member_sid": 79,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "品質還不錯，課程完整仔細，不錯喔",
+      "comment_publish_date": "2022-12-10T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "彥廷"
+    },
+    {
+      "sid": 4,
+      "order_lesson_details_sid": 0,
+      "member_sid": 21,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "價格優惠，課程完整仔細，值得購買",
+      "comment_publish_date": "2022-11-06T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "彥廷"
+    },
+    {
+      "sid": 8,
+      "order_lesson_details_sid": 0,
+      "member_sid": 6,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "價格優惠，課程完整仔細，推推推！",
+      "comment_publish_date": "2022-10-12T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "佳穎"
+    },
+    {
+      "sid": 17,
+      "order_lesson_details_sid": 0,
+      "member_sid": 51,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "體驗真的不錯，很好玩，想再來玩，非常值得推薦",
+      "comment_publish_date": "2022-10-06T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "冠宇"
+    },
+    {
+      "sid": 12,
+      "order_lesson_details_sid": 0,
+      "member_sid": 25,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "課程品質超優，課程完整仔細，已來玩多次",
+      "comment_publish_date": "2022-09-06T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "詩涵"
+    },
+    {
+      "sid": 14,
+      "order_lesson_details_sid": 0,
+      "member_sid": 6,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "課程品質超優，課程完整仔細，果然沒讓我失望",
+      "comment_publish_date": "2022-08-27T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "佳穎"
+    },
+    {
+      "sid": 6,
+      "order_lesson_details_sid": 0,
+      "member_sid": 1,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "品質還不錯，想再來玩，絕對值得再次來玩",
+      "comment_publish_date": "2022-08-12T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "Farmily"
+    },
+    {
+      "sid": 7,
+      "order_lesson_details_sid": 0,
+      "member_sid": 43,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "超級好玩的啦，想再來玩，有機會還是會再繼續",
+      "comment_publish_date": "2022-06-19T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "雅筑"
+    },
+    {
+      "sid": 20,
+      "order_lesson_details_sid": 0,
+      "member_sid": 23,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "課程品質超優，課程完整仔細，推推推！",
+      "comment_publish_date": "2022-06-13T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "柏翰"
+    },
+    {
+      "sid": 13,
+      "order_lesson_details_sid": 0,
+      "member_sid": 24,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "品質還不錯，課程完整仔細，不錯喔",
+      "comment_publish_date": "2022-05-16T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "冠宇"
+    },
+    {
+      "sid": 11,
+      "order_lesson_details_sid": 0,
+      "member_sid": 30,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "價格優惠，課程完整仔細，價位可以接受",
+      "comment_publish_date": "2022-04-16T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "家豪"
+    },
+    {
+      "sid": 2,
+      "order_lesson_details_sid": 0,
+      "member_sid": 22,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "價格優惠，課程完整仔細，很滿足",
+      "comment_publish_date": "2022-04-15T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "冠廷"
+    },
+    {
+      "sid": 15,
+      "order_lesson_details_sid": 0,
+      "member_sid": 60,
+      "lesson_sid": 1,
+      "comment_value": 2,
+      "comment_content": "CP值很高，課程完整仔細，不錯喔",
+      "comment_publish_date": "2022-03-31T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "冠廷"
+    },
+    {
+      "sid": 19,
+      "order_lesson_details_sid": 0,
+      "member_sid": 71,
+      "lesson_sid": 1,
+      "comment_value": 5,
+      "comment_content": "體驗真的不錯，很好玩，課程完整仔細，有機會還是會再繼續",
+      "comment_publish_date": "2022-03-26T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "冠霖"
+    },
+    {
+      "sid": 1,
+      "order_lesson_details_sid": 0,
+      "member_sid": 57,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "價格優惠，課程完整仔細，會再來玩",
+      "comment_publish_date": "2022-03-10T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "彥廷"
+    },
+    {
+      "sid": 5,
+      "order_lesson_details_sid": 0,
+      "member_sid": 13,
+      "lesson_sid": 1,
+      "comment_value": 4,
+      "comment_content": "課程品質超優，課程完整仔細，值得等待！",
+      "comment_publish_date": "2022-03-09T00:00:00.000Z",
+      "comment_re": null,
+      "comment_update_date": null,
+      "member_nickname": "郁婷"
+    }
+  ],
+  "bookmark_member_sid": [
+    146
+  ],
+  "limit": [
+    {
+      "lesson_uplimit": 80
+    }
+  ]
+}

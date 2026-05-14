@@ -4,15 +4,8 @@ import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 import '../../css/index.css'
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { useSwiper } from 'swiper/react'
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
-
-// import required modules
-import { Pagination } from 'swiper'
 
 function LessonSlider() {
   const [imageIndex, setImageIndex] = useState(0)
@@ -23,7 +16,7 @@ function LessonSlider() {
     centerMode: false,
     centerPadding: 0,
     beforeChange: (current, next) => {
-      console.log({ current, next, imageIndex })
+      //console.log({ current, next, imageIndex })
       if (next == -2) {
         setImageIndex(1)
       } else {
@@ -32,19 +25,25 @@ function LessonSlider() {
     },
   }
 
-  const [lessonData, setLessonData] = useState([])
-  // const [optionClick, setOptionClick] = useState('農耕')
+  const [rawLessonData, setRawLessonData] = useState([])
+
+  // 初始化
+  useEffect(() => {
+    fetchLessonList()
+  }, [])
+
+  const fetchLessonList = async () => {
+    const res = await getLessonList()
+    setRawLessonData(res)
+  }
 
   //課程篩選
   const lessonOptions = ['農耕', '採收', '親子', '生態']
   const [lessonCategoryFilter, setLessonCategoryFilter] = useState('農耕')
-  const getLessonData = async () => {
-    const res = await getLessonList()
-    setLessonData(res)
-  }
 
   //純函式-傳入資料陣列,以lessonCategory進行過濾=>回傳過濾後的資料陣列
   const filterByCategory = (lessonData, lessonCategoryFilter) => {
+    //console.log({ lessonData, lessonCategoryFilter })
     switch (lessonCategoryFilter) {
       case '生態':
         return lessonData.filter((v, i) => {
@@ -69,16 +68,14 @@ function LessonSlider() {
         })
     }
   }
+  const filteredLessons = filterByCategory(rawLessonData, lessonCategoryFilter)
 
   function lessonInfoData() {
     setTimeout(() => {
       const info2 = document.querySelectorAll('.lesson_info2')
-      //console.log({ info2 })
       const lesson_id = document
         .querySelector('.slick-active img.class-list')
         ?.getAttribute('data-lid')
-      //console.log({ lesson_id })
-      // console.log(document.querySelector('.slick-active').querySelector('img').getAttribute('data-lid'))
       info2.forEach((div) => {
         if (div.getAttribute('data-lid') === lesson_id) {
           div.style.display = 'block'
@@ -86,19 +83,14 @@ function LessonSlider() {
           div.style.display = 'none'
         }
       })
-    }, 300)
+    }, 450)
   }
 
   useEffect(() => {
-    getLessonData()
-    lessonInfoData()
-  }, [lessonCategoryFilter])
-
-  // useEffect(() => {
-
-  // }, [])
-
-  const swiper = useSwiper()
+    if (filteredLessons.length > 0) {
+      lessonInfoData()
+    }
+  }, [rawLessonData, lessonCategoryFilter])
 
   return (
     <>
@@ -131,11 +123,7 @@ function LessonSlider() {
                   }
                   key={i}
                   onClick={() => {
-                    // setOptionClick(v)
                     setLessonCategoryFilter(v)
-                    setLessonData(
-                      filterByCategory(lessonData, lessonCategoryFilter)
-                    )
                   }}
                 >
                   {v}
@@ -143,7 +131,7 @@ function LessonSlider() {
               )
             })}
           </div>
-          {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
+          {filteredLessons.map((v, i) => {
             return (
               <div
                 className="lesson_info2"
@@ -192,7 +180,7 @@ function LessonSlider() {
               lessonInfoData()
             }}
           >
-            {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
+            {filteredLessons.map((v, i) => {
               let imgarr = v.lesson_img.split(',')
               return (
                 <div

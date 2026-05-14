@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { LESSON_DETAIL_DATA, HOST } from '../../api/api'
+import { getLessonById, HOST } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import Slider from 'react-slick'
-import axios from 'axios'
 import '../../css/carousel.css'
 
 function AsNavFor() {
@@ -25,9 +24,9 @@ function AsNavFor() {
   const slider2Ref = useRef(null)
 
   const getListData = async () => {
-    const res = await axios.get(`${LESSON_DETAIL_DATA}/${sid}`)
+    const res = await getLessonById(sid)
     // console.log(res)
-    setData(res.data)
+    setData(res)
   }
 
   useEffect(() => {

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Calendar from 'react-calendar'
-import { LESSON_DETAIL_DATA } from '../../api/api'
+import { getLessonById } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import 'react-calendar/dist/Calendar.css'
 import '../../css/calendar.css'
-import axios from 'axios'
 
 function CalendarNew(props) {
   //日期
@@ -24,11 +23,10 @@ function CalendarNew(props) {
   const endDate = new Date(data.lesson_date.split(',')[1])
 
   const getListData = async () => {
-    const res = await axios.get(`${LESSON_DETAIL_DATA}/${sid}`)
+    const res = await getLessonById(sid)
     // console.log(res)
-    setData(res.data)
+    setData(res)
     // setLimit(res.data.limit[0].lesson_uplimit)
-    // console.log(res.data.limit[0].lesson_uplimit)
   }
 
   useEffect(() => {

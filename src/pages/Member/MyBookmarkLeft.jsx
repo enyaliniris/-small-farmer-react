@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-  HOST,
-  getBookmarkData,
-  deleteBookmarkProduct,
-  deleteBookmarkLesson,
-} from '../../api/api'
-import { useLocation } from 'react-router-dom'
+import { HOST, getBookmarkData, deleteBookmark } from '../../api/api'
 import { Link } from 'react-router-dom'
 import {
   ListMotionContainer,
@@ -16,7 +10,6 @@ import './../../css/mybookmark.css'
 import Icon from '../../icon/Icon'
 
 function MyBookmarkLeft() {
-  const location = useLocation()
   const [data, setData] = useState({
     page: 0,
     totalPagesP: '',
@@ -28,17 +21,17 @@ function MyBookmarkLeft() {
   })
 
   // 刪除收藏
-  const deleteBookmark = async (sid = 0, type) => {
+  const fetchDeleteBookmark = async (sid = 0, type) => {
     if (type === 'product') {
       try {
-        await deleteBookmarkProduct(sid)
+        await deleteBookmark('product', sid)
       } catch (error) {
         alert(error.message)
       }
     }
     if (type === 'lesson') {
       try {
-        await deleteBookmarkLesson(sid)
+        await deleteBookmark('lesson', sid)
       } catch (error) {
         alert(error.message)
       }
@@ -128,7 +121,7 @@ function MyBookmarkLeft() {
                           <p>${v.product_price}</p>
                           <Icon.Bin
                             onClick={() => {
-                              deleteBookmark(v.product_sid, 'product')
+                              fetchDeleteBookmark(v.product_sid, 'product')
                             }}
                           />
                         </div>
@@ -172,7 +165,7 @@ function MyBookmarkLeft() {
                         <p>${v.lesson_price}</p>
                         <Icon.Bin
                           onClick={() => {
-                            deleteBookmark(v.lesson_sid, 'lesson')
+                            fetchDeleteBookmark(v.lesson_sid, 'lesson')
                           }}
                         />
                       </div>

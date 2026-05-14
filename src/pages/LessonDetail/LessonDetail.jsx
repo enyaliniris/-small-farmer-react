@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react'
-import { addBookmarkLesson, deleteBookmarkLesson } from '../../api/api'
-import { LESSON_DETAIL_DATA, HOST } from '../../api/api'
+import { HOST, getLessonById, addBookmark, deleteBookmark } from '../../api/api'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../components/utils/useCart'
@@ -68,19 +67,19 @@ function LessonDetail() {
   const [limitalert, setLimitAlert] = useState(false)
 
   const getListData = useCallback(async () => {
-    const res = await axios.get(`${LESSON_DETAIL_DATA}/${sid}`)
-    // console.log(res)
-    setData(res.data)
-    setLimit(res.data.limit[0].lesson_uplimit)
+    const res = await getLessonById(sid)
+    console.log(res.rows)
+    setData(res)
+    setLimit(res.limit[0].lesson_uplimit)
     // console.log(res.data.limit[0].lesson_uplimit)
   }, [sid])
 
   // 新增收藏
-  const addBookmark = async (lessonSid = 0) => {
+  const fetchAddBookmark = async (lessonSid = 0) => {
     // console.log('addBookmark')
     if (!+lessonSid) return
     try {
-      await addBookmarkLesson(lessonSid)
+      await addBookmark('lesson', { lesson_sid: lessonSid })
     } catch (err) {
       console.error(err.message)
     } finally {
@@ -89,11 +88,11 @@ function LessonDetail() {
   }
 
   // 刪除收藏
-  const deleteBookmark = async (lessonSid = 0) => {
+  const fetchDeleteBookmark = async (lessonSid = 0) => {
     //console.log('deBookmark')
     if (!+lessonSid) return
     try {
-      await deleteBookmarkLesson(lessonSid)
+      await deleteBookmark('lesson', lessonSid)
     } catch (err) {
       console.error(err.message)
     } finally {
@@ -168,8 +167,8 @@ function LessonDetail() {
                               onClick={() => {
                                 setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? deleteBookmark(v.sid)
-                                  : addBookmark(v.sid)
+                                  ? fetchDeleteBookmark(v.sid)
+                                  : fetchAddBookmark(v.sid)
                               }}
                             >
                               <img
@@ -183,8 +182,8 @@ function LessonDetail() {
                               onClick={() => {
                                 setShowLoginAlert(true)
                                 v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? deleteBookmark(v.sid)
-                                  : addBookmark(v.sid)
+                                  ? fetchDeleteBookmark(v.sid)
+                                  : fetchAddBookmark(v.sid)
                               }}
                             >
                               <img
