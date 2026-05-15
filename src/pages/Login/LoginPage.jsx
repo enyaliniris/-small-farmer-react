@@ -23,7 +23,6 @@ function Login() {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          //console.log(myForm)
           axios.post(LOGIN, myForm).then((response) => {
             if (response.data.success) {
               const {
@@ -65,6 +64,7 @@ function Login() {
               showAlert({
                 title: '登入失敗',
                 message: response.data.error || '帳號或密碼錯誤',
+                content: '',
               })
             }
           })
@@ -155,7 +155,7 @@ function Login() {
                               <div className="btn-area w-100 d-flex ">
                                 <button
                                   href=""
-                                  className="buttonY border-0 bg-transparent login-btfont"
+                                  className="buttonYL border-0 bg-transparent login-btfont"
                                 >
                                   登入
                                 </button>
@@ -281,7 +281,7 @@ function Login() {
                                 <span className="join-manin-head fs-1 text-warning">
                                   小農遊
                                 </span>
-                                <form action="">
+                                <div>
                                   <div className="login-input-contain w-100">
                                     <div>
                                       <div className="login-input-area text-start w-100">
@@ -345,7 +345,7 @@ function Login() {
                                       </div>
                                     </div>
                                   </div>
-                                </form>
+                                </div>
                               </div>
                             </div>
                           </div>

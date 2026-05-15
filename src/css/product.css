@@ -516,23 +516,3 @@ a {
   display: block;
 }
 
-/* 登入提醒 */
-
-.P-LoginAlert {
-  margin-top: 400px;
-  width: 30%;
-  height: 40%;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (max-width: 768px) {
-  .P-LoginAlert {
-    width: 80%;
-  }
-}

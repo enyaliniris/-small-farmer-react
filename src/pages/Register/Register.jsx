@@ -16,7 +16,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import EmailCompare from '../../components/EmailCompare'
 
 //引用密碼驗證組件
-//哇哈哈我不需要了～自己寫比較快
 
 //引入表單註冊&驗證組件(hooks)
 import useInputValidate from '../../components/utils/useInputValidate'

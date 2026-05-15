@@ -12,9 +12,12 @@ function LessonSlider() {
   const settings = {
     infinite: true,
     speed: 500,
+    //autoplay: true,
+    //autoplaySpeed: 1000,
     slidesToShow: 2,
     centerMode: false,
     centerPadding: 0,
+    touchThreshold: 10,
     beforeChange: (current, next) => {
       //console.log({ current, next, imageIndex })
       if (next == -2) {
@@ -94,32 +97,36 @@ function LessonSlider() {
 
   return (
     <>
+      <div className="d-flex align-items-center mb-4 mt-3 ms-5">
+        <img
+          src="./svg/titleRice.png"
+          width="172px"
+          className="a-newfarmer-tit d-none d-lg-block"
+          alt=""
+        />
+        <div className="d-flex flex-column">
+          <div>
+            <span className="f-32 f-Yellow font-B sp-3">小農</span>
+            <span className="f-32 f-LightGreen font-B sp-3">ＧＯ活動</span>
+          </div>
+          <div>
+            <span className="f-38 f-Yellow font-B sp-3 a-bottomline position-relative">
+              新小農活
+            </span>
+            <span className="f-16 f-Red font-B sp-2">系列課程</span>
+          </div>
+        </div>
+      </div>
       <div className="d-flex a-lesson-btn-left">
         <div className="position-relative">
-          <div className="">
-            <img
-              src="./svg/titleRice.png"
-              width="172px"
-              className="a-newfarmer-tit d-none d-lg-block"
-              alt=""
-            />
-            <br />
-            <div className="position-relative">
-              <img
-                src="./svg/newfarmer.png"
-                className="a-newfarmer-tit"
-                alt=""
-              />
-            </div>
-          </div>
           <div className="d-flex a-lesson-btn">
             {lessonOptions.map((v, i) => {
               return (
                 <button
                   className={
                     lessonCategoryFilter === v
-                      ? 'a-lesson-type font-B f-16 f-Gray sp-2 me-1 text-center a-lesson-type-seleted'
-                      : 'a-lesson-type font-B f-16 f-Gray sp-2 me-1 text-center'
+                      ? 'a-lesson-type font-B f-16 f-Gray sp-2 a-lesson-type-seleted'
+                      : 'a-lesson-type font-B f-16 f-Gray sp-2'
                   }
                   key={i}
                   onClick={() => {
@@ -153,7 +160,7 @@ function LessonSlider() {
                 </p>
                 <Link
                   to={`/lesson/${v.sid}`}
-                  className="container buttonY font-B f-20 f-Brown sp-1 pt-2 text-center me-sm-0 me-lg-5 m-sm-0 mt-4 mt-lg-0"
+                  className="container buttonYL font-B f-20 f-Brown sp-3 text-center me-sm-0 me-lg-5 m-sm-0 mt-4 mt-lg-0"
                 >
                   我想瞭解更多
                 </Link>
@@ -168,7 +175,7 @@ function LessonSlider() {
           />
         </div>
 
-        <div className="d-flex a-lesson-btn-right">
+        <div className="d-flex a-lesson-img-layout">
           <img
             src="./Buttons/slide-drag.png"
             alt=""

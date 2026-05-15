@@ -188,7 +188,7 @@
       height: 40px;
       border-radius: 20px;
       color: rgb(141, 94, 94);
-      background-image: url(/Textures/buttonYmain.png);
+      background-image: url(/Textures/buttonYmain.jpg);
       text-align: center;
     }
     .M-inputEditable input:focus{
@@ -242,7 +242,7 @@
   }
   
   .M-member-btn {
-    background-image: url(/Textures/buttonYmain.png);
+    background-image: url(/Textures/buttonYmain.jpg);
     width: 95%;
     height: 110px;
     border: 1px solid transparent;

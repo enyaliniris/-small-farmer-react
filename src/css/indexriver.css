@@ -1,12 +1,3 @@
-/* 評論標題 */
-.IR-commnet-title h1 {
-  font-size: 48px;
-  color: #eac645;
-  letter-spacing: 0.2rem;
-}
-.IR-commnet-title span {
-  color: #57ac6f;
-}
 
 /* 整個評論區 */
 .IR-commnet {

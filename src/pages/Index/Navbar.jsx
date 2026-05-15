@@ -44,7 +44,7 @@ function Navbar() {
             </Link>
           </div>
           <div className="row">
-            <div className="d-flex  position-absolute justify-content-end mt-4 p-0 nav-title-button gap-3">
+            <div className="d-flex justify-content-end mt-4 p-0 nav-title-button gap-3">
               <Link
                 to="/cart"
                 className="me-3"

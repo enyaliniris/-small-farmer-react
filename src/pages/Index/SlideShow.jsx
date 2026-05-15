@@ -9,22 +9,26 @@ function SlideShow() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 4000,
-    autoplaySpeed: 12000,
+    speed: 1500,
+    autoplaySpeed: 6000,
     cssEase: 'ease',
+    touchThreshold: 5,
+    swipeToSlide: true,
+    draggable: true,
+    pauseOnHover: false,
   }
   return (
     <>
       <div className="a-clip-img">
         <Slider {...settings}>
           <div>
-            <img src="./Images/IndexSlide1.png" />
+            <img src="./Images/IndexSlide1.jpg" />
           </div>
           <div>
-            <img src="./Images/IndexSlide2.png" />
+            <img src="./Images/IndexSlide2.jpg" />
           </div>
           <div>
-            <img src="./Images/IndexSlide3.png" />
+            <img src="./Images/IndexSlide3.jpg" />
           </div>
         </Slider>
       </div>

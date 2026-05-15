@@ -76,9 +76,6 @@
   margin-right: 12px;
 }
 
-.btn-area {
-  margin: 0 !important;
-}
 
 .login-text {
   color: #c89c69;
@@ -226,9 +223,6 @@ width: 400px;
   height: 530px;
 }
 
-.btn-area {
-  display: flex;
-}
 
 .ａ-inline,
 .ａ-inline:link,

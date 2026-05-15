@@ -3,21 +3,18 @@ import { HOST, getLessonList } from '../../api/api'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 import '../../css/index.css'
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { useSwiper } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 
 // import required modules
-import { Pagination } from 'swiper'
 function LessonSliderMB() {
   const [imageIndex, setImageIndex] = useState(0)
   const settings = {
     infinite: true,
     speed: 300,
+    autoplay: true,
+    autoplaySpeed: 10000,
     slidesToShow: 1,
     centerMode: true,
     centerPadding: 0,
@@ -32,8 +29,6 @@ function LessonSliderMB() {
   }
 
   const [lessonData, setLessonData] = useState([])
-  const [optionClick, setOptionClick] = useState('農耕')
-  const [lessonDataF, setLessonDataF] = useState([])
 
   // const [lessonIndex, setLessonIndex] = useState(0)
   //課程篩選
@@ -91,47 +86,42 @@ function LessonSliderMB() {
     }, 500)
   }
 
+  //初始化
   useEffect(() => {
     getLessonData()
+  }, [])
+
+  useEffect(() => {
     lessonInfoData()
-  }, [lessonCategoryFilter])
-
-  // useEffect(() => {
-
-  // }, [])
-
-  const swiper = useSwiper()
-
+  }, [lessonCategoryFilter, imageIndex])
   return (
     <>
-      <div className="">
-        <img
-          src="./svg/titleRice.png"
-          width="172px"
-          className="a-newfarmer-tit d-none d-lg-block"
-          alt=""
-        />
-        <br />
-        <div className="">
-          <img src="./svg/newfarmer.png" className="a-newfarmer-tit" alt="" />
+      <h2 className="w-100 m-auto">
+        <div className="d-flex flex-column justify-content-center m-auto align-items-start">
+          <div>
+            <span className="f-32 f-Yellow font-B sp-3">小農</span>
+            <span className="f-32 f-LightGreen font-B sp-3">ＧＯ活動</span>
+          </div>
+          <div>
+            <span className="f-38 f-Yellow font-B sp-3">
+              新<span className="a-bottomline position-relative">小農</span>活
+            </span>
+            <span className="f-16 f-Red font-B sp-2">系列課程</span>
+          </div>
         </div>
-      </div>
+      </h2>
       <div className="d-flex a-lesson-btn">
         {lessonOptions.map((v, i) => {
           return (
             <button
               className={
                 leftbtn === i
-                  ? 'a-lesson-type font-B f-16 f-Gray sp-2 me-1 text-center a-lesson-type-seleted'
+                  ? 'a-lesson-type font-B f-16 f-Red sp-2 me-1 text-center a-lesson-type-seleted'
                   : 'a-lesson-type font-B f-16 f-Gray sp-2 me-1 text-center'
               }
               key={i}
               onClick={() => {
-                setOptionClick(v)
                 setLessonCategoryFilter(v)
-                setLessonDataF(
-                  filterByCategory(lessonData, lessonCategoryFilter)
-                )
                 setLeftbtn(i)
               }}
             >
@@ -140,42 +130,41 @@ function LessonSliderMB() {
           )
         })}
       </div>
-      <div className="a-lesson-btn-right">
-        <img
-          src="./Buttons/slide-dragMB.png"
-          alt=""
-          className="position-absolute ps-3"
-        />
-      </div>
-      <Slider
-        {...settings}
-        onSwipe={(e) => {
-          lessonInfoData()
-        }}
-      >
-        {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
-          let imgarr = v.lesson_img.split(',')
-          return (
-            <div
-              key={i}
-              className={
-                i === imageIndex
-                  ? 'a-lesson-slide aaa'
-                  : 'a-lesson-slide a-lesson-activeSlide'
-              }
-            >
-              <div className="a-slide-drag-main">
-                <img
-                  className="class-list2"
-                  data-lid={v.lesson_id}
-                  src={`${HOST}/images/lesson/${imgarr[0]}`}
-                  alt={v.lesson_img}
-                />
+      <div className="a-slider-wrapper">
+        <div className="a-lesson-img-layout"></div>
+        <Slider
+          {...settings}
+          onSwipe={(e) => {
+            lessonInfoData()
+          }}
+        >
+          {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
+            let imgarr = v.lesson_img.split(',')
+            return (
+              <div className="d-flex justify-content-center" key={i}>
+                <div
+                  key={i}
+                  className={
+                    i === imageIndex
+                      ? 'a-lesson-slide aaa'
+                      : 'a-lesson-slide a-lesson-activeSlide'
+                  }
+                >
+                  <div className="a-slide-drag-main">
+                    <img
+                      className="class-list2"
+                      data-lid={v.lesson_id}
+                      src={`${HOST}/images/lesson/${imgarr[0]}`}
+                      alt={v.lesson_img}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          )
-        })}
-      </Slider>
+            )
+          })}
+        </Slider>
+      </div>
+
       {filterByCategory(lessonData, lessonCategoryFilter).map((v, i) => {
         return (
           <div
@@ -194,12 +183,14 @@ function LessonSliderMB() {
             <p className="font-R f-20 f-Brown sp-2 a-lesson-paragraph flex-wrap">
               {v.lesson_info2}
             </p>
-            <Link
-              to={`/lesson/${v.sid}`}
-              className="container buttonY font-B f-20 f-Brown sp-1 pt-2 text-center me-sm-0 me-lg-5 m-sm-0 mt-4 mt-lg-0"
-            >
-              我想瞭解更多
-            </Link>
+            <div className="w-100 m-auto">
+              <Link
+                to={`/lesson/${v.sid}`}
+                className="container buttonYS font-B f-20 f-Brown sp-1 text-center mt-3"
+              >
+                我想瞭解更多
+              </Link>
+            </div>
           </div>
         )
       })}

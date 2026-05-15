@@ -32,9 +32,9 @@ function IndexRiver() {
               width="300"
               className="d-none d-md-block"
             />
-            <h1>
-              小小農<span>話題</span>
-            </h1>
+            <span className="f-38 f-Yellow">
+              小小農<span className="f-LightGreen">話題</span>
+            </span>
             <img
               src="./Images/titlefarm2.png"
               alt=""

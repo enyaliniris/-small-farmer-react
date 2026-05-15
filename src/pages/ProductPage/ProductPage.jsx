@@ -62,15 +62,15 @@ function ProductPage() {
   const getListData = useCallback(async (sid, orderdate, orderscore) => {
     if (orderscore) {
       const response = await getProductPageData(sid, { orderscore })
-      setData(response.data)
+      setData(response)
     } else if (orderdate) {
       const response = await getProductPageData(sid, { orderdate })
       // console.log(response.data)
-      setData(response.data)
+      setData(response)
     } else {
       const response = await getProductPageData(sid)
       // console.log(response.data)
-      setData(response.data)
+      setData(response)
     }
     setCartNum(1)
   }, [])

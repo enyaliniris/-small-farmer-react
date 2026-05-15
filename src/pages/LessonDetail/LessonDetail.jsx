@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../components/utils/useCart'
 import 'react-calendar/dist/Calendar.css'
-import axios from 'axios'
 import dayjs from 'dayjs'
 import Weather from '../weather/Weather'
 //引入元件

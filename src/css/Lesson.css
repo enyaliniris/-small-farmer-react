@@ -169,7 +169,7 @@
 }
 
 .L-categories-side-btn {
-  background-image: url(/public/Textures/buttonYmain.png);
+  background-image: url(/Textures/buttonYmain.jpg);
   background-size: contain;
   color: #a88686;
   font-size: 16px;
@@ -189,7 +189,7 @@
 }
 
 .L-categories-btn button {
-  background-image: url(/public/Textures/buttonYmain.png);
+  background-image: url(/public/Textures/buttonYmain.jpg);
   background-size: contain;
   color: #a88686;
   font-size: 16px;
@@ -209,7 +209,7 @@
 }
 
 .L-categories-btn a {
-  background-image: url(/public/Textures/buttonYmain.png);
+  background-image: url(/public/Textures/buttonYmain.jpg);
   background-size: contain;
   color: #a88686;
   font-size: 16px;
@@ -229,7 +229,7 @@
 }
 
 .L-card-wrap a {
-  background-image: url(/public/Textures/buttonYmain.png);
+  background-image: url(/public/Textures/buttonYmain.jpg);
   background-size: contain;
   color: #a88686;
   font-size: 16px;
@@ -294,7 +294,7 @@
 
 /* 課程詳細日期&評分排序 */
 .L-categories-btn button {
-  background-image: url(/public/Textures/buttonYmain.png);
+  background-image: url(/public/Textures/buttonYmain.jpg);
   background-size: cover;
   color: #a88686;
   font-size: 16px;
@@ -347,7 +347,7 @@
   border-radius: 20px;
   margin: 0;
   padding: 0;
-  background: url(/public/Textures/buttonYmain.png);
+  background: url(/public/Textures/buttonYmain.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
