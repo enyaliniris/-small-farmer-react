@@ -22,15 +22,15 @@ function IsLogIn() {
   const handleImg = () => {
     // const myAuth = JSON.parse(localStorage.getItem('myAuth'))
     axios
-      .post(`${HOST}/memberImg/myImg`, {
+      .post(`${HOST}/img/myImg`, {
         headers: {
           Authorization: 'Bearer ' + myAuth.token,
         },
         myAuth: myAuth,
       })
       .then((response) => {
+        //console.log('Imgformdata', response)
         setMyImg(response.data.member_img)
-        //console.log('Imgformdata', response.data.member_img)
       })
       .catch((error) => {
         console.error(error)
@@ -49,9 +49,7 @@ function IsLogIn() {
           }}
         >
           <div className="button-member d-flex">
-            {myImg && (
-              <img src={`${HOST}/images/avatar/${myImg}`} alt="{myImg}" />
-            )}
+            {myImg && <img src={`${myImg}`} alt="{myImg}" />}
           </div>
         </a>
         <div className="memeber-active-bg">

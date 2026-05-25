@@ -38,7 +38,7 @@ function MemberRight() {
         setMyAwards(response.data.myawards)
         setMyLevel(response.data.mylevel)
 
-        //console.log(response.data)
+        //console.log('myAddress', response.data)
         // 在此處處理回應
       })
       .catch((error) => {
@@ -95,14 +95,14 @@ function MemberRight() {
     //console.log(myAuth.accountId)
 
     axios
-      .post(`${HOST}/memberImg/upload`, formData, {
+      .post(`${HOST}/img/updateImg`, formData, {
         headers: {
           Authorization: 'Bearer ' + myAuth.token,
           'Content-Type': 'multipart/form-data',
         },
       })
       .then((response) => {
-        setMyAddress(response.data)
+        setMyAddress(response)
         // setMyImg(response.data.member_img)
         window.location.reload()
         //console.log('img', response.data.member_img)
@@ -130,10 +130,7 @@ function MemberRight() {
                 id="file-upload"
               />
             </div>
-            <img
-              src={`http://localhost:3033/images/avatar/${myAddress.member_img}`}
-              alt=""
-            />
+            <img src={`${myAddress.member_img}`} alt="" />
           </div>
 
           <div className="D-inline mt-4 ms-2">

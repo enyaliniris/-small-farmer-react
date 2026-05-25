@@ -52,7 +52,7 @@ function Login() {
                 authorized: true,
                 account,
                 token,
-                sid: accountId,
+                accountId: accountId,
                 member_name: member_name,
                 member_nickname: member_nickname,
                 member_state_sid: member_state_sid,
@@ -98,7 +98,7 @@ function Login() {
                               className="sing-up-input input-email login-input"
                               onChange={(e) => {
                                 setMyForm((prev) => ({
-                                  ...myForm,
+                                  ...prev,
                                   account: e.target.value,
                                 }))
                               }}
@@ -118,7 +118,7 @@ function Login() {
                               type={shownPassword ? 'text' : 'password'}
                               onChange={(e) => {
                                 setMyForm((prev) => ({
-                                  ...myForm,
+                                  ...prev,
                                   password: e.target.value,
                                 }))
                               }}
@@ -151,15 +151,13 @@ function Login() {
                           </div>
 
                           <div className="d-flex justify-content-center">
-                            <div className="mt-0 w-75">
-                              <div className="btn-area w-100 d-flex ">
-                                <button
-                                  href=""
-                                  className="buttonYL border-0 bg-transparent login-btfont"
-                                >
-                                  登入
-                                </button>
-                              </div>
+                            <div className="mt-0 w-100 d-flex justify-content-center mt-1">
+                              <button
+                                href=""
+                                className="buttonYL border-0 bg-transparent login-btfont"
+                              >
+                                登入
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -191,11 +189,11 @@ function Login() {
                           </div>
                         </div>
                         <div className="login-input-contain text-success w-100 d-flex flex-column justify-content-center mt-5">
-                          <div className=" flex-column w-100 text-start mb-5 ms-4 login-text-sapce">
-                            <div className="btn-area w-100 d-flex ">
+                          <div className=" flex-column w-100 text-start mb-5 login-text-sapce">
+                            <div className="w-100 d-flex justify-content-center ">
                               <a
                                 href="/register"
-                                className="buttonGS  login-btfont"
+                                className="buttonGS login-btfont"
                               >
                                 會員註冊
                               </a>
@@ -295,7 +293,7 @@ function Login() {
                                           placeholder="請輸入您的Email"
                                           onChange={(e) => {
                                             setMyForm((prev) => ({
-                                              ...myForm,
+                                              ...prev,
                                               account: e.target.value,
                                             }))
                                           }}
@@ -313,7 +311,7 @@ function Login() {
                                           type="password"
                                           onChange={(e) => {
                                             setMyForm((prev) => ({
-                                              ...myForm,
+                                              ...prev,
                                               password: e.target.value,
                                             }))
                                           }}
@@ -378,7 +376,7 @@ function Login() {
                               </div>
                             </div>
                             <div className="login-input-contain text-success w-100 d-flex flex-column justify-content-center mt-5 ms-3">
-                              <div className=" flex-column w-100 text-start mb-5 ms-4 login-text-sapce">
+                              <div className=" flex-column w-100 text-start mb-5  login-text-sapce">
                                 <div className="btn-area w-100 d-flex ">
                                   <a
                                     href="/register"

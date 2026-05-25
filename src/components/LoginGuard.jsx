@@ -46,30 +46,21 @@ function LoginGuard({ show, setClose, to, directRedirect = false }) {
 
   return (
     <div className="D-Blur">
-      <div className="d-flex justify-content-center w-100 h-100">
-        <div className="P-LoginAlert">
-          <Icon.Delete
-            style={{
-              position: 'absolute',
-              top: '10%',
-              left: '90%',
-              cursor: 'pointer',
-            }}
-            onClick={() => setClose(false)}
-          />
-          <span className="f-24 f-Brown mb-3 font-M">
-            請先登入小農遊網站唷!
-          </span>
-          <button
-            className="C-cartbutton f-24 sp-3 f-Brown font-M"
-            onClick={() => {
-              setClose(false) // 這裡保留
-              navigate('/Login')
-            }}
-          >
-            點我登入
-          </button>
-        </div>
+      <div className="AlertModal">
+        <Icon.Delete
+          className="AlertModal-Close"
+          onClick={() => setClose(false)}
+        />
+        <span className="f-24 f-Brown mb-3 font-M">請先登入小農遊網站唷!</span>
+        <button
+          className="C-cartbutton f-24 sp-3 f-Brown font-M"
+          onClick={() => {
+            setClose(false) // 這裡保留
+            navigate('/Login')
+          }}
+        >
+          點我登入
+        </button>
       </div>
     </div>
   )

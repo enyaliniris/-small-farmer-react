@@ -94,10 +94,9 @@ const Register = () => {
         },
       })
       .then((response) => {
-        //console.log(response.data)
+        console.log('response', response.data)
 
-        setPreview(`${HOST}/images/avatar/${response.data}`)
-
+        setPreview(response.data)
         setFields((old) => ({ ...old, ava: response.data }))
       })
       .catch((error) => {
@@ -145,7 +144,7 @@ const Register = () => {
   //表單送出
   const handleRegister = async (e) => {
     e.preventDefault()
-    //console.log('測試')
+    console.log('fields', fields)
 
     const res = await axios.post(`${HOST}/register/add`, fields)
 
@@ -442,9 +441,7 @@ const Register = () => {
                             )}
                           </div>
                         </div>
-                        <div className="ms-5 d-flex  justify-content-center mt-2 swiper-button-next mhb">
-                          <div class="btn-area w-25 d-flex justify-content-center vb"></div>
-
+                        <div className="d-flex justify-content-center mt-2 swiper-button-next mhb">
                           {/* {member_name && member_nickname && emailRule.test(member_email) && password.length >=6 && password === matchPassword ?
                                                         <div class=" btn-area d-flex justify-content-center swiper-button-next">
                                                             <a href="#/"
@@ -471,8 +468,8 @@ const Register = () => {
                               </a>
                             </div>
                           ) : (
-                            <div class=" btn-area d-flex justify-content-center disabled register-disabled mhb">
-                              <div className="buttonG login-btfont disabled ">
+                            <div class="w-100 d-flex justify-content-center disabled register-disabled">
+                              <div className="buttonG login-btfont disabled">
                                 請填寫全部欄位
                               </div>
                             </div>

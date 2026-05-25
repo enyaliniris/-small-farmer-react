@@ -324,11 +324,6 @@ a {
     background-color: #fffdf6;
   }
 
-  .memeber-login {
-    margin-top: 5px;
-    margin-left: 5px;
-  }
-
   .memberList {
     transition: 0.5s;
     transform: translateY(-10px);
@@ -757,14 +752,10 @@ print {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 0;
-    right: 0;
     width: 198px;
     height: 70px;
     z-index: 100;
     transition: 0.2s;
-    padding-top: 12px;
   }
 
   .buttonGS:hover {
@@ -824,9 +815,6 @@ print {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 0;
-    right: 0;
     width: 294px;
     height: 83px;
     z-index: 100;

@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   // 預設為未登入狀態
   const unAuth = {
     authorized: false,
-    sid: 0,
+    accountId: 0,
     account: '',
     token: '',
   }
@@ -25,7 +25,7 @@ export const AuthContextProvider = ({ children }) => {
       if (localAuth.token && localAuth.account && localAuth.accountId) {
         initAuth = {
           authorized: true,
-          sid: localAuth.accountId,
+          accountId: localAuth.accountId,
           account: localAuth.account,
           member_name: localAuth.member_name,
           member_nickname: localAuth.member_nickname,

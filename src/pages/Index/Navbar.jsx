@@ -170,12 +170,12 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="nav-item menu_li mx-md-1">
-                    <Link className="nav-link" to="/Community">
+                    <Link className="nav-link" to="/MyMember">
                       <div className="menu_icon has_hidden_icon">
                         <img src="./../../Icons/IconNews.png" alt="" />
                       </div>
                       <span className="font-B">
-                        小農部落
+                        小農會員
                         <svg
                           width="70"
                           height="3"
