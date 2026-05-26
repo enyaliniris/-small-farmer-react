@@ -7,6 +7,12 @@ import '../../css/main.css'
 import { useContext, useState } from 'react'
 import AuthContext from '../../contexts/AuthContext'
 import LoginGuard from '../../components/LoginGuard'
+import littlefarmLOGO from '../../icon/littlefarmLOGO.png'
+import GoToFarmLOGO_sm from '../../icon/GoToFarmLOGO-sm.png'
+import IconProduct from '../../icon/IconProduct.png'
+import IconClass from '../../icon/IconClass.png'
+import IconNews from '../../icon/IconNews.png'
+import IconMember from '../../icon/IconMember.png'
 
 function Navbar() {
   const { myAuth } = useContext(AuthContext)
@@ -36,7 +42,7 @@ function Navbar() {
               to="/"
             >
               <img
-                src="./../../Icons/littlefarmLOGO.png"
+                src={littlefarmLOGO}
                 className="nav-mb-logoimg"
                 width="97.5px"
                 alt=""
@@ -97,7 +103,7 @@ function Navbar() {
                     {/* 商城 */}
                     <Link className="nav-link" to="/product">
                       <div className="menu_icon has_hidden_icon">
-                        <img src="./../../Icons/IconProduct.png" alt="" />
+                        <img src={IconProduct} alt="" />
                       </div>
                       <span className="font-B">
                         小農商城
@@ -120,7 +126,7 @@ function Navbar() {
                     {/* 教室 */}
                     <Link className="nav-link" to="/lesson">
                       <div className="menu_icon has_hidden_icon">
-                        <img src="./../../Icons/IconClass.png" alt="" />
+                        <img src={IconClass} alt="" />
                       </div>
                       <span className="font-B">
                         小農教室
@@ -153,8 +159,8 @@ function Navbar() {
                           location.pathname === '/register' ||
                           location.pathname === '/Register' ||
                           location.pathname === '/Checked'
-                            ? './../../Icons/GoToFarmLOGO-sm.png'
-                            : './../../Icons/littlefarmLOGO.png'
+                            ? GoToFarmLOGO_sm
+                            : littlefarmLOGO
                         }
                         className={
                           location.pathname === '/Login' ||
@@ -172,7 +178,7 @@ function Navbar() {
                   <li className="nav-item menu_li mx-md-1">
                     <Link className="nav-link" to="/MyMember">
                       <div className="menu_icon has_hidden_icon">
-                        <img src="./../../Icons/IconNews.png" alt="" />
+                        <img src={IconNews} alt="" />
                       </div>
                       <span className="font-B">
                         小農會員
@@ -202,7 +208,7 @@ function Navbar() {
                       }}
                     >
                       <div className="menu_icon has_hidden_icon">
-                        <img src="./../../Icons/IconMember.png" alt="" />
+                        <img src={IconMember} alt="" />
                       </div>
                       <span className="font-B">
                         小農地圖

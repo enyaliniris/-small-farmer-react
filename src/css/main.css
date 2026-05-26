@@ -174,7 +174,7 @@ a {
 }
 
 .icon-member {
-  background: url(/Icons/icon-member.svg);
+  background: url(../icon/icon-member.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 14px;
@@ -182,7 +182,7 @@ a {
 }
 
 .icon-member:hover {
-  background: url(/Icons/icon-member-hover.svg);
+  background: url(../icon/icon-member-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -190,7 +190,7 @@ a {
 }
 
 .icon-heart {
-  background: url(/Icons/icon-heart.svg);
+  background: url(../icon/icon-heart.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 14px;
@@ -199,7 +199,7 @@ a {
 }
 
 .icon-heart:hover {
-  background: url(/Icons/icon-heart-hover.svg);
+  background: url(../icon/icon-heart-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -207,7 +207,7 @@ a {
 }
 
 .icon-logout {
-  background: url(/Icons/icon-logout.svg);
+  background: url(../icon/icon-logout.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 15px;
@@ -215,7 +215,7 @@ a {
 }
 
 .icon-logout:hover {
-  background: url(/Icons/icon-logout-hover.svg);
+  background: url(../icon/icon-logout-hover.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 18px;
@@ -270,7 +270,7 @@ a {
 
   .icons {
     background-size: cover;
-    background: url(/Icons/Icon-Cart.svg);
+    background: url(../icon/icon-cart.svg);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -431,7 +431,7 @@ a {
 
   .icons {
     background-size: cover;
-    background: url(/Icons/Icon-Cart.svg);
+    background: url(../icon/icon-cart.svg);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -544,7 +544,7 @@ a {
 /* === Navbars === */
 
 .navbar-toggler-icon {
-  background-image: url(/Icons/expand.svg);
+  background-image: url(../icon/expand.svg);
 }
 
 .navbar-title>ul>li {

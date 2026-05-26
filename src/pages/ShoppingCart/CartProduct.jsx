@@ -4,6 +4,8 @@ import {
   ListMotionContainer,
   ListMotionItem,
 } from '../../components/ListMotion'
+import deleteSVG from '../../icon/delete.svg'
+import couponSVG from '../../icon/coupon.svg'
 
 function CartProduct(props) {
   const { plusOne, minusOne, reloadItems } = useCart()
@@ -149,7 +151,7 @@ function CartProduct(props) {
                           }}
                         >
                           <img
-                            src="/Icons/delete.svg"
+                            src={deleteSVG}
                             className="img-fluid"
                             alt="delete"
                           />
@@ -169,7 +171,7 @@ function CartProduct(props) {
             }}
           >
             <button>
-              <img src="./Icons/coupon.svg" alt="coupon" />
+              <img src={couponSVG} alt="coupon" />
             </button>
             <span className="f-16 f-Yellow ms-2">
               套用折扣:

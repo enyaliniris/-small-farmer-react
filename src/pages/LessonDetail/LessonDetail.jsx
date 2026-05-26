@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import Weather from '../weather/Weather'
 //引入元件
 import Icon from '../../icon/Icon'
+import starFigma from '../../icon/star_figma.svg'
 import AsNavFor from './AsNavFor'
 import CalendarNew from './CalendarNew'
 import AuthContext from '../../contexts/AuthContext'
@@ -128,11 +129,11 @@ function LessonDetail() {
                         </h1>
                         <div className="d-flex justify-content-start font-R f-Gray mb-2">
                           {/* <span>評價: </span> */}
-                          <img src="/Icons/star_figma.svg" alt="123" />
-                          <img src="/Icons/star_figma.svg" alt="123" />
-                          <img src="/Icons/star_figma.svg" alt="123" />
-                          <img src="/Icons/star_figma.svg" alt="123" />
-                          <img src="/Icons/star_figma.svg" alt="123" />
+                          <img src={starFigma} alt="123" />
+                          <img src={starFigma} alt="123" />
+                          <img src={starFigma} alt="123" />
+                          <img src={starFigma} alt="123" />
+                          <img src={starFigma} alt="123" />
                         </div>
                         <div className="card-text flex-md-grow-1 font-R f-24 f-Gray">
                           {/* 將內容換行,SQL裡面記得下<br> */}

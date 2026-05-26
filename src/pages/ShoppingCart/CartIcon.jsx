@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../css/shoppingcart.css'
 import { useCart } from '../../components/utils/useCart'
+import cartSVG from '../../icon/cart.svg'
 
 function CartIcon(props) {
   const CartTotal = useCart().cart.sumTotal
@@ -8,7 +9,7 @@ function CartIcon(props) {
   return (
     <>
       <div className="C-IconCart" data-count={CartTotal}>
-        <img src="./../../Icons/cart.svg" alt="cart"></img>
+        <img src={cartSVG} alt="cart"></img>
       </div>
     </>
   )

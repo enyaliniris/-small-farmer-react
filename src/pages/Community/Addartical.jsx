@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { HOST, LOGIN } from '../../api/api'
 import AuthContext from '../../contexts/AuthContext'
+import addIcon from '../../icon/add.png'
+import closeIcon from '../../icon/close.png'
 
 function AddArtical() {
   const [myForm, setMyForm] = useState({
@@ -52,7 +54,7 @@ function AddArtical() {
                 <div className="cm-artical-innerimg-add d-flex justify-content-center align-items-center">
                   <img
                     className="cn-addp"
-                    src="http://localhost:3000/Icons/add.png"
+                    src={addIcon}
                   ></img>
                 </div>
               </div>
@@ -85,7 +87,7 @@ function AddArtical() {
           </div>
         </div>
         <a className="cm-card-close position-absolute" href="/communicate">
-          <img src="http://localhost:3000/Icons/close.png"></img>
+          <img src={closeIcon}></img>
         </a>
         {/* 文章卡片區域 */}
       </div>

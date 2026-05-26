@@ -5,6 +5,9 @@ import {
   ListMotionContainer,
   ListMotionItem,
 } from '../../components/ListMotion'
+import calendarSVG from '../../icon/calendar.svg'
+import deleteSVG from '../../icon/delete.svg'
+import couponSVG from '../../icon/coupon.svg'
 
 function CartLesson(props) {
   const { plusOne, minusOne, reloadItems } = useCart()
@@ -102,7 +105,7 @@ function CartLesson(props) {
                           </p>
                         </div>
                         <div className="C-date d-flex flex-row gap-1 ms-auto">
-                          <img src="./Icons/calendar.svg" alt="calender" />
+                          <img src={calendarSVG} alt="calender" />
                           <div className="d-flex flex-column">
                             <span className="f-16 f-Gray">{l.date}</span>
                           </div>
@@ -155,7 +158,7 @@ function CartLesson(props) {
                           }}
                         >
                           <img
-                            src="./Icons/delete.svg"
+                            src={deleteSVG}
                             className="img-fluid"
                             alt="delete"
                           />
@@ -175,7 +178,7 @@ function CartLesson(props) {
             }}
           >
             <button>
-              <img src="./Icons/coupon.svg" alt="coupon" />
+              <img src={couponSVG} alt="coupon" />
             </button>
             <span className="f-16 f-Yellow ms-2">
               套用折扣:

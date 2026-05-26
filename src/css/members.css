@@ -237,7 +237,7 @@
   margin-left: 10px;
   background-color: transparent;
   border: 0px;
-  background-image: url(/Icons/edit-Btn.png);
+  background-image: url(../icon/edit-Btn.png);
   background-size: contain;
 }
 .m-hr {
@@ -430,7 +430,7 @@
 }
 
 .google-logo-size{
-  background-image: url(/public/Icons/Google-circle-logo.png);
+  background-image: url(../icon/Google-circle-logo.png);
   width: 150px !important;
   height: 150px;
  
@@ -441,7 +441,7 @@
  border-radius: 50% !important;
  width: 150px !important;
   height: 150px;
-   background-image: url(/public/Icons/Google-circle-logo.png);
+   background-image: url(../icon/Google-circle-logo.png);
   
 }
 

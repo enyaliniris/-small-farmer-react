@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import '../../css/Lesson.css'
 import Icon from '../../icon/Icon'
 import PageHeader from '../../components/PageHeader'
+import farmSVG from '../../icon/farm.svg'
+import farm2SVG from '../../icon/farm2.svg'
 
 function Lesson() {
   const [lessonData, setLessonData] = useState([])
@@ -202,10 +204,10 @@ function Lesson() {
       <section className="L-activitycolor pb-3">
         <div className="container mb-2">
           <div className="d-flex justify-content-center align-items-center p-5">
-            <img className="L-section2-img" src="/Icons/farm.svg" alt="" />
+            <img className="L-section2-img" src={farmSVG} alt="" />
             <h1 className="font-B f-Yellow">小農</h1>
             <h1 className="font-B f-LightGreen">活動預告</h1>
-            <img className="L-section2-img" src="/Icons/farm2.svg" alt="" />
+            <img className="L-section2-img" src={farm2SVG} alt="" />
           </div>
           <div className="d-flex flex-column align-items-center gap-3">
             <div className="row mb-5 align-items-center justify-content-center">

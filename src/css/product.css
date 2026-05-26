@@ -299,12 +299,12 @@ a {
   display: inline-block;
   padding-left: 28px;
   line-height: 20px;
-  background: url('.//Icons/checkbox.svg') no-repeat left top;
+  background: url('../icon/checkbox.svg') no-repeat left top;
   user-select: none;
 }
 
 .P-category input[type='checkbox']:checked + span {
-  background: url('.//Icons/checkboxChecked.svg') no-repeat left top;
+  background: url('../icon/checkboxChecked.svg') no-repeat left top;
 }
 
 .P-rabbit {

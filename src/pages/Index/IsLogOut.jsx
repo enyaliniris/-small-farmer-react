@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import iconMemberSlender from '../../icon/icon-member-slender.svg'
 function IsLogOut() {
   const [isOpen, setIsOpen] = useState(false)
   return (
@@ -17,7 +18,7 @@ function IsLogOut() {
         >
           <div className="button-member d-flex">
             <img
-              src="./../../Icons/icon-member-slender.svg"
+              src={iconMemberSlender}
               style={{ width: '17px', height: '20px' }}
               alt=""
               className=""

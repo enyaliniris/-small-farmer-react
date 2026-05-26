@@ -8,6 +8,8 @@ import '../../css/login-swiper.css'
 import '../../css/logon-main.css'
 import '../../css/main.css'
 import { useAlert } from '../../contexts/AlertContext'
+import showPasswordIcon from '../../icon/IconProduct.png'
+import hidePasswordIcon from '../../icon/invisiable_password.png'
 function Login() {
   const [myForm, setMyForm] = useState({
     account: '',
@@ -135,8 +137,8 @@ function Login() {
                                 className="me-2 show_password_img"
                                 src={
                                   shownPassword
-                                    ? '/Icons/IconProduct.png'
-                                    : '/Icons/invisiable_password.png'
+                                    ? showPasswordIcon
+                                    : hidePasswordIcon
                                 }
                                 onChange={() => {}}
                                 alt=""

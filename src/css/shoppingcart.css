@@ -342,7 +342,7 @@ textarea:focus {
 }
 
 .less {
-  background: url('/Icons/less.svg');
+  background: url('../icon/less.svg');
   border: 0;
   width: 30px;
   height: 30px;
@@ -350,7 +350,7 @@ textarea:focus {
 }
 
 .more {
-  background: url('/Icons/more.svg');
+  background: url('../icon/more.svg');
   border: 0;
   width: 32px;
   height: 30px;
@@ -636,13 +636,13 @@ textarea:focus {
 .C-agreeCheck {
   width: 23px;
   height: 24px;
-  background: url(/Icons/checkbox.svg);
+  background: url(../icon/checkbox.svg);
   background-repeat: no-repeat;
 }
 .C-agreeCheck:checked {
   width: 23px;
   height: 24px;
-  background: url(/Icons/checkboxChecked.svg);
+  background: url(../icon/checkboxChecked.svg);
   background-repeat: no-repeat;
 }
 

@@ -147,7 +147,7 @@
   width: 112px;
   height: 10px;
   position: absolute;
-  background: url(/public/Icons/sea_figma.svg);
+  background: url(../icon/sea_figma.svg);
   bottom: -10%;
 }
 .L-title::after {

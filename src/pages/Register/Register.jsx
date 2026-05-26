@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import { HOST } from '../../api/api'
 //import avaUploader from '../../components/avaUploader'
 import axios from 'axios'
+import inputChecked from '../../icon/input-checked.png'
+import showPasswordIcon from '../../icon/IconProduct.png'
+import hidePasswordIcon from '../../icon/invisiable_password.png'
 
 //引入日期選擇組件
 import DateSelector from '../../components/DateSelector'
@@ -257,7 +260,7 @@ const Register = () => {
                             <div class="sign-up-hint-checked d-flex align-items-center">
                               <img
                                 className="sign-up-hint-checked-img"
-                                src="/Icons/input-checked.png"
+                                src={inputChecked}
                               />
                               OK!
                             </div>
@@ -293,7 +296,7 @@ const Register = () => {
                             <div class="sign-up-hint-checked d-flex align-items-center">
                               <img
                                 className="sign-up-hint-checked-img"
-                                src="/Icons/input-checked.png"
+                                src={inputChecked}
                               />
                               OK!
                             </div>
@@ -326,7 +329,7 @@ const Register = () => {
                                 <div class="sign-up-hint-checked d-flex align-items-center">
                                   <img
                                     className="sign-up-hint-checked-img"
-                                    src="/Icons/input-checked.png"
+                                    src={inputChecked}
                                   />
                                   OK!
                                 </div>
@@ -373,7 +376,7 @@ const Register = () => {
                               <div class="sign-up-hint-checked d-flex align-items-center">
                                 <img
                                   className="sign-up-hint-checked-img"
-                                  src="/Icons/input-checked.png"
+                                  src={inputChecked}
                                 />
                                 OK!
                               </div>
@@ -387,8 +390,8 @@ const Register = () => {
                                 className="me-2 show_password_img"
                                 src={
                                   shownPassword
-                                    ? '/Icons/IconProduct.png'
-                                    : '/Icons/invisiable_password.png'
+                                    ? showPasswordIcon
+                                    : hidePasswordIcon
                                 }
                                 onChange={() => {}}
                               ></img>
@@ -425,7 +428,7 @@ const Register = () => {
                                 <div class="sign-up-hint-checked d-flex align-items-center">
                                   <img
                                     className="sign-up-hint-checked-img"
-                                    src="/Icons/input-checked.png"
+                                    src={inputChecked}
                                   />
                                   OK!
                                 </div>
@@ -570,7 +573,7 @@ const Register = () => {
                                     <div class="sign-up-hint-checked d-flex align-items-center">
                                       <img
                                         className="sign-up-hint-checked-img"
-                                        src="/Icons/input-checked.png"
+                                        src={inputChecked}
                                       />
                                       OK!
                                     </div>

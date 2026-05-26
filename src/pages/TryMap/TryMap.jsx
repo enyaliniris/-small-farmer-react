@@ -4,6 +4,10 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import './../../css/map.css'
 import { Link } from 'react-router-dom'
+import markerIcon from '../../icon/marker.png'
+import markerFIcon from '../../icon/markerF.png'
+import gotofarmLogoBig from '../../icon/gotofarm-logo-big.png'
+import GoToFarmLOGO_sm from '../../icon/GoToFarmLOGO-sm.png'
 const zoom = 12
 function TryMap() {
   const [map, setMap] = useState(null)
@@ -23,7 +27,7 @@ function TryMap() {
     iconSize: [36, 52],
     iconAnchor: [10, 41],
     popupAnchor: [2, -40],
-    iconUrl: './../../Icons/marker.png',
+    iconUrl: markerIcon,
     shadowUrl: 'https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png',
   })
   // 地標(小農遊)
@@ -31,7 +35,7 @@ function TryMap() {
     iconSize: [34, 40],
     iconAnchor: [10, 41],
     popupAnchor: [2, -40],
-    iconUrl: './../../Icons/markerF.png',
+    iconUrl: markerFIcon,
     shadowUrl: 'https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png',
   })
 
@@ -72,7 +76,7 @@ function TryMap() {
         <div className="MAP-farmer-wrap font-B">
           <img
             className="MAP-farmer"
-            src="./../../Icons/gotofarm-logo-big.png"
+            src={gotofarmLogoBig}
             alt=""
             onClick={() => {
               map.flyTo([24.7051215, 121.2023128], zoom)
@@ -251,7 +255,7 @@ function TryMap() {
                 {
                   <>
                     <img
-                      src="./../../Icons/GoToFarmLOGO-sm.png"
+                      src={GoToFarmLOGO_sm}
                       alt=""
                       width={120}
                       className="d-block mx-auto mb-2"

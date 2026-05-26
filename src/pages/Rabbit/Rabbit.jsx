@@ -7,6 +7,7 @@ import NewAwardsR from '../../components/NewAwardsR'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 import './../../css/rabbit.css'
+import couponSVG from '../../icon/coupon.svg'
 function Rabbit() {
   const navigate = useNavigate()
   const { myAuth } = useContext(AuthContext)
@@ -260,7 +261,7 @@ function Rabbit() {
                   兔兔吃飽囉！恭喜得到一張<span>兔飽飽券</span>！
                 </h4>
                 <div className="RA-coupon mb-4 mx-auto">
-                  <img src="./../../Icons/coupon.svg" alt="coupon" />
+                  <img src={couponSVG} alt="coupon" />
                   <span
                     className="ms-1 yellow"
                     onClick={() => {

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import '../css/dropdown.css'
+import selectSVG from '../icon/select.svg'
 
 function DropDown(props) {
   //資料庫會員地址
@@ -1732,7 +1733,7 @@ function DropDown(props) {
             >
               {selectArea}
               <img
-                src="./Icons/select.svg"
+                src={selectSVG}
                 alt="select"
                 className={isOpenA ? 'C-Imgactive' : ''}
                 onClick={(e) => {
@@ -1766,7 +1767,7 @@ function DropDown(props) {
             <li className="C-dropdown-selected" style={{ color: Fontcolor }}>
               {selectDist}
               <img
-                src="./Icons/select.svg"
+                src={selectSVG}
                 alt="select"
                 className={isOpenD ? 'C-Imgactive' : ''}
                 onClick={(e) => {

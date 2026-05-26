@@ -3,6 +3,12 @@ import WeekCalendar from '../../components/WeekCalender'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import mArticale from '../../icon/m-articale.png'
+import mCommand from '../../icon/m-command.png'
+import mBookmarks from '../../icon/m-bookmarks.png'
+import mOrderdetals from '../../icon/m-orderdetals.png'
+import mCuppon from '../../icon/m-cuppon.png'
+import mAwards from '../../icon/m-awards.png'
 
 function MemberLeft() {
   const navigate = useNavigate()
@@ -31,7 +37,7 @@ function MemberLeft() {
         <a href="/#" className="col-12 col-md-4 d-flex justify-content-center">
           <div className="M-member-btn">
             <div className="M-circle">
-              <img src="./Icons/m-articale.png" alt="m-articale.png" />
+              <img src={mArticale} alt="m-articale.png" />
             </div>
             <span className="M-btn-p fw-bold">我的文章</span>
           </div>
@@ -42,7 +48,7 @@ function MemberLeft() {
         >
           <div className="M-member-btn">
             <div className="M-circle">
-              <img src="./Icons/m-command.png" alt="m-command.png" />
+              <img src={mCommand} alt="m-command.png" />
             </div>
             <span className="M-btn-p fw-bold">我的評論</span>
           </div>
@@ -53,7 +59,7 @@ function MemberLeft() {
         >
           <div className="M-member-btn">
             <div className="M-circle">
-              <img src="./Icons/m-bookmarks.png" alt="m-bookmarks.png" />
+              <img src={mBookmarks} alt="m-bookmarks.png" />
             </div>
             <span className="M-btn-p fw-bold">我的收藏</span>
           </div>
@@ -67,7 +73,7 @@ function MemberLeft() {
         <Link to="/MyMember/MyOrder" className="col-12 col-md-4">
           <div className="M-member-btn2 d-flex justify-content-center align-items-center">
             <div className="M-circle">
-              <img src="./Icons/m-orderdetals.png" alt="m-orderdetals.png" />
+              <img src={mOrderdetals} alt="m-orderdetals.png" />
             </div>
             <span>
               <p className="M-btn-p fw-bold">
@@ -81,7 +87,7 @@ function MemberLeft() {
         <Link to="/MyMember/MyCoupon" className="col-12 col-md-4">
           <div className="M-member-btn2 d-flex justify-content-center align-items-center">
             <div className="M-circle">
-              <img src="./Icons/m-cuppon.png" alt="m-cuppon.png" />
+              <img src={mCuppon} alt="m-cuppon.png" />
             </div>
             <span>
               <p className="M-btn-p fw-bold">
@@ -101,7 +107,7 @@ function MemberLeft() {
         >
           <div className="M-member-btn2 d-flex justify-content-center align-items-center">
             <div className="M-circle">
-              <img src="./Icons/m-awards.png" alt="m-awards.png" />
+              <img src={mAwards} alt="m-awards.png" />
             </div>
             <span>
               <p className="M-btn-p fw-bold">

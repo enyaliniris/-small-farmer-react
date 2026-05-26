@@ -1,6 +1,13 @@
 import React from 'react'
 import '../../css/main.css'
 import { Link } from 'react-router-dom'
+import littlefarmLOGO from '../../icon/littlefarmLOGO.png'
+import IconPhone from '../../icon/IconPhone.svg'
+import iconCart from '../../icon/icon-cart.svg'
+import iconIG from '../../icon/icon-ig.svg'
+import iconFB from '../../icon/icon-fb.svg'
+import footer3 from '../../icon/footer3.svg'
+import footer2 from '../../icon/footer2.svg'
 function Footer() {
   return (
     <>
@@ -8,13 +15,13 @@ function Footer() {
         <div className="footer-card">
           <div className="d-flex justify-content-center">
             <img
-              src="./../../Icons/littlefarmLOGO.png"
+              src={littlefarmLOGO}
               className="footer-logoimg "
               alt=""
             />
           </div>
           <p className="text-center f-Brown f-16 font-R sp-1">
-            <img src="./../../Icons/IconPhone.svg" alt="" className="me-1" />
+            <img src={IconPhone} alt="" className="me-1" />
             0921-222-222
           </p>
           <p className="text-center f-Brown f-16 font-R sp-1">
@@ -24,7 +31,7 @@ function Footer() {
             <Link to={'/Product?cate=2'}>
               <div className="button-footer ">
                 <img
-                  src="/Icons/icon-cart.svg"
+                  src={iconCart}
                   alt="icon-cart"
                   width="40"
                   height="40"
@@ -34,7 +41,7 @@ function Footer() {
             <a href="#/" className="">
               <div className="button-footer">
                 <img
-                  src="/Icons/icon-ig.svg"
+                  src={iconIG}
                   alt="icon-ig"
                   width="40"
                   height="40"
@@ -44,7 +51,7 @@ function Footer() {
             <a href="#/" className="">
               <div className="button-footer d-flex justify-content-center">
                 <img
-                  src="/Icons/icon-fb.svg"
+                  src={iconFB}
                   alt="icon-fb"
                   width="40"
                   height="40"
@@ -54,8 +61,8 @@ function Footer() {
           </div>
         </div>
         <div className="footer-img d-sm-none d-md-block">
-          <img src="./../../Icons/footer3.svg" alt="" className="float-start" />
-          <img src="./../../Icons/footer2.svg" alt="" className="float-end" />
+          <img src={footer3} alt="" className="float-start" />
+          <img src={footer2} alt="" className="float-end" />
         </div>
       </section>
     </>
