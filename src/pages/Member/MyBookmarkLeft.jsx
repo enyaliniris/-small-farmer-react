@@ -42,7 +42,8 @@ function MyBookmarkLeft() {
   const getListData = async (page = 1) => {
     try {
       const response = await getBookmarkData({ page })
-      setData(response.data)
+      //console.log(response)
+      setData((prev) => ({ ...prev, ...response }))
     } catch (error) {
       alert(error.message)
     }

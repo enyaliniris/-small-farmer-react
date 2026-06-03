@@ -1,4 +1,5 @@
 import { useCart } from '../../components/utils/useCart'
+import { HOST } from '../../api/api'
 import { Link } from 'react-router-dom'
 import {
   ListMotionContainer,
@@ -93,7 +94,7 @@ function CartProduct(props) {
                       <div className="C-Item-1 d-flex flex-row align-items-center gap-lg-3 gap-1">
                         <div className="C-productimg">
                           <img
-                            src={`http://localhost:3033/images/product/${p.img}`}
+                            src={`${HOST}/images/product/${p.img}`}
                             alt="Cotton T-shirt"
                           />
                         </div>

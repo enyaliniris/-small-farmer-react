@@ -150,17 +150,27 @@ function Product() {
   // checkbox 是否勾選
   const isChecked = (key, value) => getArray(key).includes(value)
 
-  // 新增收藏
-  const fetchAddBookmark = async (productSid = 0) => {
-    //console.log('addBookmark')
-    if (!+productSid) return
+  // 樂觀更新：本地收藏狀態覆蓋，key 為 product sid
+  const [localBookmarks, setLocalBookmarks] = useState({})
 
+  const isBookmarked = (v) =>
+    v.sid in localBookmarks
+      ? localBookmarks[v.sid]
+      : v.bookmark_member_sid.includes(myAuth.accountId)
+
+  const toggleBookmark = async (v) => {
+    const sid = v.sid
+    const wasBookmarked = isBookmarked(v)
+    // 立即更新 UI
+    setLocalBookmarks((prev) => ({ ...prev, [sid]: !wasBookmarked }))
     try {
-      await addBookmark('product', { product_sid: productSid })
-    } catch (err) {
-      //console.error(err.message)
-    } finally {
-      getListData(
+      if (wasBookmarked) {
+        await deleteBookmark('product', sid)
+      } else {
+        await addBookmark('product', { product_sid: sid })
+      }
+      // 同步伺服器資料後清除本地覆蓋
+      await getListData(
         +query.get('page'),
         +query.get('cate'),
         +query.get('brand'),
@@ -169,30 +179,15 @@ function Product() {
         query.get('orderprice'),
         query.get('search')
       )
-      setLoading(false)
-    }
-  }
-
-  // 刪除收藏
-  const fetchDeleteBookmark = async (productSid = 0) => {
-    //console.log('deBookmark')
-    if (!+productSid) return
-
-    try {
-      await deleteBookmark('product', productSid)
     } catch (err) {
-      console.error(err.message)
+      // 失敗時還原
+      setLocalBookmarks((prev) => ({ ...prev, [sid]: wasBookmarked }))
     } finally {
-      getListData(
-        +query.get('page'),
-        +query.get('cate'),
-        +query.get('brand'),
-        query.get('pro'),
-        query.get('veg'),
-        query.get('orderprice'),
-        query.get('search')
-      )
-      setLoading(false)
+      setLocalBookmarks((prev) => {
+        const next = { ...prev }
+        delete next[sid]
+        return next
+      })
     }
   }
 
@@ -790,24 +785,26 @@ function Product() {
                           </div>
                         </Link>
                         <div className="P-product-card-price font-M d-flex justify-content-end align-items-center gap-1">
-                          {v.bookmark_member_sid.includes(myAuth.sid) ? (
+                          {isBookmarked(v) ? (
                             <Icon.Bookmarked
                               className="me-auto"
                               onClick={() => {
-                                setShowLoginAlert(true)
-                                v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? fetchDeleteBookmark(v.sid)
-                                  : fetchAddBookmark(v.sid)
+                                if (!myAuth.authorized) {
+                                  setShowLoginAlert(true)
+                                  return
+                                }
+                                toggleBookmark(v)
                               }}
                             />
                           ) : (
                             <Icon.Bookmark
                               className="me-auto"
                               onClick={() => {
-                                setShowLoginAlert(true)
-                                v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? fetchDeleteBookmark(v.sid)
-                                  : fetchAddBookmark(v.sid)
+                                if (!myAuth.authorized) {
+                                  setShowLoginAlert(true)
+                                  return
+                                }
+                                toggleBookmark(v)
                               }}
                             />
                           )}

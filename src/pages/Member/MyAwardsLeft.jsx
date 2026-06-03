@@ -117,7 +117,7 @@ function MyAwardsLeft() {
               return selectedAward
             })
             .map((a) => {
-              const imgSrc = `http://localhost:3033/images/awards/${a.awards_img}-a.png`
+              const imgSrc = `${HOST}/images/awards/${a.awards_img}-a.png`
               return (
                 <div
                   className="d-flex flex-column justify-content-center align-items-center gap-2"
@@ -139,7 +139,7 @@ function MyAwardsLeft() {
               return !selectedAward
             })
             .map((a) => {
-              const imgSrc = `http://localhost:3033/images/awards/${a.awards_img}.png`
+              const imgSrc = `${HOST}/images/awards/${a.awards_img}.png`
               return (
                 <div
                   className="d-flex flex-column justify-content-center align-items-center gap-2"

@@ -2,7 +2,7 @@ import React from 'react'
 import { useCart } from '../../components/utils/useCart'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MY_ADDRESS_DATA } from '../../api/api'
+import { HOST, MY_ADDRESS_DATA } from '../../api/api'
 import { MY_EDIT_ADDRESS } from '../../api/api'
 import axios from 'axios'
 import DropDown from '../../components/DropDown'
@@ -174,7 +174,7 @@ function ShoppingPayment() {
                         >
                           <div className="C-payitem-img">
                             <img
-                              src={`http://localhost:3033/images/product/${c.img}`}
+                              src={`${HOST}/images/product/${c.img}`}
                               className="img-fluid rounded-20"
                               alt="Cotton T-shirt"
                             />
@@ -205,7 +205,7 @@ function ShoppingPayment() {
                         >
                           <div className="C-payitem-img">
                             <img
-                              src={`http://localhost:3033/images/lesson/${c.img}`}
+                              src={`${HOST}/images/lesson/${c.img}`}
                               className="img-fluid rounded-20"
                               alt="Cotton T-shirt"
                             />

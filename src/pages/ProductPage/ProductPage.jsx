@@ -167,12 +167,12 @@ function ProductPage() {
                         />
                       </div>
                     </div>
-                    {v.bookmark_member_sid.includes(myAuth.sid) ? (
+                    {v.bookmark_member_sid.includes(myAuth.accountId) ? (
                       <div
                         className="P-btn-fav d-none d-md-block mx-auto"
                         onClick={() => {
                           setShowLoginAlert(true)
-                          v.bookmark_member_sid.includes(myAuth.sid)
+                          v.bookmark_member_sid.includes(myAuth.accountId)
                             ? fetchDeleteBookmark(v.sid)
                             : fetchAddBookmark(v.sid)
                         }}
@@ -187,7 +187,7 @@ function ProductPage() {
                         className="P-btn-fav d-none d-md-block mx-auto"
                         onClick={() => {
                           setShowLoginAlert(true)
-                          v.bookmark_member_sid.includes(myAuth.sid)
+                          v.bookmark_member_sid.includes(myAuth.accountId)
                             ? fetchDeleteBookmark(v.sid)
                             : fetchAddBookmark(v.sid)
                         }}
@@ -206,11 +206,11 @@ function ProductPage() {
           {/* 手機版加入購物車 */}
           <div className="P-mobile-buy d-md-none d-flex justify-content-between align-items-center gap-2">
             <button className="P-addbookmark d-flex justify-content-center align-items-center ">
-              {data.bookmark_member_sid.includes(myAuth.sid) ? (
+              {data.bookmark_member_sid.includes(myAuth.accountId) ? (
                 <Icon.Bookmarked
                   onClick={() => {
                     setShowLoginAlert(true)
-                    data.bookmark_member_sid.includes(myAuth.sid)
+                    data.bookmark_member_sid.includes(myAuth.accountId)
                       ? fetchDeleteBookmark(data.product_sid)
                       : fetchAddBookmark(data.product_sid)
                   }}
@@ -219,7 +219,7 @@ function ProductPage() {
                 <Icon.Bookmark
                   onClick={() => {
                     setShowLoginAlert(true)
-                    data.bookmark_member_sid.includes(myAuth.sid)
+                    data.bookmark_member_sid.includes(myAuth.accountId)
                       ? fetchDeleteBookmark(data.product_sid)
                       : fetchAddBookmark(data.product_sid)
                   }}
@@ -440,12 +440,12 @@ function ProductPage() {
                     </p>
                   </Link>
                   <div className="PP-product-card-price font-R d-flex justify-content-end align-items-center gap-1">
-                    {v.bookmark_member_sid.includes(myAuth.sid) ? (
+                    {v.bookmark_member_sid.includes(myAuth.accountId) ? (
                       <Icon.Bookmarked
                         className="me-auto"
                         onClick={() => {
                           setShowLoginAlert(true)
-                          v.bookmark_member_sid.includes(myAuth.sid)
+                          v.bookmark_member_sid.includes(myAuth.accountId)
                             ? fetchDeleteBookmark(v.sid)
                             : fetchAddBookmark(v.sid)
                         }}
@@ -455,7 +455,7 @@ function ProductPage() {
                         className="me-auto"
                         onClick={() => {
                           setShowLoginAlert(true)
-                          v.bookmark_member_sid.includes(myAuth.sid)
+                          v.bookmark_member_sid.includes(myAuth.accountId)
                             ? fetchDeleteBookmark(v.sid)
                             : fetchAddBookmark(v.sid)
                         }}

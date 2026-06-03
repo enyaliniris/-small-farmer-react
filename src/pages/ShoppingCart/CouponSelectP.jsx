@@ -1,4 +1,5 @@
 import React from 'react'
+import { HOST } from '../../api/api'
 import { useCart } from '../../components/utils/useCart'
 import { useRef, useEffect } from 'react'
 
@@ -57,7 +58,7 @@ function CouponSelectP(props) {
                 >
                   <div className="C-couponimg col-3 col-md-3 col-lg-3">
                     <img
-                      src={`http://localhost:3033/images/coupon/${c.coupon_img}`}
+                      src={`${HOST}/images/coupon/${c.coupon_img}`}
                       alt="couponimg"
                     />
                   </div>

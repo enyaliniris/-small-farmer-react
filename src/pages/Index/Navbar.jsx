@@ -55,8 +55,10 @@ function Navbar() {
                 to="/cart"
                 className="me-3"
                 onClick={(e) => {
-                  e.preventDefault()
-                  setShowLoginAlert(true)
+                  if (!myAuth.authorized) {
+                    e.preventDefault()
+                    setShowLoginAlert(true)
+                  }
                 }}
               >
                 <div className="button-cart container">

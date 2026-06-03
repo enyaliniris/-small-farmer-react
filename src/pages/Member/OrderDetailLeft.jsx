@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
-import { MY_ORDER_DETAILS } from '../../api/api'
+import { HOST, MY_ORDER_DETAILS } from '../../api/api'
 import { useParams } from 'react-router-dom'
 
 function OrderDetailLeft() {
@@ -52,7 +52,7 @@ function OrderDetailLeft() {
               <div className="row d-flex align-items-center justify-content-between">
                 <div className="col-7 d-flex gap-2 align-items-center">
                   <img
-                    src={`http://localhost:3033/images/product/${c.product_img}`}
+                    src={`${HOST}/images/product/${c.product_img}`}
                     className="img-fluid rounded-20"
                     alt="Cotton T-shirt"
                   />
@@ -82,7 +82,7 @@ function OrderDetailLeft() {
               <div className="row d-flex align-items-center justify-content-between">
                 <div className="col-7 d-flex gap-2 align-items-center">
                   <img
-                    src={`http://localhost:3033/images/lesson/${c.lesson_img}`}
+                    src={`${HOST}/images/lesson/${c.lesson_img}`}
                     className="img-fluid rounded-20"
                     alt="Cotton T-shirt"
                   />

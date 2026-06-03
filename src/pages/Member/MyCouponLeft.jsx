@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { COUPON_DATA } from '../../api/api'
+import { HOST, COUPON_DATA } from '../../api/api'
 import Pagination from '../../components/Pagination'
 import { Link } from 'react-router-dom'
 
@@ -77,7 +77,7 @@ function MyCouponLeft() {
               <div className="C-O-coupon my-3 d-flex" key={c.sid}>
                 <div className="C-O-couponimg">
                   <img
-                    src={`http://localhost:3033/images/coupon/${c.coupon_img}`}
+                    src={`${HOST}/images/coupon/${c.coupon_img}`}
                     alt="couponimg"
                   />
                 </div>

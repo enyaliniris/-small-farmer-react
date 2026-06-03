@@ -74,29 +74,28 @@ function LessonDetail() {
     // console.log(res.data.limit[0].lesson_uplimit)
   }, [sid])
 
-  // 新增收藏
-  const fetchAddBookmark = async (lessonSid = 0) => {
-    // console.log('addBookmark')
-    if (!+lessonSid) return
-    try {
-      await addBookmark('lesson', { lesson_sid: lessonSid })
-    } catch (err) {
-      console.error(err.message)
-    } finally {
-      getListData()
-    }
-  }
+  // 樂觀更新收藏狀態，null 表示以伺服器資料為準
+  const [localBookmarked, setLocalBookmarked] = useState(null)
 
-  // 刪除收藏
-  const fetchDeleteBookmark = async (lessonSid = 0) => {
-    //console.log('deBookmark')
-    if (!+lessonSid) return
+  const isBookmarked = (v) =>
+    localBookmarked !== null
+      ? localBookmarked
+      : v.bookmark_member_sid.includes(myAuth.accountId)
+
+  const toggleBookmark = async (v) => {
+    const wasBookmarked = isBookmarked(v)
+    setLocalBookmarked(!wasBookmarked)
     try {
-      await deleteBookmark('lesson', lessonSid)
+      if (wasBookmarked) {
+        await deleteBookmark('lesson', v.sid)
+      } else {
+        await addBookmark('lesson', { lesson_sid: v.sid })
+      }
+      await getListData()
     } catch (err) {
-      console.error(err.message)
+      setLocalBookmarked(wasBookmarked)
     } finally {
-      getListData()
+      setLocalBookmarked(null)
     }
   }
 
@@ -161,14 +160,15 @@ function LessonDetail() {
                         </div>
 
                         <div className="d-flex justify-content-center gap-md-5 gap-1">
-                          {v.bookmark_member_sid.includes(myAuth.sid) ? (
+                          {isBookmarked(v) ? (
                             <div
                               className="P-btn-fav d-md-block"
                               onClick={() => {
-                                setShowLoginAlert(true)
-                                v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? fetchDeleteBookmark(v.sid)
-                                  : fetchAddBookmark(v.sid)
+                                if (!myAuth.authorized) {
+                                  setShowLoginAlert(true)
+                                  return
+                                }
+                                toggleBookmark(v)
                               }}
                             >
                               <img
@@ -180,10 +180,11 @@ function LessonDetail() {
                             <div
                               className="P-btn-fav d-md-block"
                               onClick={() => {
-                                setShowLoginAlert(true)
-                                v.bookmark_member_sid.includes(myAuth.sid)
-                                  ? fetchDeleteBookmark(v.sid)
-                                  : fetchAddBookmark(v.sid)
+                                if (!myAuth.authorized) {
+                                  setShowLoginAlert(true)
+                                  return
+                                }
+                                toggleBookmark(v)
                               }}
                             >
                               <img

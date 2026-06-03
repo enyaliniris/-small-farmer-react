@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { HOST } from '../api/api'
 
 const App = () => {
-  const url = 'http://localhost:3033/register/getapi'
+  const url = `${HOST}/register/getapi`
   const [dataList, setDataList] = useState([])
   const [searchText, setSearchText] = useState('')
   const [data, setData] = useState(dataList)

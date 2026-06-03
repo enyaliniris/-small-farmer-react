@@ -1,4 +1,5 @@
 import React from 'react'
+import { HOST } from '../../api/api'
 import { useCart } from '../../components/utils/useCart'
 import { Link } from 'react-router-dom'
 import {
@@ -95,8 +96,8 @@ function CartLesson(props) {
                       <div className="C-Item-l1 d-flex flex-row align-items-center gap-lg-3 gap-2">
                         <div className="C-productimg">
                           <img
-                            src={`http://localhost:3033/images/lesson/${l.img}`}
-                            alt="Cotton T-shirt"
+                            src={`${HOST}/images/lesson/${l.img}`}
+                            alt={`${l.name}`}
                           />
                         </div>
                         <div>

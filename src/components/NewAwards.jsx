@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/fireworks.css'
 import Icon from '../icon/Icon'
+import { HOST } from '../api/api'
 
 function NewAwards(props) {
   const { myNewAward, isNew, setIsNew } = props
@@ -50,7 +51,7 @@ function NewAwards(props) {
                 </div>
                 <div className="A-awards-circle-a">
                   <img
-                    src={`http://localhost:3033/images/awards/${myNewAward.awards_img}-a.png`}
+                    src={`${HOST}/images/awards/${myNewAward.awards_img}-a.png`}
                     alt={myNewAward.awards_img}
                   />
                 </div>

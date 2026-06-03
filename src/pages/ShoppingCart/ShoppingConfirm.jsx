@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { HOST } from '../../api/api'
 import { useCart } from '../../components/utils/useCart'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -83,7 +84,7 @@ function ShoppingConfirm() {
 
   const sendCartData = async () => {
     axios
-      .post('http://localhost:3033/shoppingcart', {
+      .post(`${HOST}/shoppingcart`, {
         cart: cart,
         coupon: couponSid,
         member: member,
@@ -102,7 +103,7 @@ function ShoppingConfirm() {
   }
   const [showSend, setShowSend] = useState(false)
   //送出訂單有無成功
-  const [sendSuccess, setSendSuccess] = useState(false)
+  const [sendSuccess, setSendSuccess] = useState(null)
   //給前端渲染用
   let coupon = {}
   try {
@@ -163,9 +164,9 @@ function ShoppingConfirm() {
                         <div className="col-12 col-md-5 d-flex gap-3">
                           <div className="C-productimg">
                             <img
-                              src={`http://localhost:3033/images/product/${c.img}`}
+                              src={`${HOST}/images/product/${c.img}`}
                               className="img-fluid rounded-20"
-                              alt="Cotton T-shirt"
+                              alt={`${c.name}`}
                             />
                           </div>
                           <p className="f-20 mt-3 f-Brown">{c.name}</p>
@@ -195,9 +196,9 @@ function ShoppingConfirm() {
                         <div className="col-12 col-md-5 d-flex gap-3">
                           <div className="C-productimg">
                             <img
-                              src={`http://localhost:3033/images/lesson/${c.img}`}
+                              src={`${HOST}/images/lesson/${c.img}`}
                               className="img-fluid rounded-20"
-                              alt="Cotton T-shirt"
+                              alt={`${c.name}`}
                             />
                           </div>
                           <p className="f-20 mt-3 f-Brown">{c.name}</p>

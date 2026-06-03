@@ -1,4 +1,5 @@
 import React from 'react'
+import { HOST } from '../api/api'
 import { useEffect } from 'react'
 import '../css/fireworks.css'
 import Icon from '../icon/Icon'
@@ -49,7 +50,7 @@ function NewAwardsR(props) {
                 </div>
                 <div className="A-awards-circle-a">
                   <img
-                    src={`http://localhost:3033/images/awards/${myNewAward.awards_img}-a.png`}
+                    src={`${HOST}/images/awards/${myNewAward.awards_img}-a.png`}
                     alt={myNewAward.awards_img}
                   />
                 </div>

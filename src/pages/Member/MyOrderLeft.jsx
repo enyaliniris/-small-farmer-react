@@ -155,15 +155,15 @@ function MyOrderLeft(props) {
                           <div className="C-productimg">
                             {o.order_imgP !== '' ? (
                               <img
-                                src={`http://localhost:3033/images/product/${o.order_imgP}`}
+                                src={`${HOST}/images/product/${o.order_imgP}`}
                                 className="img-fluid rounded-20"
-                                alt="Cotton T-shirt"
+                                alt={`${o.order_imgP}`}
                               />
                             ) : (
                               <img
-                                src={`http://localhost:3033/images/lesson/${o.order_imgL}`}
+                                src={`${HOST}/images/lesson/${o.order_imgL}`}
                                 className="img-fluid rounded-20"
-                                alt="Cotton T-shirt"
+                                alt={`${o.order_imgL}`}
                               />
                             )}
                           </div>

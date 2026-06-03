@@ -141,7 +141,7 @@ function MemberRight() {
               <div className="d-flex">
                 <div className="M-Icon-reput">
                   <img
-                    src={`http://localhost:3033/images/awards/${myLevel.levelimg}.svg`}
+                    src={`${HOST}/images/awards/${myLevel.levelimg}.svg`}
                     alt=""
                   />
                 </div>
@@ -157,7 +157,6 @@ function MemberRight() {
               <label htmlFor="member_name" className="f-Brown f-18 sp-2">
                 姓名
               </label>
-              {console.log({ myAddress })}
               {myAddress && (
                 <div className={readOnly ? 'M-input' : 'M-inputEditable'}>
                   <input
