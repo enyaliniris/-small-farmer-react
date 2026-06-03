@@ -1,8 +1,15 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
-function Pagination({ page, totalPages, queryObj }) {
+function Pagination({ page, totalPages }) {
   const navigate = useNavigate()
-  const qo = { ...queryObj }
+  const [searchParams] = useSearchParams()
+
+  const goToPage = (p) => {
+    const qo = Object.fromEntries(searchParams)
+    qo.page = p
+    navigate(`?${new URLSearchParams(qo).toString()}`)
+  }
+
   return (
     <ul className="P-page d-flex justify-content-center gap-3 list-unstyled font-M p-md-5">
       <li>
@@ -10,9 +17,7 @@ function Pagination({ page, totalPages, queryObj }) {
           href="#/"
           onClick={(e) => {
             e.preventDefault()
-            qo.page = page - 1 === 0 ? 1 : page - 1
-            const qoups = new URLSearchParams(qo).toString()
-            navigate(`?${qoups}`)
+            goToPage(page - 1 === 0 ? 1 : page - 1)
           }}
         >
           <i className="fa-solid fa-angle-left"></i>
@@ -21,19 +26,13 @@ function Pagination({ page, totalPages, queryObj }) {
       {[...Array(5)].map((v, i) => {
         const p = page - 2 + i
         if (p < 1 || p > totalPages) return null
-        let liClass = ''
-        if (p === page) {
-          liClass = 'active'
-        }
         return (
-          <li className={liClass} key={p}>
+          <li className={p === page ? 'active' : ''} key={p}>
             <a
               href="#/"
               onClick={(e) => {
                 e.preventDefault()
-                qo.page = p
-                const qoups = new URLSearchParams(qo).toString()
-                navigate(`?${qoups}`)
+                goToPage(p)
               }}
             >
               {p}
@@ -46,9 +45,7 @@ function Pagination({ page, totalPages, queryObj }) {
           href="#/"
           onClick={(e) => {
             e.preventDefault()
-            qo.page = page + 1 > totalPages ? totalPages : page + 1
-            const qoups = new URLSearchParams(qo).toString()
-            navigate(`?${qoups}`)
+            goToPage(page + 1 > totalPages ? totalPages : page + 1)
           }}
         >
           <i className="fa-solid fa-angle-right"></i>

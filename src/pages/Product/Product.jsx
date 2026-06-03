@@ -5,10 +5,7 @@ import {
   addBookmark,
   deleteBookmark,
 } from '../../api/api'
-import { useLocation } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-
-import { Link } from 'react-router-dom'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { useCart } from '../../components/utils/useCart'
 
 //引入元件
@@ -26,13 +23,29 @@ import {
 } from '../../components/ListMotion'
 import './../../css/product.css'
 
-function Product() {
+function useQueryParams() {
   const location = useLocation()
   const navigate = useNavigate()
-  const ups = useMemo(
+
+  const query = useMemo(
     () => new URLSearchParams(location.search),
     [location.search]
   )
+
+  const getArray = (key) =>
+    query.get(key) ? query.get(key).split(',').map(Number) : []
+
+  const setQuery = (params) => {
+    navigate(
+      `?${new URLSearchParams(params).toString().replaceAll('%2C', ',')}`
+    )
+  }
+
+  return { query, getArray, setQuery }
+}
+
+function Product() {
+  const { query, getArray, setQuery } = useQueryParams()
   const { myAuth } = useContext(AuthContext)
 
   // --------狀態及變數區--------
@@ -54,18 +67,6 @@ function Product() {
 
   // 找不到資料用
   const [notfound, setNotFound] = useState(false)
-
-  // 點選的品牌
-  const [brandCheck, setBrandCheck] = useState([])
-
-  // 點選的加工品類型
-  const [proCheck, setProCheck] = useState([])
-
-  // 點選的蔬菜類型
-  const [vegCheck, setVegCheck] = useState([])
-
-  // 篩選詞彙querystring
-  const [myQuery, setMyQuery] = useState({})
 
   // 排序
   const [myOrder, setMyOrder] = useState([])
@@ -104,11 +105,8 @@ function Product() {
 
   // --------函式區--------
   // 拿資料
-
   const getListData = useCallback(
     async (page = 1, cate, brand, pro, veg, orderprice, search) => {
-      //todo: 修正 myParams裡的參數疊加了
-      // 只保留有值的 params
       const myParams = {
         page,
         ...(search && { search }),
@@ -129,7 +127,7 @@ function Product() {
         setData(data)
         setNotFound(false)
       } catch (err) {
-        console.error(err.message)
+        //console.error(err.message)
         setNotFound(true)
       } finally {
         setLoading(false)
@@ -137,6 +135,20 @@ function Product() {
     },
     []
   )
+
+  // checkbox 切換篩選值
+  const toggleQueryArray = (key, value) => {
+    const deQuery = Object.fromEntries(query)
+    delete deQuery.orderprice
+    const current = getArray(key)
+    const next = current.includes(value)
+      ? current.filter((v) => v !== value)
+      : [...current, value]
+    setQuery({ ...deQuery, [key]: next.join(',') })
+  }
+
+  // checkbox 是否勾選
+  const isChecked = (key, value) => getArray(key).includes(value)
 
   // 新增收藏
   const fetchAddBookmark = async (productSid = 0) => {
@@ -146,16 +158,16 @@ function Product() {
     try {
       await addBookmark('product', { product_sid: productSid })
     } catch (err) {
-      console.error(err.message)
+      //console.error(err.message)
     } finally {
       getListData(
-        +ups.get('page'),
-        +ups.get('cate'),
-        +ups.get('brand'),
-        +ups.get('pro'),
-        +ups.get('veg'),
-        ups.get('orderprice'),
-        ups.get('search')
+        +query.get('page'),
+        +query.get('cate'),
+        +query.get('brand'),
+        query.get('pro'),
+        query.get('veg'),
+        query.get('orderprice'),
+        query.get('search')
       )
       setLoading(false)
     }
@@ -172,13 +184,13 @@ function Product() {
       console.error(err.message)
     } finally {
       getListData(
-        +ups.get('page'),
-        +ups.get('cate'),
-        +ups.get('brand'),
-        +ups.get('pro'),
-        +ups.get('veg'),
-        ups.get('orderprice'),
-        ups.get('search')
+        +query.get('page'),
+        +query.get('cate'),
+        +query.get('brand'),
+        query.get('pro'),
+        query.get('veg'),
+        query.get('orderprice'),
+        query.get('search')
       )
       setLoading(false)
     }
@@ -186,9 +198,7 @@ function Product() {
 
   // 捲動畫面
   const scrollMe = () => {
-    window.scrollTo({
-      top: 400,
-    })
+    window.scrollTo({ top: 400 })
   }
 
   // 設定類型狀態
@@ -196,19 +206,15 @@ function Product() {
     switch (cate) {
       case '1':
         setCategory('水果類')
-        setMyQuery({ cate: 1 })
         break
       case '2':
         setCategory('蔬菜類')
-        setMyQuery({ cate: 2 })
         break
       case '3':
         setCategory('加工品')
-        setMyQuery({ cate: 3 })
         break
       case '4':
         setCategory('其他類')
-        setMyQuery({ cate: 4 })
         break
       case '0':
       default:
@@ -219,25 +225,20 @@ function Product() {
   // 抓資料用
   useEffect(() => {
     getListData(
-      +ups.get('page'),
-      +ups.get('cate'),
-      +ups.get('brand'),
-      +ups.get('pro'),
-      +ups.get('veg'),
-      ups.get('orderprice'),
-      ups.get('search')
+      +query.get('page'),
+      +query.get('cate'),
+      +query.get('brand'),
+      query.get('pro'),
+      query.get('veg'),
+      query.get('orderprice'),
+      query.get('search')
     )
     setLoading(true)
-  }, [location.search, ups, getListData])
+  }, [query, getListData])
 
   useEffect(() => {
-    if (ups.get('cate')) {
-      myCategory(ups.get('cate'))
-    }
-    if (ups.get('brand')) {
-      setBrandCheck([+ups.get('brand')])
-    }
-  }, [ups, myCategory])
+    if (query.get('cate')) myCategory(query.get('cate'))
+  }, [query, myCategory])
 
   return (
     <>
@@ -268,13 +269,11 @@ function Product() {
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       setMyOrder([])
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
-                      setMyOrder([])
-                      const newQuery = { search: myInput }
-                      setMyQuery(newQuery)
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({
+                        ...Object.fromEntries(query),
+                        search: myInput,
+                        page: undefined,
+                      })
                     }
                   }}
                 />
@@ -283,13 +282,11 @@ function Product() {
                   onClick={(e) => {
                     e.preventDefault()
                     setMyOrder([])
-                    setBrandCheck([])
-                    setProCheck([])
-                    setVegCheck([])
-                    setMyOrder([])
-                    const newQuery = { search: myInput }
-                    setMyQuery(newQuery)
-                    navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                    setQuery({
+                      ...Object.fromEntries(query),
+                      search: myInput,
+                      page: undefined,
+                    })
                   }}
                 >
                   <i className="fa-solid fa-magnifying-glass"></i>
@@ -306,28 +303,16 @@ function Product() {
                     e.preventDefault()
                     scrollMe()
                     setCategory('所有商品')
-                    const newQuery = {}
-                    setMyQuery(newQuery)
-                    setBrandCheck([])
-                    setProCheck([])
-                    setVegCheck([])
                     setMyOrder([])
                     setMyinput('')
-                    navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                    setQuery({})
                   }}
                 >
                   所有商品
                 </a>
                 <ul className="list-unstyled P-category-farmer">
                   {category === '所有商品' ? (
-                    <Farmers
-                      brands={brands}
-                      brandCheck={brandCheck}
-                      setMyOrder={setMyOrder}
-                      myQuery={myQuery}
-                      setMyQuery={setMyQuery}
-                      setBrandCheck={setBrandCheck}
-                    />
+                    <Farmers brands={brands} setMyOrder={setMyOrder} />
                   ) : (
                     ''
                   )}
@@ -342,28 +327,16 @@ function Product() {
                     e.preventDefault()
                     scrollMe()
                     setCategory('水果類')
-                    setBrandCheck([])
-                    setProCheck([])
-                    setVegCheck([])
                     setMyOrder([])
                     setMyinput('')
-                    const newQuery = { cate: 1 }
-                    setMyQuery(newQuery)
-                    navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                    setQuery({ cate: 1 })
                   }}
                 >
                   水果類
                 </a>
                 <ul className="list-unstyled P-category-farmer">
                   {category === '水果類' ? (
-                    <Farmers
-                      brands={brands}
-                      brandCheck={brandCheck}
-                      setMyOrder={setMyOrder}
-                      myQuery={myQuery}
-                      setMyQuery={setMyQuery}
-                      setBrandCheck={setBrandCheck}
-                    />
+                    <Farmers brands={brands} setMyOrder={setMyOrder} />
                   ) : (
                     ''
                   )}
@@ -378,14 +351,9 @@ function Product() {
                     e.preventDefault()
                     scrollMe()
                     setCategory('蔬菜類')
-                    setBrandCheck([])
-                    setProCheck([])
-                    setVegCheck([])
                     setMyOrder([])
                     setMyinput('')
-                    const newQuery = { cate: 2 }
-                    setMyQuery(newQuery)
-                    navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                    setQuery({ cate: 2 })
                   }}
                 >
                   蔬菜類
@@ -401,41 +369,10 @@ function Product() {
                               <input
                                 type="checkbox"
                                 value={v}
-                                checked={vegCheck.includes(i + 1)}
+                                checked={isChecked('veg', i + 1)}
                                 onChange={() => {
                                   setMyOrder([])
-                                  const deQuery = { ...myQuery }
-                                  delete deQuery.orderprice
-                                  setMyQuery(deQuery)
-                                  if (vegCheck.includes(i + 1)) {
-                                    const newVeg = vegCheck.filter((v2, i2) => {
-                                      return v2 !== i + 1
-                                    })
-                                    setVegCheck(newVeg)
-                                    const newQuery = {
-                                      ...deQuery,
-                                      veg: newVeg.join(''),
-                                    }
-                                    setMyQuery(newQuery)
-                                    navigate(
-                                      `?${new URLSearchParams(
-                                        newQuery
-                                      ).toString()}`
-                                    )
-                                  } else {
-                                    const newVeg = [...vegCheck, i + 1]
-                                    setVegCheck(newVeg)
-                                    const newQuery = {
-                                      ...deQuery,
-                                      veg: newVeg.join(''),
-                                    }
-                                    setMyQuery(newQuery)
-                                    navigate(
-                                      `?${new URLSearchParams(
-                                        newQuery
-                                      ).toString()}`
-                                    )
-                                  }
+                                  toggleQueryArray('veg', i + 1)
                                 }}
                               />
                               <span>{v}</span>
@@ -445,14 +382,7 @@ function Product() {
                       })}
                     </ul>
                     <ul className="list-unstyled P-category-farmer">
-                      <Farmers
-                        brands={brands}
-                        brandCheck={brandCheck}
-                        setMyOrder={setMyOrder}
-                        myQuery={myQuery}
-                        setMyQuery={setMyQuery}
-                        setBrandCheck={setBrandCheck}
-                      />
+                      <Farmers brands={brands} setMyOrder={setMyOrder} />
                     </ul>
                   </>
                 ) : (
@@ -468,14 +398,9 @@ function Product() {
                     e.preventDefault()
                     scrollMe()
                     setCategory('加工品')
-                    setBrandCheck([])
-                    setProCheck([])
-                    setVegCheck([])
                     setMyOrder([])
                     setMyinput('')
-                    const newQuery = { cate: 3 }
-                    setMyQuery(newQuery)
-                    navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                    setQuery({ cate: 3 })
                   }}
                 >
                   加工品
@@ -491,41 +416,10 @@ function Product() {
                               <input
                                 type="checkbox"
                                 value={v}
-                                checked={proCheck.includes(i + 1)}
+                                checked={isChecked('pro', i + 1)}
                                 onChange={() => {
                                   setMyOrder([])
-                                  const deQuery = { ...myQuery }
-                                  delete deQuery.orderprice
-                                  setMyQuery(deQuery)
-                                  if (proCheck.includes(i + 1)) {
-                                    const newPro = proCheck.filter((v2, i2) => {
-                                      return v2 !== i + 1
-                                    })
-                                    setProCheck(newPro)
-                                    const newQuery = {
-                                      ...deQuery,
-                                      pro: newPro.join(''),
-                                    }
-                                    setMyQuery(newQuery)
-                                    navigate(
-                                      `?${new URLSearchParams(
-                                        newQuery
-                                      ).toString()}`
-                                    )
-                                  } else {
-                                    const newPro = [...proCheck, i + 1]
-                                    setProCheck(newPro)
-                                    const newQuery = {
-                                      ...deQuery,
-                                      pro: newPro.join(''),
-                                    }
-                                    setMyQuery(newQuery)
-                                    navigate(
-                                      `?${new URLSearchParams(
-                                        newQuery
-                                      ).toString()}`
-                                    )
-                                  }
+                                  toggleQueryArray('pro', i + 1)
                                 }}
                               />
                               <span>{v}</span>
@@ -535,14 +429,7 @@ function Product() {
                       })}
                     </ul>
                     <ul className="list-unstyled P-category-farmer">
-                      <Farmers
-                        brands={brands}
-                        brandCheck={brandCheck}
-                        setMyOrder={setMyOrder}
-                        myQuery={myQuery}
-                        setMyQuery={setMyQuery}
-                        setBrandCheck={setBrandCheck}
-                      />
+                      <Farmers brands={brands} setMyOrder={setMyOrder} />
                     </ul>
                   </>
                 ) : (
@@ -558,14 +445,9 @@ function Product() {
                     e.preventDefault()
                     scrollMe()
                     setCategory('其他類')
-                    setBrandCheck([])
-                    setProCheck([])
-                    setVegCheck([])
                     setMyOrder([])
                     setMyinput('')
-                    const newQuery = { cate: 4 }
-                    setMyQuery(newQuery)
-                    navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                    setQuery({ cate: 4 })
                   }}
                 >
                   其他類
@@ -574,14 +456,7 @@ function Product() {
                   <>
                     {' '}
                     <ul className="list-unstyled P-category-farmer">
-                      <Farmers
-                        brands={brands}
-                        brandCheck={brandCheck}
-                        setMyOrder={setMyOrder}
-                        myQuery={myQuery}
-                        setMyQuery={setMyQuery}
-                        setBrandCheck={setBrandCheck}
-                      />
+                      <Farmers brands={brands} setMyOrder={setMyOrder} />
                     </ul>
                   </>
                 ) : (
@@ -628,8 +503,6 @@ function Product() {
         <Orderby
           myOrder={myOrder}
           setMyOrder={setMyOrder}
-          myQuery={myQuery}
-          setMyQuery={setMyQuery}
           setSidepop={setSidepop}
           data={data}
           setData={setData}
@@ -652,13 +525,11 @@ function Product() {
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
                         setMyOrder([])
-                        setBrandCheck([])
-                        setProCheck([])
-                        setVegCheck([])
-                        setMyOrder([])
-                        const newQuery = { search: myInput }
-                        setMyQuery(newQuery)
-                        navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                        setQuery({
+                          ...Object.fromEntries(query),
+                          search: myInput,
+                          page: undefined,
+                        })
                       }
                     }}
                   />
@@ -667,13 +538,11 @@ function Product() {
                     onClick={(e) => {
                       e.preventDefault()
                       setMyOrder([])
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
-                      setMyOrder([])
-                      const newQuery = { search: myInput }
-                      setMyQuery(newQuery)
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({
+                        ...Object.fromEntries(query),
+                        search: myInput,
+                        page: undefined,
+                      })
                     }}
                   >
                     <i className="fa-solid fa-magnifying-glass"></i>
@@ -690,28 +559,16 @@ function Product() {
                       e.preventDefault()
                       scrollMe()
                       setCategory('所有商品')
-                      const newQuery = {}
-                      setMyQuery(newQuery)
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
                       setMyOrder([])
                       setMyinput('')
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({})
                     }}
                   >
                     所有商品
                   </a>
                   <ul className="list-unstyled P-category-farmer">
                     {category === '所有商品' ? (
-                      <Farmers
-                        brands={brands}
-                        brandCheck={brandCheck}
-                        setMyOrder={setMyOrder}
-                        myQuery={myQuery}
-                        setMyQuery={setMyQuery}
-                        setBrandCheck={setBrandCheck}
-                      />
+                      <Farmers brands={brands} setMyOrder={setMyOrder} />
                     ) : (
                       ''
                     )}
@@ -726,28 +583,16 @@ function Product() {
                       e.preventDefault()
                       scrollMe()
                       setCategory('水果類')
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
                       setMyOrder([])
                       setMyinput('')
-                      const newQuery = { cate: 1 }
-                      setMyQuery(newQuery)
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({ cate: 1 })
                     }}
                   >
                     水果類
                   </a>
                   <ul className="list-unstyled P-category-farmer">
                     {category === '水果類' ? (
-                      <Farmers
-                        brands={brands}
-                        brandCheck={brandCheck}
-                        setMyOrder={setMyOrder}
-                        myQuery={myQuery}
-                        setMyQuery={setMyQuery}
-                        setBrandCheck={setBrandCheck}
-                      />
+                      <Farmers brands={brands} setMyOrder={setMyOrder} />
                     ) : (
                       ''
                     )}
@@ -762,14 +607,9 @@ function Product() {
                       e.preventDefault()
                       scrollMe()
                       setCategory('蔬菜類')
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
                       setMyOrder([])
                       setMyinput('')
-                      const newQuery = { cate: 2 }
-                      setMyQuery(newQuery)
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({ cate: 2 })
                     }}
                   >
                     蔬菜類
@@ -785,43 +625,10 @@ function Product() {
                                 <input
                                   type="checkbox"
                                   value={v}
-                                  checked={vegCheck.includes(i + 1)}
+                                  checked={isChecked('veg', i + 1)}
                                   onChange={() => {
                                     setMyOrder([])
-                                    const deQuery = { ...myQuery }
-                                    delete deQuery.orderprice
-                                    setMyQuery(deQuery)
-                                    if (vegCheck.includes(i + 1)) {
-                                      const newVeg = vegCheck.filter(
-                                        (v2, i2) => {
-                                          return v2 !== i + 1
-                                        }
-                                      )
-                                      setVegCheck(newVeg)
-                                      const newQuery = {
-                                        ...deQuery,
-                                        veg: newVeg.join(''),
-                                      }
-                                      setMyQuery(newQuery)
-                                      navigate(
-                                        `?${new URLSearchParams(
-                                          newQuery
-                                        ).toString()}`
-                                      )
-                                    } else {
-                                      const newVeg = [...vegCheck, i + 1]
-                                      setVegCheck(newVeg)
-                                      const newQuery = {
-                                        ...deQuery,
-                                        veg: newVeg.join(''),
-                                      }
-                                      setMyQuery(newQuery)
-                                      navigate(
-                                        `?${new URLSearchParams(
-                                          newQuery
-                                        ).toString()}`
-                                      )
-                                    }
+                                    toggleQueryArray('veg', i + 1)
                                   }}
                                 />
                                 <span>{v}</span>
@@ -831,14 +638,7 @@ function Product() {
                         })}
                       </ul>
                       <ul className="list-unstyled P-category-farmer">
-                        <Farmers
-                          brands={brands}
-                          brandCheck={brandCheck}
-                          setMyOrder={setMyOrder}
-                          myQuery={myQuery}
-                          setMyQuery={setMyQuery}
-                          setBrandCheck={setBrandCheck}
-                        />
+                        <Farmers brands={brands} setMyOrder={setMyOrder} />
                       </ul>
                     </>
                   ) : (
@@ -854,14 +654,9 @@ function Product() {
                       e.preventDefault()
                       scrollMe()
                       setCategory('加工品')
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
                       setMyOrder([])
                       setMyinput('')
-                      const newQuery = { cate: 3 }
-                      setMyQuery(newQuery)
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({ cate: 3 })
                     }}
                   >
                     加工品
@@ -877,43 +672,10 @@ function Product() {
                                 <input
                                   type="checkbox"
                                   value={v}
-                                  checked={proCheck.includes(i + 1)}
+                                  checked={isChecked('pro', i + 1)}
                                   onChange={() => {
                                     setMyOrder([])
-                                    const deQuery = { ...myQuery }
-                                    delete deQuery.orderprice
-                                    setMyQuery(deQuery)
-                                    if (proCheck.includes(i + 1)) {
-                                      const newPro = proCheck.filter(
-                                        (v2, i2) => {
-                                          return v2 !== i + 1
-                                        }
-                                      )
-                                      setProCheck(newPro)
-                                      const newQuery = {
-                                        ...deQuery,
-                                        pro: newPro.join(''),
-                                      }
-                                      setMyQuery(newQuery)
-                                      navigate(
-                                        `?${new URLSearchParams(
-                                          newQuery
-                                        ).toString()}`
-                                      )
-                                    } else {
-                                      const newPro = [...proCheck, i + 1]
-                                      setProCheck(newPro)
-                                      const newQuery = {
-                                        ...deQuery,
-                                        pro: newPro.join(''),
-                                      }
-                                      setMyQuery(newQuery)
-                                      navigate(
-                                        `?${new URLSearchParams(
-                                          newQuery
-                                        ).toString()}`
-                                      )
-                                    }
+                                    toggleQueryArray('pro', i + 1)
                                   }}
                                 />
                                 <span>{v}</span>
@@ -923,14 +685,7 @@ function Product() {
                         })}
                       </ul>
                       <ul className="list-unstyled P-category-farmer">
-                        <Farmers
-                          brands={brands}
-                          brandCheck={brandCheck}
-                          setMyOrder={setMyOrder}
-                          myQuery={myQuery}
-                          setMyQuery={setMyQuery}
-                          setBrandCheck={setBrandCheck}
-                        />
+                        <Farmers brands={brands} setMyOrder={setMyOrder} />
                       </ul>
                     </>
                   ) : (
@@ -946,14 +701,9 @@ function Product() {
                       e.preventDefault()
                       scrollMe()
                       setCategory('其他類')
-                      setBrandCheck([])
-                      setProCheck([])
-                      setVegCheck([])
                       setMyOrder([])
                       setMyinput('')
-                      const newQuery = { cate: 4 }
-                      setMyQuery(newQuery)
-                      navigate(`?${new URLSearchParams(newQuery).toString()}`)
+                      setQuery({ cate: 4 })
                     }}
                   >
                     其他類
@@ -962,14 +712,7 @@ function Product() {
                     <>
                       {' '}
                       <ul className="list-unstyled P-category-farmer">
-                        <Farmers
-                          brands={brands}
-                          brandCheck={brandCheck}
-                          setMyOrder={setMyOrder}
-                          myQuery={myQuery}
-                          setMyQuery={setMyQuery}
-                          setBrandCheck={setBrandCheck}
-                        />
+                        <Farmers brands={brands} setMyOrder={setMyOrder} />
                       </ul>
                     </>
                   ) : (
@@ -1010,7 +753,6 @@ function Product() {
             <div className="P-main mt-3 container-fluid">
               {/* 商品小卡 */}
               <ListMotionContainer element="div" className="row ">
-                {/* <div className="row "> */}
                 {data.newRowsC.map((v, i) => {
                   let imgarr = v.product_img.split(',')
                   let shortName = v.product_name.slice(0, 9)
@@ -1021,7 +763,6 @@ function Product() {
                       key={v.sid}
                       className="col col-6 col-md-3"
                     >
-                      {/* <div key={v.sid} className="col col-6 col-md-3"> */}
                       <div className="P-product-card">
                         <Link to={`/product/${v.sid}`}>
                           {loading ? (
@@ -1085,25 +826,17 @@ function Product() {
                             }}
                           />
                           <div className="P-plus">+1</div>
-
-                          {/* <img src=" ./Icons/addCart.svg" alt="" /> */}
                         </div>
                       </div>
-                      {/* </div> */}
                     </ListMotionItem>
                   )
                 })}
-                {/* </div> */}
               </ListMotionContainer>
             </div>
           )}
         </div>
         {/* 分頁按鈕 */}
-        <Pagination
-          page={data.page}
-          totalPages={data.totalPages}
-          queryObj={data.queryObj}
-        />
+        <Pagination page={data.page} totalPages={data.totalPages} />
       </div>
     </>
   )
