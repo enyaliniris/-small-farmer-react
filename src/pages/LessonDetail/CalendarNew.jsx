@@ -1,42 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Calendar from 'react-calendar'
-import { getLessonById } from '../../api/api'
-import { useParams } from 'react-router-dom'
 import 'react-calendar/dist/Calendar.css'
 import '../../css/calendar.css'
 
-function CalendarNew(props) {
-  //日期
-  const { date, setDate } = props
-
-  //取得資料
-  const [data, setData] = useState({
-    rows: [],
-    lesson_date: '2023-01-01',
-  })
-
-  // const [limit, setLimit] = useState(0)
-
-  const { sid } = useParams()
-
-  const startDate = new Date(data.lesson_date.split(',')[0])
-  const endDate = new Date(data.lesson_date.split(',')[1])
-
-  const getListData = async () => {
-    const res = await getLessonById(sid)
-    // console.log(res)
-    setData(res)
-    // setLimit(res.data.limit[0].lesson_uplimit)
-  }
-
-  useEffect(() => {
-    getListData(sid).then(() => {})
-  }, [sid])
+function CalendarNew({ date, setDate, setLimit, lessonDate }) {
+  const dateStr = lessonDate || '2023-01-01,2023-01-01'
+  const startDate = new Date(dateStr.split(',')[0])
+  const endDate = new Date(dateStr.split(',')[1])
 
   return (
     <>
       <div>
-        <h2 className="f-Brown f-24">選擇日期</h2>
+        <h2 className="f-Brown f-24 font-B">選擇日期</h2>
         <Calendar
           onChange={setDate}
           value={date}

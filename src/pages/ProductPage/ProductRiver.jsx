@@ -12,6 +12,13 @@ function ProductRiver({
   setComOrderS,
 }) {
   const navigate = useNavigate()
+
+  const getAvatarSrc = (member_img) => {
+    if (!member_img) return `${HOST}/images/avatar/none.png`
+    if (member_img.startsWith('http')) return member_img
+    return `${HOST}/images/avatar/${member_img}`
+  }
+
   // 河道Animation用
   const [river, setRiver] = useState(false)
 
@@ -168,14 +175,7 @@ function ProductRiver({
                 >
                   <div className="P-commnet-avatar d-flex flex-column align-items-center gap-2">
                     <div>
-                      <img
-                        src={
-                          v.member_img
-                            ? `${HOST}/images/avatar/${v.member_img}`
-                            : `${HOST}/images/avatar/none.png`
-                        }
-                        alt=""
-                      />
+                      <img src={getAvatarSrc(v.member_img)} alt="" />
                     </div>
                     <span>{v.member_nickname || '匿名'}</span>
                   </div>
@@ -205,14 +205,7 @@ function ProductRiver({
                 >
                   <div className="P-commnet-avatar d-flex flex-column align-items-center gap-2">
                     <div>
-                      <img
-                        src={
-                          v.member_img
-                            ? `${HOST}/images/avatar/${v.member_img}`
-                            : `${HOST}/images/avatar/none.png`
-                        }
-                        alt=""
-                      />
+                      <img src={getAvatarSrc(v.member_img)} alt="" />
                     </div>
                     <span>{v.member_nickname || '匿名'}</span>
                   </div>

@@ -116,7 +116,7 @@ function ProductPage() {
                     <img src={`${HOST}/images/product/${imgarr[0]}`} alt="" />
                   </div>
                   <div className="P-product-main-info d-flex flex-column justify-content-between gap-3 gap-md-0">
-                    <h1 className="font-B">{v.product_name}</h1>
+                    <h1 className="font-B f-32">{v.product_name}</h1>
                     <div className="font-R">
                       <p>規格：{v.product_spec}</p>
                       <p>產地：{v.brand_name}</p>
@@ -128,7 +128,7 @@ function ProductPage() {
                       </div>
                     </div>
                     <h2 className="font-B">售價：{v.product_price}</h2>
-                    <div className="d-none d-md-flex gap-4 ">
+                    <div className="d-none d-md-flex flex-column gap-3">
                       <div className="P-counter font-R d-flex">
                         <button
                           onClick={() => {
@@ -148,56 +148,58 @@ function ProductPage() {
                           <i className="fa-solid fa-plus"></i>
                         </button>
                       </div>
-                      <div
-                        className="P-btn-cart d-none d-md-block"
-                        onClick={() => {
-                          addItem({
-                            id: v.product_id,
-                            img: v.product_img.split(',')[0].trim(),
-                            name: v.product_name,
-                            slogan: v.product_slogan,
-                            price: v.product_price,
-                            quantity: cartNum,
-                          })
-                        }}
-                      >
-                        <img
-                          src="./../../../../Buttons/ButtonCart.png"
-                          alt=""
-                        />
+                      <div className="d-flex gap-3">
+                        <div
+                          className="P-btn-cart"
+                          onClick={() => {
+                            addItem({
+                              id: v.product_id,
+                              img: v.product_img.split(',')[0].trim(),
+                              name: v.product_name,
+                              slogan: v.product_slogan,
+                              price: v.product_price,
+                              quantity: cartNum,
+                            })
+                          }}
+                        >
+                          <img
+                            src="./../../../../Buttons/ButtonCart.png"
+                            alt=""
+                          />
+                        </div>
+                        {v.bookmark_member_sid.includes(myAuth.accountId) ? (
+                          <div
+                            className="P-btn-fav"
+                            onClick={() => {
+                              setShowLoginAlert(true)
+                              v.bookmark_member_sid.includes(myAuth.accountId)
+                                ? fetchDeleteBookmark(v.sid)
+                                : fetchAddBookmark(v.sid)
+                            }}
+                          >
+                            <img
+                              src="./../../../../Buttons/ButtonfavoriteHover.png"
+                              alt=""
+                            />
+                          </div>
+                        ) : (
+                          <div
+                            className="P-btn-fav"
+                            onClick={() => {
+                              setShowLoginAlert(true)
+                              v.bookmark_member_sid.includes(myAuth.accountId)
+                                ? fetchDeleteBookmark(v.sid)
+                                : fetchAddBookmark(v.sid)
+                            }}
+                          >
+                            <img
+                              src="./../../../../Buttons/Buttonfavorite.png"
+                              alt=""
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
-                    {v.bookmark_member_sid.includes(myAuth.accountId) ? (
-                      <div
-                        className="P-btn-fav d-none d-md-block mx-auto"
-                        onClick={() => {
-                          setShowLoginAlert(true)
-                          v.bookmark_member_sid.includes(myAuth.accountId)
-                            ? fetchDeleteBookmark(v.sid)
-                            : fetchAddBookmark(v.sid)
-                        }}
-                      >
-                        <img
-                          src="./../../../../Buttons/ButtonfavoriteHover.png"
-                          alt=""
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className="P-btn-fav d-none d-md-block mx-auto"
-                        onClick={() => {
-                          setShowLoginAlert(true)
-                          v.bookmark_member_sid.includes(myAuth.accountId)
-                            ? fetchDeleteBookmark(v.sid)
-                            : fetchAddBookmark(v.sid)
-                        }}
-                      >
-                        <img
-                          src="./../../../../Buttons/Buttonfavorite.png"
-                          alt=""
-                        />
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>

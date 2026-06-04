@@ -34,12 +34,12 @@ export const getCommentData = (params) =>
 // POST商品評論/:type
 //export const COMMENT_ADD = `${HOST}/comment/add`
 export const postAddComment = (APItype, data) =>
-  instance.post(`/comment/add/${APItype}`, { data })
+  instance.post(`/comment/add/${APItype}`, data)
 
 // PUT修改商品評論/:type
 //export const COMMENT_EDIT = `${HOST}/comment/edit`
 export const postEditComment = (APItype, data) =>
-  instance.post(`/comment/edit/${APItype}`, { data })
+  instance.post(`/comment/edit/${APItype}`, data)
 
 // 登入, POST
 export const LOGIN = `${HOST}/login`

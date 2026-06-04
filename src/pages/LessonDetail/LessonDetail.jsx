@@ -66,12 +66,16 @@ function LessonDetail() {
   //人數若已滿
   const [limitalert, setLimitAlert] = useState(false)
 
+  const getAvatarSrc = (member_img) => {
+    if (!member_img) return `${HOST}/images/avatar/none.png`
+    if (member_img.startsWith('http')) return member_img
+    return `${HOST}/images/avatar/${member_img}`
+  }
+
   const getListData = useCallback(async () => {
     const res = await getLessonById(sid)
-    console.log(res.rows)
     setData(res)
     setLimit(res.limit[0].lesson_uplimit)
-    // console.log(res.data.limit[0].lesson_uplimit)
   }, [sid])
 
   // 樂觀更新收藏狀態，null 表示以伺服器資料為準
@@ -101,7 +105,7 @@ function LessonDetail() {
 
   useEffect(() => {
     getListData()
-  }, [getListData])
+  }, [])
   return (
     <>
       <LoginGuard show={showLoginAlert} setClose={setShowLoginAlert} />
@@ -117,7 +121,7 @@ function LessonDetail() {
             return (
               <div className="col col-12 p-0 mb-5 L-useMargin" key={v.sid}>
                 <div className="container card">
-                  <div className="row">
+                  <div className="row L-usePadding">
                     {/* <!-- 左邊的照片 --> */}
                     <AsNavFor />
                     {/* <!-- 右邊的資訊 --> */}
@@ -134,19 +138,19 @@ function LessonDetail() {
                           <img src={starFigma} alt="123" />
                           <img src={starFigma} alt="123" />
                         </div>
-                        <div className="card-text flex-md-grow-1 font-R f-24 f-Gray">
-                          {/* 將內容換行,SQL裡面記得下<br> */}
+                        <div className="card-text flex-md-grow-1 font-R f-24">
                           <p
-                            className="mb-1"
+                            className="mb-1 font-R"
                             dangerouslySetInnerHTML={{ __html: v.lesson_info1 }}
                           ></p>
-                          <p className="mb-1">活動日期: {v.lesson_date}</p>
-                          <span className="font-R f-Gray">
-                            報名人數上限: {v.lesson_uplimit} 人
+                          <p className="mb-1">活動日期：{v.lesson_date}</p>
+                          <p className="mb-1">活動地點：{v.lesson_location}</p>
+                          <span className="font-R">
+                            報名人數上限：{v.lesson_uplimit} 人
                           </span>
-                          <div className="d-flex justify-content-start f-32 font-R f-WineRed">
-                            <span className="mb-1">
-                              費用:{v.lesson_price}/個人
+                          <div className="d-flex justify-content-start f-24 font-R f-WineRed">
+                            <span className="mb-1 font-B">
+                              費用：{v.lesson_price}/個人
                             </span>
                           </div>
                           <div className="d-flex flex-column flex-md-row gap-md-3 mb-3">
@@ -154,12 +158,13 @@ function LessonDetail() {
                               date={date}
                               setDate={setDate}
                               setLimit={setLimit}
+                              lessonDate={v.lesson_date}
                             />
-                            <Weather />
+                            <Weather location={v.lesson_location} />
                           </div>
                         </div>
 
-                        <div className="d-flex justify-content-center gap-md-5 gap-1">
+                        <div className="d-flex justify-content-start gap-md-3 gap-1">
                           {isBookmarked(v) ? (
                             <div
                               className="P-btn-fav d-md-block"
@@ -395,16 +400,7 @@ function LessonDetail() {
                 >
                   <div className="P-commnet-avatar d-flex flex-column align-items-center gap-2">
                     <div>
-                      <img
-                        src={
-                          v.member_nickname
-                            ? `${HOST}/images/avatar/${parseInt(
-                                Math.random() * 100
-                              )}.png`
-                            : `${HOST}/images/avatar/none.png`
-                        }
-                        alt=""
-                      />
+                      <img src={getAvatarSrc(v.member_img)} alt="" />
                     </div>
                     <span>{v.member_nickname || '匿名'}</span>
                   </div>
@@ -433,16 +429,7 @@ function LessonDetail() {
                 >
                   <div className="P-commnet-avatar d-flex flex-column align-items-center gap-2">
                     <div>
-                      <img
-                        src={
-                          v.member_nickname
-                            ? `${HOST}/images/avatar/${parseInt(
-                                Math.random() * 100
-                              )}.png`
-                            : `${HOST}/images/avatar/none.png`
-                        }
-                        alt=""
-                      />
+                      <img src={getAvatarSrc(v.member_img)} alt="" />
                     </div>
                     <span>{v.member_nickname || '匿名'}</span>
                   </div>

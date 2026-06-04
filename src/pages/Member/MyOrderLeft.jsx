@@ -8,6 +8,7 @@ import {
   ListMotionContainer,
   ListMotionItem,
 } from '../../components/ListMotion'
+import Loading from '../../components/Loading'
 
 //格式化時間
 // 定義要轉換的日期時間字符串
@@ -58,18 +59,14 @@ const padZero = (num) => {
 
 function MyOrderLeft(props) {
   const [orderList, setOrderList] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   const myAuth = JSON.parse(localStorage.getItem('myAuth'))
   useEffect(() => {
-    // 設定功能
-    //console.log('useEffect--')
     getOrderListData()
-
-    return () => {
-      // 解除功能
-      //console.log('unmount AbList--')
-    }
+    return () => {}
   }, [])
   const getOrderListData = async () => {
+    setIsLoading(true)
     axios
       .post(
         MY_ORDER,
@@ -81,13 +78,12 @@ function MyOrderLeft(props) {
         }
       )
       .then((response) => {
-        // 在此處處理回應
         setOrderList(response.data)
-        //console.log(response.data)
+        setIsLoading(false)
       })
       .catch((error) => {
-        // 在此處處理錯誤
         console.error(error)
+        setIsLoading(false)
       })
   }
 
@@ -99,6 +95,8 @@ function MyOrderLeft(props) {
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItems = orderList.slice(indexOfFirstItem, indexOfLastItem)
+
+  if (isLoading) return <Loading />
 
   return (
     <>

@@ -6,7 +6,7 @@ import {
   postAddComment,
   postEditComment,
 } from '../../api/api'
-import axios from 'axios'
+import Loading from '../../components/Loading'
 import dayjs from 'dayjs'
 import {
   ListMotionContainer,
@@ -33,12 +33,17 @@ function MyCommentLeft() {
     order_lesson: [],
   })
 
+  const [isLoading, setIsLoading] = useState(true)
+
   const getListData = async (page = 1) => {
+    setIsLoading(true)
     try {
       const response = await getMyCommentData({ page })
-      setData(response.data)
+      setData(response)
     } catch (error) {
       alert(error.message)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -59,29 +64,67 @@ function MyCommentLeft() {
       setAlert('請輸入內容及點選星星唷！')
       return
     }
+    const prevData = data
+    // 樂觀更新：將訂單移至已評價列表
     if (product_sid !== 0) {
-      try {
-        await postAddComment('product', {
-          order_product_details_sid: order_product_details_sid,
-          product_sid: product_sid,
-          comment_value: comment_value,
-          comment_content: comment_content,
-        })
-      } catch (error) {
-        alert(error.message)
-      }
+      setData((prev) => ({
+        ...prev,
+        order_product: prev.order_product.filter(
+          (item) => item.sid !== order_product_details_sid
+        ),
+        comment_product: [
+          ...prev.comment_product,
+          {
+            ...prev.order_product.find(
+              (item) => item.sid === order_product_details_sid
+            ),
+            comment_value,
+            comment_content,
+            comment_publish_date: new Date().toISOString(),
+            edit: false,
+          },
+        ],
+      }))
     } else {
-      try {
-        await postAddComment('lesson', {
-          order_lesson_details_sid: order_lesson_details_sid,
-          lesson_sid: lesson_sid,
-          comment_value: comment_value,
-          comment_content: comment_content,
+      setData((prev) => ({
+        ...prev,
+        order_lesson: prev.order_lesson.filter(
+          (item) => item.sid !== order_lesson_details_sid
+        ),
+        comment_lesson: [
+          ...prev.comment_lesson,
+          {
+            ...prev.order_lesson.find(
+              (item) => item.sid === order_lesson_details_sid
+            ),
+            comment_value,
+            comment_content,
+            comment_publish_date: new Date().toISOString(),
+            edit: false,
+          },
+        ],
+      }))
+    }
+    try {
+      if (product_sid !== 0) {
+        await postAddComment('product', {
+          order_product_details_sid,
+          product_sid,
+          comment_value,
+          comment_content,
         })
-      } catch (error) {
-        alert(error.message)
+      } else {
+        await postAddComment('lesson', {
+          order_lesson_details_sid,
+          lesson_sid,
+          comment_value,
+          comment_content,
+        })
       }
       getListData()
+    } catch (error) {
+      setData(prevData)
+      window.alert(error.message)
     }
   }
 
@@ -91,28 +134,34 @@ function MyCommentLeft() {
       setAlert('請輸入內容及點選星星唷！')
       return
     }
-    if (type === 'product') {
-      try {
-        await postEditComment('product', {
-          sid: sid,
-          comment_value: comment_value,
-          comment_content: comment_content,
-        })
-      } catch (error) {
-        alert(error.message)
-      }
-    } else {
-      try {
-        await postEditComment('lesson', {
-          sid: sid,
-          comment_value: comment_value,
-          comment_content: comment_content,
-        })
-      } catch (error) {
-        alert(error.message)
-      }
+    const prevData = data
+    // 樂觀更新：直接更新評論內容
+    setData((prev) => ({
+      ...prev,
+      comment_product:
+        type === 'product'
+          ? prev.comment_product.map((item) =>
+              item.sid === sid
+                ? { ...item, comment_value, comment_content, edit: false }
+                : item
+            )
+          : prev.comment_product,
+      comment_lesson:
+        type === 'lesson'
+          ? prev.comment_lesson.map((item) =>
+              item.sid === sid
+                ? { ...item, comment_value, comment_content, edit: false }
+                : item
+            )
+          : prev.comment_lesson,
+    }))
+    try {
+      await postEditComment(type, { sid, comment_value, comment_content })
+      getListData()
+    } catch (error) {
+      setData(prevData)
+      window.alert(error.message)
     }
-    getListData()
   }
 
   // 標籤
@@ -142,7 +191,9 @@ function MyCommentLeft() {
   }
 
   // 提示文字
-  const [alert, setAlert] = useState('')
+  const [alertMsg, setAlert] = useState('')
+
+  if (isLoading) return <Loading />
 
   return (
     <>
@@ -275,7 +326,7 @@ function MyCommentLeft() {
                                       })}
                                     </div>
                                     <span className="ms-auto me-md-3 d-none d-md-block">
-                                      {alert}
+                                      {alertMsg}
                                     </span>
                                     <button
                                       className="MB-table-btn me-md-3 ms-auto ms-md-0"
@@ -315,8 +366,8 @@ function MyCommentLeft() {
                                       comment_product: new_comment_product,
                                     })
                                     setAlert('')
-                                    setHover(0)
-                                    setRating(0)
+                                    setHover(v.comment_value)
+                                    setRating(v.comment_value)
                                     setMyinput(v.comment_content)
                                   }}
                                 ></i>
@@ -584,8 +635,8 @@ function MyCommentLeft() {
                                       comment_lesson: new_comment_lesson,
                                     })
                                     setAlert('')
-                                    setHover(0)
-                                    setRating(0)
+                                    setHover(v.comment_value)
+                                    setRating(v.comment_value)
                                     setMyinput(v.comment_content)
                                   }}
                                 ></i>

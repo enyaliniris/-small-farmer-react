@@ -4,22 +4,15 @@ import axios from 'axios'
 import { HOST, COUPON_DATA } from '../../api/api'
 import Pagination from '../../components/Pagination'
 import { Link } from 'react-router-dom'
+import Loading from '../../components/Loading'
 
 function MyCouponLeft() {
   const [coupondata, setCouponData] = useState([])
-  useEffect(() => {
-    // 設定功能
-    //console.log('useEffect--')
-    getListData()
-
-    return () => {
-      // 解除功能
-      //console.log('unmount AbList--')
-    }
-  }, [])
-
+  const [isLoading, setIsLoading] = useState(true)
   const myAuth = JSON.parse(localStorage.getItem('myAuth'))
+
   const getListData = async () => {
+    setIsLoading(true)
     axios
       .post(
         COUPON_DATA,
@@ -31,15 +24,19 @@ function MyCouponLeft() {
         }
       )
       .then((response) => {
-        // 在此處處理回應
         setCouponData(response.data)
-        //console.log(response.data)
+        setIsLoading(false)
       })
       .catch((error) => {
-        // 在此處處理錯誤
         //console.error(error)
+        setIsLoading(false)
       })
   }
+
+  useEffect(() => {
+    getListData()
+    return () => {}
+  }, [])
 
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 3
@@ -49,6 +46,8 @@ function MyCouponLeft() {
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItems = coupondata.slice(indexOfFirstItem, indexOfLastItem)
+
+  if (isLoading) return <Loading />
 
   return (
     <>

@@ -51,21 +51,20 @@ const Register = () => {
   // 選擇的檔案
   const [selectedFile, setSelectedFile] = useState(null)
   // 是否有檔案被挑選
-  const [isFilePicked, setIsFilePicked] = useState(false)
+  const [isFilePicked, setIsFilePicked] = useState(null)
   // 預覽圖片
-  const [preview, setPreview] = useState('')
+  const [preview, setPreview] = useState(false)
   // server上的圖片網址
   const [imgServerUrl, setImgServerUrl] = useState('')
 
   // 當選擇檔案更動時建立預覽圖
   useEffect(() => {
     if (!selectedFile) {
-      setPreview('../../../images/ava-upload.png')
+      setPreview(false)
       return
     }
 
     const objectUrl = URL.createObjectURL(selectedFile)
-    //console.log(objectUrl)
     setPreview(objectUrl)
 
     // 當元件unmounted時清除記憶體
@@ -700,14 +699,22 @@ const Register = () => {
                           }}
                           name="ava_value"
                         ></input>
-                        <img
-                          id="ava_output"
-                          class="ava-upload-img  d-flex justify-content-center align-items-center"
-                          src={preview}
-                          value={fields.name}
-                          name="ava_value"
-                          alt="點此上傳大頭貼"
-                        ></img>
+                        {preview ? (
+                          <img
+                            id="ava_output"
+                            className="ava-upload-img"
+                            src={preview}
+                            alt="大頭貼預覽"
+                            style={{ cursor: 'pointer' }}
+                          />
+                        ) : (
+                          <div
+                            className="ava-upload-img d-flex justify-content-center align-items-center"
+                            style={{ cursor: 'pointer' }}
+                          >
+                            點此上傳大頭貼
+                          </div>
+                        )}
                       </div>
                     </div>
                     {/* <!-- 填入資料表單 --> */}

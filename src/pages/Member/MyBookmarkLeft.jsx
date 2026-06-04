@@ -8,6 +8,7 @@ import {
 
 import './../../css/mybookmark.css'
 import Icon from '../../icon/Icon'
+import Loading from '../../components/Loading'
 
 function MyBookmarkLeft() {
   const [data, setData] = useState({
@@ -39,13 +40,17 @@ function MyBookmarkLeft() {
     getListData()
   }
 
+  const [isLoading, setIsLoading] = useState(true)
+
   const getListData = async (page = 1) => {
+    setIsLoading(true)
     try {
       const response = await getBookmarkData({ page })
-      //console.log(response)
       setData((prev) => ({ ...prev, ...response }))
     } catch (error) {
       alert(error.message)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -57,6 +62,8 @@ function MyBookmarkLeft() {
   const [myTag, setMyTag] = useState('產品收藏')
   // 標籤內容
   const tags = ['產品收藏', '課程收藏']
+
+  if (isLoading) return <Loading />
 
   return (
     <>

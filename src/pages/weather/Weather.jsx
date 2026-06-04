@@ -130,63 +130,58 @@ const Refresh = styled.div`
     }
   }
 `
-const AUTHORIZATION_KEY = 'CWB-510F17C6-59E7-43E7-822D-BF19899BA0AC'
-const LOCATION_NAME = '臺北' // STEP 1：定義 LOCATION_NAME
-const LOCATION_NAME_FORECAST = '臺北市'
 
-const fetchCurrentWeather = () => {
-  return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=${AUTHORIZATION_KEY}&locationName=${LOCATION_NAME}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const locationData = data.records.location[0]
+function Weather({ location }) {
+  const AUTHORIZATION_KEY = 'CWA-4A989F08-900B-4E86-97F7-766976589F02'
+  const LOCATION_NAME = location || '臺北市'
 
-      const weatherElements = locationData.weatherElement.reduce(
-        (neededElements, item) => {
-          if (['WDSD', 'TEMP'].includes(item.elementName)) {
-            neededElements[item.elementName] = item.elementValue
+  const fetchWeatherForecast = async () => {
+    try {
+      const response = await fetch(
+        `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${AUTHORIZATION_KEY}&LocationName=${LOCATION_NAME}`
+      )
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
+
+      const data = await response.json()
+
+      // ⚠️ 注意：Locations 和 Location 都是大寫
+      const locationData = data.records.Locations[0].Location[0]
+
+      const weatherElements = locationData.WeatherElement.reduce(
+        (acc, item) => {
+          if (
+            [
+              '天氣現象',
+              '12小時降雨機率',
+              '最大舒適度指數',
+              '平均溫度',
+              '風速',
+            ].includes(item.ElementName)
+          ) {
+            acc[item.ElementName] = item.Time[0].ElementValue[0]
           }
-          return neededElements
+          return acc
         },
         {}
       )
 
       return {
-        observationTime: locationData.time.obsTime,
-        locationName: locationData.locationName,
-        temperature: weatherElements.TEMP,
-        windSpeed: weatherElements.WDSD,
+        observationTime: locationData.WeatherElement[0].Time[0].StartTime,
+        locationName: locationData.LocationName,
+        description: weatherElements['天氣現象']?.Weather ?? '',
+        weatherCode: weatherElements['天氣現象']?.WeatherCode ?? 0,
+        rainPossibility:
+          weatherElements['12小時降雨機率']?.ProbabilityOfPrecipitation ?? 0,
+        comfortability:
+          weatherElements['最大舒適度指數']?.MaxComfortIndexDescription ?? '',
+        temperature: weatherElements['平均溫度']?.Temperature ?? 0,
+        windSpeed: weatherElements['風速']?.WindSpeed ?? 0,
       }
-    })
-}
-const fetchWeatherForecast = () => {
-  return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${AUTHORIZATION_KEY}&locationName=${LOCATION_NAME_FORECAST}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const locationData = data.records.location[0]
-      const weatherElements = locationData.weatherElement.reduce(
-        (neededElements, item) => {
-          if (['Wx', 'PoP', 'CI'].includes(item.elementName)) {
-            neededElements[item.elementName] = item.time[0].parameter
-          }
-          return neededElements
-        },
-        {}
-      )
-
-      return {
-        description: weatherElements.Wx.parameterName,
-        weatherCode: weatherElements.Wx.parameterValue,
-        rainPossibility: weatherElements.PoP.parameterName,
-        comfortability: weatherElements.CI.parameterName,
-      }
-    })
-}
-
-function Weather() {
+    } catch (error) {
+      console.error('fetchWeatherForecast failed:', error)
+      return null
+    }
+  }
   const [currentTheme, setCurrentTheme] = useState('light')
   // 定義會使用到的資料狀態
   const [weatherElenment, setWeatherElement] = useState({
@@ -207,7 +202,7 @@ function Weather() {
     }))
 
     const [currentWeather, weatherForecast] = await Promise.all([
-      fetchCurrentWeather(),
+      // fetchCurrentWeather(),
       fetchWeatherForecast(),
     ])
 
@@ -238,7 +233,7 @@ function Weather() {
   return (
     <>
       <div>
-        <div className="f-Brown">天氣</div>
+        <div className="f-Brown f-24">天氣</div>
         <ThemeProvider theme={theme[currentTheme]}>
           {/* {console.log('render,isLoading:,isLoading')} */}
           <WeatherCard>

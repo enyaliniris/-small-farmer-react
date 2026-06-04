@@ -34,17 +34,17 @@ function MemberLeft() {
         <span>哈囉！小農</span>
       </div>
       <div className="M-record d-flex flex-row">
-        <a href="/#" className="col-12 col-md-4 d-flex justify-content-center">
+        {/* <a href="/#" className="col-12 col-md-4 d-flex justify-content-center">
           <div className="M-member-btn">
             <div className="M-circle">
               <img src={mArticale} alt="m-articale.png" />
             </div>
             <span className="M-btn-p fw-bold">我的文章</span>
           </div>
-        </a>
+        </a> */}
         <Link
           to="/MyMember/MyComment"
-          className="col-12 col-md-4 d-flex justify-content-center"
+          className="col-12 col-md-6 d-flex justify-content-center"
         >
           <div className="M-member-btn">
             <div className="M-circle">
@@ -55,7 +55,7 @@ function MemberLeft() {
         </Link>
         <Link
           to="/MyMember/MyBookmark"
-          className="col-12 col-md-4 d-flex justify-content-center"
+          className="col-12 col-md-6 d-flex justify-content-center"
         >
           <div className="M-member-btn">
             <div className="M-circle">
