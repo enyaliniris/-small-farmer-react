@@ -1,5 +1,7 @@
 // 引入react-router-dom
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useContext } from 'react'
+import AuthContext from './contexts/AuthContext'
 
 // 換頁滾動視窗到頂端
 import ScrollToTop from './components/ScrollToTop'
@@ -51,6 +53,11 @@ import Navbar from './pages/Index/Navbar'
 import Footer from './pages/Index/Footer'
 import TryMap from './pages/TryMap/TryMap'
 
+function ProtectedRoute({ children }) {
+  const { myAuth } = useContext(AuthContext)
+  return myAuth.authorized ? children : <Navigate to="/Login" replace />
+}
+
 function App() {
   return (
     <>
@@ -78,13 +85,13 @@ function App() {
                 <Route path="/Product" element={<Product />} />
                 <Route path="/Product/:sid" element={<ProductPage />} />
 
-                <Route path="/Cart" element={<ShoppingCart />} />
-                <Route path="/Payment" element={<ShoppingPayment />} />
-                <Route path="/PayConfirm" element={<ShoppingPayConfirm />} />
-                <Route path="/LinePayCancel" element={<LinePayCancel />} />
-                <Route path="/Confirm" element={<ShoppingConfirm />} />
+                <Route path="/Cart" element={<ProtectedRoute><ShoppingCart /></ProtectedRoute>} />
+                <Route path="/Payment" element={<ProtectedRoute><ShoppingPayment /></ProtectedRoute>} />
+                <Route path="/PayConfirm" element={<ProtectedRoute><ShoppingPayConfirm /></ProtectedRoute>} />
+                <Route path="/LinePayCancel" element={<ProtectedRoute><LinePayCancel /></ProtectedRoute>} />
+                <Route path="/Confirm" element={<ProtectedRoute><ShoppingConfirm /></ProtectedRoute>} />
 
-                <Route path="MyMember" element={<MemberDetail />}>
+                <Route path="MyMember" element={<ProtectedRoute><MemberDetail /></ProtectedRoute>}>
                   <Route index element={<MemberLeft />} />
                   <Route path="MyOrder" element={<MyOrderLeft />} />
                   <Route path="MyOrder/:uuid" element={<OrderDetailLeft />} />

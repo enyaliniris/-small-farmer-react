@@ -25,19 +25,18 @@ function IsLogOut() {
             />
           </div>
         </a>
-        <div className='memeber-active-bg'>
-        <ul
-          className={
-            isOpen
-              ? 'd-flex memeber-status-login flex-column flex-md-row justify-content-evenly ps-sm-2 ps-md-0  memberList'
-              : 'd-flex memeber-status-login flex-column flex-md-row justify-content-evenly ps-sm-2 ps-md-0 '
-          }
-          id="memberList"
-        >
-          <Link to={`/Login`} className="">
-            <li className="font-B memeber-login f-Gray">登入</li>
-          </Link>
-        </ul>
+        <div className="memeber-active-bg">
+          <ul
+            className={
+              isOpen
+                ? 'memeber-status-login memberList'
+                : 'memeber-status-login'
+            }
+          >
+            <Link to={`/Login`}>
+              <span className="font-B memeber-login f-Gray">登入</span>
+            </Link>
+          </ul>
         </div>
       </div>
     </>

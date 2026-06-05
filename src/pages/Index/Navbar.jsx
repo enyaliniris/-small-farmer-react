@@ -178,7 +178,16 @@ function Navbar() {
                     </Link>
                   </li>
                   <li className="nav-item menu_li mx-md-1">
-                    <Link className="nav-link" to="/MyMember">
+                    <Link
+                      className="nav-link"
+                      to="/MyMember"
+                      onClick={(e) => {
+                        if (!myAuth.authorized) {
+                          e.preventDefault()
+                          setShowLoginAlert(true)
+                        }
+                      }}
+                    >
                       <div className="menu_icon has_hidden_icon">
                         <img src={IconNews} alt="" />
                       </div>

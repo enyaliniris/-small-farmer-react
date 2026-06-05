@@ -307,7 +307,9 @@ a {
     position: relative;
     list-style: none;
     margin: 0;
+    display: flex;
     align-items: center;
+    justify-content: center;
     margin-left: 5px;
     margin-top: 10px;
     padding-top: 10px;
@@ -324,6 +326,12 @@ a {
     background-color: #fffdf6;
   }
 
+    .memeber-status-login a {
+    width: 16px;
+    height: 40px;
+    text-decoration: none;
+    color: inherit;
+  }
   .memberList {
     transition: 0.5s;
     transform: translateY(-10px);
@@ -463,9 +471,10 @@ a {
     align-items: center;
     margin-left: 0px;
     margin-top: 5px;
-    /* margin-bottom: 5px; */
-    padding-left: 0;
-    padding-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8px;
     width: 89px;
     height: 30px;
     border-radius: 0 50px 50px 0px;
@@ -475,6 +484,13 @@ a {
     opacity: 1;
     transition: 0.5s;
     background-color: #fffdf6;
+  }
+
+  .memeber-status-login a {
+    width: 42px;
+    height: 16px;
+    text-decoration: none;
+    color: inherit;
   }
 
   .memberList>a {
@@ -488,7 +504,7 @@ a {
   }
 
   .memberList {
-    transform: translateX(20px);
+    transform: translateX(10px);
     opacity: 1;
   }
 
@@ -979,9 +995,6 @@ print {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 0;
-    right: 0;
     width: 253px;
     height: 60px;
     z-index: 100;
@@ -1259,15 +1272,11 @@ print {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 0;
-    right: 0;
     width: 253px;
     height: 60px;
     z-index: 100;
     transition: 0.2s;
     background: url(/Buttons/ButtonS.svg);
-    padding-top: 12px;
   }
 
   .buttonS:active {

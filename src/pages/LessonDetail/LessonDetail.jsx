@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCart } from '../../components/utils/useCart'
 import 'react-calendar/dist/Calendar.css'
 import dayjs from 'dayjs'
-import Weather from '../weather/Weather'
+import Weather from '../weather/WeatherMain'
 //引入元件
 import Icon from '../../icon/Icon'
 import starFigma from '../../icon/star_figma.svg'

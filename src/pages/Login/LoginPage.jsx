@@ -333,16 +333,12 @@ function Login() {
                                       </div>
                                     </div>
                                     <div className="d-flex justify-content-center w-100">
-                                      <div className="w-100">
-                                        <div className="btn-area w-100 d-flex ">
-                                          <button
-                                            href=""
-                                            className="buttonS  login-btfont"
-                                          >
-                                            登入
-                                          </button>
-                                        </div>
-                                      </div>
+                                      <button
+                                        href=""
+                                        className="buttonS login-btfont"
+                                      >
+                                        登入
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
