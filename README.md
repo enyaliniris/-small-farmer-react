@@ -1,359 +1,44 @@
-# react-farmerwww
-
-CSS class前綴
-
-柔吟：
-  產品：P-
-  首頁河道：IR
-怡凱：
-  會員：M-
-  評論：
-恩雅：
-  購物車：C-
-  訂單：O-
-邑宏：
-  課程：L-
-千卉：
-  首頁：A-
-
-
-
-—-------------------
-
-/* 整體背景 */
-body {
-  background-color: #FFFDF6; 
-}
-
-/* 拔除input樣式 */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  border: 0;
-}
-
-input {
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
-}
-
-input:focus {
-  outline: none !important;
-}
-
-/* 字體 */
-.font-B {
-  font-family: GenSenRoundedTW-B;
-}
-.font-M {
-  font-family: GenSenRoundedTW-M;
-}
-.font-R {
-  font-family: GenSenRoundedTW-R;
-}
-.font-L {
-  font-family: GenSenRoundedTW-L;
-}
-
-/* 字級大小 */
-.f-13{
-  font-size: clamp(0.6rem, 1vw, 0.8125rem);
-}
-.f-16{
-  font-size: clamp(0.9rem, 1.8vw, 1rem); 
-}
-.f-20{
-  font-size: clamp(1.1rem,2.2vw,1.25rem);
-}
-.f-24{
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
-}
-.f-32{
-  font-size: clamp(1.8rem, 3vw, 2rem); 
-
-}
-
-/* 字體顏色 */
-.f-Brown{
-  color: rgb(116, 84, 84);
-}
-
-.f-LightGreen {
-  color: rgba(87, 172, 111, 1);
-}
-.f-DarkGreen{
-  color: #37797C;
-}
-.f-Gray{
-  color: #7A7A7A;
-}
-
-/* 文字間距 letter-spacing*/
-.sp-1{
-  letter-spacing: 2px;
-}
-.sp-2{
-  letter-spacing: 4px;
-}
-.sp-3{
-  letter-spacing: 6px;
-}
-.navbar-title {
-
-
-
-
- display: flex;
-
-
- justify-content: center;
-
-
- align-items: center;
-
-
- max-width: 1920px;
-
-
- margin: 0 auto;
-
-
- padding: 0;
-
-
- height: 180px;
-
-
-}
-
-
-
-
-
-
-
-/* nav>ul{
-
-
-   position: relative;
-
-
- } */
-
-
-.navbar-title>ul>li {
-
-
- /* position: absolute; */
-
-
- align-items: center;
-
-
- justify-content: center;
-
-
-}
-
-
-
-
-
-
-
-.menu_li {
-
-
-
-
-
-
-
- height: 34px;
-
-
- list-style: none;
-
-
- padding-left: 20px;
-
-
- padding-right: 20px;
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-.menu_li>a {
-
-
- text-decoration: none;
-
-
- font-size: 18px;
-
-
- color: #2A6A4B;
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-.menu_li>a>span {
-
-
- position: relative;
-
-
-}
-
-
-
-
-
-
-
-.menu_li>a>span>svg {
-
-
- position: absolute;
-
-
- width: 100%;
-
-
- right: 0;
-
-
- bottom: -2px;
-
-
-}
-
-
-
-
-
-
-
-.menu_li>a>div {
-
-
- display: inline;
-
-
- align-items: center;
-
-
-}
-
-
-
-
-
-
-
-.menu_li>a>div>img {
-
-
- width: 34px;
-
-
- height: 34px;
-
-
-}
-
-
-
-
-
-
-
-.nav-logo {
-
-
- position: relative;
-
-
-}
-
-
-
-
-
-
-
-.nav-logoimg {
-
-
- margin-top: -75px;
-
-
- width: 205px;
-
-
- height: 180px;
-
-
- border-radius: 50%;
-
-
- background-color: #FFF;
-
-
-}
-
- /* 字體 */
- @font-face {
-   font-family: GenSenRoundedTW-B;
-   src: url('/font/GenSenRounded-B.otf')
- }
- 
- @font-face {
-   font-family: GenSenRoundedTW-M;
-   src: url('/font/GenSenRounded-M.otf')
-}
-
-@font-face {
-  font-family: GenSenRoundedTW-R;
-  src: url('/font/GenSenRounded-R.otf')
-}
-
-@font-face {
-      font-family: GenSenRoundedTW-L;
-      src: url('/font/GenSenRounded-L.otf')
-    }
-
-
-
-
-
-
-
-
-
-
+# GotoFarm
+ React Project
+
+
+[![Alt text for your video](http://img.youtube.com/vi/15ytISp3Zpk/0.jpg)](http://www.youtube.com/watch?v=15ytISp3Zpk)
+
+Enya負責的前端技術：<br>
+・使用useReducer製作購物車系統<br>
+・使用javascript手刻下拉式選單<br>
+・使用React Router V6呈現會員中心的Layout和Outlet<br>
+・使用Bootstrap Grid製作RWD<br>
+・使用line-pay-merchant串接LinePay金流<br>
+
+Enya負責的後端技術：<br>
+・使用mysql2與javascript分流購物車結帳商品<br>
+・使用mysql2語法實作購物車訂單CRUD<br>
+・使用multer處理會員頭像檔名解析<br>
+・撰寫會員資料、持有的優惠卷、購物訂單API<br>
+・使用line-pay-merchan串接LinePay金流<br>
+
+
+library<br>
+■ axios：處理 AJAX，串接 API<br>
+■ multer：圖片檔名解析
+■ swiper、slick-carousel、react-slick：輪播動畫<br>
+■ dayjs、momentjs：轉換日期格式<br>
+■ react-leaflet、leaflet.js：串接 OpenStreetMap 圖資<br>
+■ bcrypt.js：密碼加解密<br>
+■ animate.css：DOM 元素動畫效果<br>
+■ framer-motion：動畫效果<br>
+■ gapi、gapi-script：Google 登入驗證套件<br>
+■ prettier：vs code 程式碼排版<br>
+■ react-bootstrap：使用進度條<br>
+■ react-calendar：月曆呈現課程日期<br>
+■ emotion : CSS in JS<br>
+■ react-content-loader：載入指示動畫<br>
+■ react-google-login：Google 登入<br>
+■ react-password-checklist：密碼各式驗證<br>
+■ use-cart：購物車<br>
+■ uuid、uuidv4：產生唯一辨識碼<br>
+■ yup：表單輸入格式驗證套件<br>
+■ zipcode-tw-react：臺灣郵遞區號及地址套件<br>
+■ line-pay-merchant：串接LinePay金流<br>
 
