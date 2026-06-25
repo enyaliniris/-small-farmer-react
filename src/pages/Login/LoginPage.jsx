@@ -79,7 +79,7 @@ function Login() {
               className="form-label w-25 d-flex position-absolute"
             ></label>
             <div className="login-main-full col-12 d-flex justify-content-center mt-3">
-              <div className="log-join-card2 login-hiddend-card col-5 ">
+              <div className="log-join-card2 d-none d-sm-block col-5 ">
                 <div className="swiper-wrapper ">
                   <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
                     <div className="mt-4 w-75">
@@ -169,7 +169,7 @@ function Login() {
                 </div>
               </div>
 
-              <div className="log-join-card3 login-hiddend-card col-3 mt-5 ms-5">
+              <div className="log-join-card3 d-none d-sm-block col-3 mt-5 ms-5">
                 <div className="swiper-wrapper">
                   <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-right">
                     <div className="mt-5 flex-column justify-content-center align-items-center">
@@ -208,7 +208,7 @@ function Login() {
                 </div>
               </div>
 
-              <div className="log-join-card4 log-join-show col-10 mt-3 d-block mt-5">
+              <div className="log-join-card4 log-join-show col-10 mt-3 d-block d-sm-none mt-5">
                 <div className="d-flex flex-row w-100 justify-content-center mt-3">
                   <ul
                     className="nav nav-pills flex-row flex-nowrap col-12 justify-content-center gap-1 "

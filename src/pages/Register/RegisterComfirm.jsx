@@ -24,7 +24,7 @@ function RegisterComfirm() {
     if (myAuth.member_state_sid === 2) {
       return (
         <div className="login-main-full col-12 d-flex  justify-content-center m-session  mt-3 ">
-          <div className="log-join-card2 login-hiddend-card col-5  ">
+          <div className="log-join-card2 d-none d-sm-block col-5  ">
             <div className="swiper-wrapper ">
               <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
                 <div className="mt-4 w-75">
@@ -59,7 +59,7 @@ function RegisterComfirm() {
     } else {
       return (
         <div className="login-main-full col-12 d-flex  justify-content-center m-session  mt-3 ">
-          <div className="log-join-card2 login-hiddend-card col-5  ">
+          <div className="log-join-card2 d-none d-sm-block col-5  ">
             <div className="swiper-wrapper ">
               <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
                 <div className="mt-4 w-75">
@@ -95,7 +95,7 @@ function RegisterComfirm() {
   } else {
     return (
       <div className="login-main-full col-12 d-flex  justify-content-center m-session  mt-3 ">
-        <div className="log-join-card2 login-hiddend-card col-5  ">
+        <div className="log-join-card2 d-none d-sm-block col-5  ">
           <div className="swiper-wrapper ">
             <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
               <div className="mt-4 w-75">
@@ -124,7 +124,7 @@ function RegisterComfirm() {
   //     if (myAuth.member_state_sid == 1)){
   //       return (
   //         <div className="login-main-full col-12 d-flex  justify-content-center m-session  mt-3 ">
-  //           <div className="log-join-card2 login-hiddend-card col-5  ">
+  //           <div className="log-join-card2 d-none d-sm-block col-5  ">
   //             <div className="swiper-wrapper ">
   //               <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
   //                 <div className="mt-4 w-75">
@@ -158,7 +158,7 @@ function RegisterComfirm() {
   //     }else{
   //       return (
   //         <div className="login-main-full col-12 d-flex  justify-content-center m-session  mt-3 ">
-  //           <div className="log-join-card2 login-hiddend-card col-5  ">
+  //           <div className="log-join-card2 d-none d-sm-block col-5  ">
   //             <div className="swiper-wrapper ">
   //               <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
   //                 <div className="mt-4 w-75">
@@ -191,7 +191,7 @@ function RegisterComfirm() {
   //     )} else {
   //     return (
   //       <div className="login-main-full col-12 d-flex  justify-content-center m-session  mt-3 ">
-  //         <div className="log-join-card2 login-hiddend-card col-5  ">
+  //         <div className="log-join-card2 d-none d-sm-block col-5  ">
   //           <div className="swiper-wrapper ">
   //             <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
   //               <div className="mt-4 w-75">

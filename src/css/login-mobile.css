@@ -1,19 +1,10 @@
-.log-join-card4 {
-  display: none !important;
-}
-
 @media (max-width: 576px) {
-  .login-hiddend-card {
-    display: none;
-  }
-
   .memeber-body {
     width: 375px !important;
     height: 667px !important;
   }
 
   .log-join-card4 {
-    display: block !important;
     height: 250px;
     z-index: 20000px;
   }

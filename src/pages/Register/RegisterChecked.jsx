@@ -43,7 +43,7 @@ function RegisterChecked() {
       className="login-main-full col-12 d-flex  justify-content-center m-session"
       style={{ marginTop: '-180px', paddingTop: '140px' }}
     >
-      <div className="log-join-card2 login-hiddend-card col-5  ">
+      <div className="log-join-card2 d-none d-sm-block col-5  ">
         <div className="swiper-wrapper ">
           <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
             <div className="mt-4 w-75">
