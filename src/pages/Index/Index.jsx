@@ -80,53 +80,47 @@ function Index() {
           </div>
         </div>
         <div className="px-4">
-          <Link to={'/Product?cate=2'}>
-            <a className="a-products-mb my-5">
-              <img
-                src="./Buttons/a-products-vegetable.png"
-                width="112px"
-                height="127px"
-                alt=""
-              />
-              <img
-                src="./svg/indexProduct-M-V.png"
-                width="186px"
-                height="91px"
-                alt=""
-              />
-            </a>
+          <Link to={'/Product?cate=2'} className="a-products-mb my-5">
+            <img
+              src="./Buttons/a-products-vegetable.png"
+              width="112px"
+              height="127px"
+              alt=""
+            />
+            <img
+              src="./svg/indexProduct-M-V.png"
+              width="186px"
+              height="91px"
+              alt=""
+            />
           </Link>
-          <Link to={'/Product?cate=1'}>
-            <a className="a-products-mb my-5">
-              <img
-                src="./svg/indexProduct-M-F.png"
-                width="196px"
-                height="117px"
-                alt=""
-              />
-              <img
-                src="./Buttons/a-products-fruit.png"
-                width="112px"
-                height="127px"
-                alt=""
-              />
-            </a>
+          <Link to={'/Product?cate=1'} className="a-products-mb my-5">
+            <img
+              src="./svg/indexProduct-M-F.png"
+              width="196px"
+              height="117px"
+              alt=""
+            />
+            <img
+              src="./Buttons/a-products-fruit.png"
+              width="112px"
+              height="127px"
+              alt=""
+            />
           </Link>
-          <Link to={'/Product?cate=3'}>
-            <a className="a-products-mb my-5">
-              <img
-                src="./Buttons/a-products-processed.png"
-                width="112px"
-                height="127px"
-                alt=""
-              />
-              <img
-                src="./svg/indexProduct-M-P.png"
-                width="202px"
-                height="93px"
-                alt=""
-              />
-            </a>
+          <Link to={'/Product?cate=3'} className="a-products-mb my-5">
+            <img
+              src="./Buttons/a-products-processed.png"
+              width="112px"
+              height="127px"
+              alt=""
+            />
+            <img
+              src="./svg/indexProduct-M-P.png"
+              width="202px"
+              height="93px"
+              alt=""
+            />
           </Link>
         </div>
       </section>
@@ -150,24 +144,17 @@ function Index() {
             </div>
           </div>
 
-          <Link to={'/Product?cate=2'}>
-            <a href="#/" className="a-products-vegetable"></a>
-          </Link>
-          <Link to={'/Product?cate=1'}>
-            <a href="#/" className="a-products-fruit"></a>
-          </Link>
-          <Link to={'/Product?cate=3'}>
-            <a href="#/" className="a-products-processed"></a>
-          </Link>
+          <Link to={'/Product?cate=2'} className="a-products-vegetable"></Link>
+          <Link to={'/Product?cate=1'} className="a-products-fruit"></Link>
+          <Link to={'/Product?cate=3'} className="a-products-processed"></Link>
           <a
             href="#/"
+            className="a-products-address"
             onClick={(e) => {
               e.preventDefault()
               setShowLoginAlert(true)
             }}
-          >
-            <a href="#/" className="a-products-address"></a>
-          </a>
+          ></a>
         </div>
       </section>
 
@@ -186,10 +173,11 @@ function Index() {
                 小農遊在台灣四處踏查，拜訪農友，尋找台灣在地好糧好食好蔬果，搭起產地與餐桌的橋樑。
               </p>
               <div>
-                <Link to={'/map'}>
-                  <a href="#/" className="buttonYL font-B fontmap f-Brown sp-3">
-                    小農友地圖
-                  </a>
+                <Link
+                  to={'/map'}
+                  className="buttonYL font-B fontmap f-Brown sp-3"
+                >
+                  小農友地圖
                 </Link>
               </div>
             </div>

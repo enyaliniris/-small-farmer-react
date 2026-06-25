@@ -12,15 +12,15 @@ function LessonSlider() {
   const settings = {
     infinite: true,
     speed: 500,
-    //autoplay: true,
-    //autoplaySpeed: 1000,
+    autoplay: true,
+    autoplaySpeed: 1000,
     slidesToShow: 2,
     centerMode: false,
     centerPadding: 0,
     touchThreshold: 10,
     beforeChange: (current, next) => {
-      //console.log({ current, next, imageIndex })
-      if (next == -2) {
+      console.log({ current, next, imageIndex })
+      if (next === -2) {
         setImageIndex(1)
       } else {
         setImageIndex(next)

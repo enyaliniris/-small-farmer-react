@@ -44,6 +44,10 @@
     transition: 0.8s;
   }
 
+  .log-tab-bg :hover {
+    color: #5c4747;
+  }
+
   .tab-content > .active {
     background-image: none !important;
   }

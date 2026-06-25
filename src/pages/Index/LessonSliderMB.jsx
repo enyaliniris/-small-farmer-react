@@ -13,13 +13,13 @@ function LessonSliderMB() {
   const settings = {
     infinite: true,
     speed: 300,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 10000,
     slidesToShow: 1,
     centerMode: true,
     centerPadding: 0,
     beforeChange: (current, next) => {
-      console.log({ current, next, imageIndex })
+      //console.log({ current, next, imageIndex })
       if (next == -2) {
         setImageIndex(1)
       } else {

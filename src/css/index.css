@@ -152,7 +152,7 @@
     position: absolute;
     z-index: 100;
     left: 0;
-    bottom: -1px;
+    bottom: -3px;
     background-image: url(/Textures/session-before.svg);
     background-size: cover;
   }
@@ -647,7 +647,7 @@
     position: absolute;
     z-index: 100;
     left: 0;
-    bottom: 0;
+    bottom: -3px;
     background-image: url(/Textures/session-before-mb.svg);
     background-size: contain;
   }

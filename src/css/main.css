@@ -1039,13 +1039,11 @@ print {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
     left: 0;
     right: 0;
     width: 198px;
     height: 70px;
     z-index: 100;
-    padding-top: 12px;
   }
 
   .buttonGS::before {

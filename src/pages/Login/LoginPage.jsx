@@ -73,13 +73,13 @@ function Login() {
         }}
       >
         <div className="login-session w-100 d-flex m-page-direction">
-          <div className="m-session-direction w-100">
+          <div className="m-session-direction w-100 d-flex justify-content-center">
             <label
               htmlFor="account"
               className="form-label w-25 d-flex position-absolute"
             ></label>
-            <div className="login-main-full col-12 d-flex  justify-content-center  mt-3">
-              <div className="log-join-card2 login-hiddend-card col-5  ">
+            <div className="login-main-full col-12 d-flex justify-content-center mt-3">
+              <div className="log-join-card2 login-hiddend-card col-5 ">
                 <div className="swiper-wrapper ">
                   <div className="swiper-slide slide-change d-flex justify-content-center align-items-start mt-5 login-left col-12">
                     <div className="mt-4 w-75">
@@ -190,9 +190,9 @@ function Login() {
                             </div>
                           </div>
                         </div>
-                        <div className="login-input-contain text-success w-100 d-flex flex-column justify-content-center mt-5">
+                        <div className="login-input-contain text-success w-100 d-flex flex-column justify-content-center">
                           <div className=" flex-column w-100 text-start mb-5 login-text-sapce">
-                            <div className="w-100 d-flex justify-content-center ">
+                            <div className="w-100 d-flex justify-content-center mt-3">
                               <a
                                 href="/register"
                                 className="buttonGS login-btfont"
@@ -201,16 +201,6 @@ function Login() {
                               </a>
                             </div>
                           </div>
-                          {/* <div className=" flex-column w-100 text-start mt-2 ms-4 login-text-sapce">
-                          <div className="btn-area w-100 d-flex ">
-                            <a
-                              href="/GoogleR"
-                              className="buttonGS  login-btfont fs-6"
-                            >
-                              Google快速註冊
-                            </a>
-                          </div>
-                        </div> */}
                         </div>
                       </div>
                     </div>
@@ -353,47 +343,27 @@ function Login() {
                           role="tabpanel"
                           aria-labelledby="pills-profile-tab"
                         >
-                          <div className="d-block justify-content-center align-items-center h-100 mt-5">
-                            <span className="join-manin-head fs-1 mb-2 mt-3 text-warning ">
-                              加入
-                            </span>
-                            <span className="join-manin-head fs-1 mb-2 mt-3 text-success">
-                              小農大家庭
-                            </span>
-                            <div className="login-input-contain text-success w-100 d-flex justify-content-center mt-4">
-                              <div className="d-flex flex-column w-100 text-center login-text-sapce">
-                                <div>
-                                  <span>還沒成為小農嗎?</span>
-                                </div>
-                                <div>
-                                  <span>加入我們，走入田園~</span>
-                                </div>
-                                <div>
-                                  <span>開啟你的美好生活~</span>
-                                </div>
-                              </div>
+                          <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+                            <div>
+                              <span className="join-manin-head fs-1 mb-2 mt-3 text-warning ">
+                                加入
+                              </span>
+                              <span className="join-manin-head fs-1 mb-2 mt-3 text-success">
+                                小農大家庭
+                              </span>
                             </div>
-                            <div className="login-input-contain text-success w-100 d-flex flex-column justify-content-center mt-5 ms-3">
-                              <div className=" flex-column w-100 text-start mb-5  login-text-sapce">
-                                <div className="btn-area w-100 d-flex ">
-                                  <a
-                                    href="/register"
-                                    className="buttonGS  login-btfont"
-                                  >
-                                    會員註冊
-                                  </a>
-                                </div>
-                              </div>
-                              <div className=" flex-column w-100 text-start mt-2 ms-4 login-text-sapce">
-                                <div className="btn-area w-100 d-flex ">
-                                  <a
-                                    href="#/"
-                                    className="buttonGS  login-btfont fs-6"
-                                  >
-                                    Google快速註冊
-                                  </a>
-                                </div>
-                              </div>
+                            <div className="d-flex text-success flex-column w-100 text-center login-text-sapce">
+                              <span>還沒成為小農嗎?</span>
+                              <span>加入我們，走入田園~</span>
+                              <span>開啟你的美好生活~</span>
+                            </div>
+                            <div className="w-100 d-flex justify-content-center mt-3">
+                              <a
+                                href="/register"
+                                className="buttonGS login-btfont"
+                              >
+                                會員註冊
+                              </a>
                             </div>
                           </div>
                         </div>

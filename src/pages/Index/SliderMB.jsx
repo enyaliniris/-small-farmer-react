@@ -10,7 +10,7 @@ import taken from './assets/taken.png'
 
 const images = [astronaut, celebrating, education, taken]
 function SliderMB() {
-    const [imageIndex, setImageIndex] = useState(0)
+  const [imageIndex, setImageIndex] = useState(0)
   const settings = {
     infinite: true,
     lazyLoad: true,
@@ -22,7 +22,7 @@ function SliderMB() {
   }
   return (
     <>
-<Slider {...settings}>
+      <Slider {...settings}>
         {images.map((img, idx) => (
           <div
             key={idx}
